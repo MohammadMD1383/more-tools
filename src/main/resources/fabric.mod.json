@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "more-tools",
+	"version": "${version}",
+	"name": "more-tools",
+	"description": "A minecraft mod that adds many more tools from in-game materials like quartz and ...",
+	"authors": [],
+	"contact": {},
+	"license": "MIT",
+	"icon": "assets/more-tools/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-datagen": [
+			"ir.mmd.mcdev.moretools.client.MainDataGenerator"
+		],
+		"client": [
+			"ir.mmd.mcdev.moretools.client.MainClient"
+		],
+		"main": [
+			"ir.mmd.mcdev.moretools.Main"
+		]
+	},
+	"mixins": [
+		"more-tools.mixins.json",
+		{
+			"config": "more-tools.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"fabric-language-kotlin": ">=${kotlin_loader_version}",
+		"fabric-api": "*",
+		"minecraft": "${minecraft_version}"
+	}
+}
