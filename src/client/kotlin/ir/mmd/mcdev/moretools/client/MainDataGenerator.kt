@@ -1,5 +1,6 @@
 package ir.mmd.mcdev.moretools.client
 
+import ir.mmd.mcdev.moretools.client.providers.CraftingRecipeProvider
 import ir.mmd.mcdev.moretools.providers.BlockTagsProvider
 import ir.mmd.mcdev.moretools.providers.ItemTagsProvider
 import ir.mmd.mcdev.moretools.client.providers.EnglishLanguageProvider
@@ -14,5 +15,6 @@ class MainDataGenerator : DataGeneratorEntrypoint {
 		pack.addProvider(::ItemTagsProvider)
 		pack.addProvider(::ModelProvider)
 		pack.addProvider(::EnglishLanguageProvider)
+		pack.addProvider(::CraftingRecipeProvider)
 	}
 }
