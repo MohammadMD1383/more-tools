@@ -1,5 +1,6 @@
-package ir.mmd.mcdev.moretools
+package ir.mmd.mcdev.moretools.providers
 
+import ir.mmd.mcdev.moretools.Constants
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider
 import net.minecraft.core.HolderLookup

@@ -1,5 +1,7 @@
 package ir.mmd.mcdev.moretools
 
+import ir.mmd.mcdev.moretools.providers.BlockTagsProvider
+import ir.mmd.mcdev.moretools.providers.ItemTagsProvider
 import net.minecraft.world.item.ToolMaterial
 
 object ToolMaterials {

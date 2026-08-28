@@ -1,4 +1,4 @@
-package ir.mmd.mcdev.moretools.client
+package ir.mmd.mcdev.moretools.client.providers
 
 import ir.mmd.mcdev.moretools.Items
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
