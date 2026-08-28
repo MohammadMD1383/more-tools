@@ -11,5 +11,6 @@ class MainDataGenerator : DataGeneratorEntrypoint {
 		pack.addProvider(::BlockTagsProvider)
 		pack.addProvider(::ItemTagsProvider)
 		pack.addProvider(::ModelProvider)
+		pack.addProvider(::EnglishLanguageProvider)
 	}
 }
