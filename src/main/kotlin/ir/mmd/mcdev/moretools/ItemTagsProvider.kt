@@ -6,8 +6,10 @@ import net.minecraft.core.HolderLookup
 import net.minecraft.core.registries.Registries
 import net.minecraft.references.ItemIds
 import net.minecraft.resources.Identifier
+import net.minecraft.tags.ItemTags
 import net.minecraft.tags.TagKey
 import java.util.concurrent.CompletableFuture
+import ir.mmd.mcdev.moretools.ItemIds as MyItemIds
 
 class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: CompletableFuture<HolderLookup.Provider>) :
 	FabricTagsProvider.ItemTagsProvider(output, registryLookupFuture) {
@@ -18,5 +20,6 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 	
 	override fun addTags(registries: HolderLookup.Provider) {
 		builder(REPAIRS_AMETHYST).add(ItemIds.AMETHYST_SHARD)
+		builder(ItemTags.SWORDS).add(MyItemIds.AMETHYST_SWORD)
 	}
 }
