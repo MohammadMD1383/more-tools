@@ -17,12 +17,16 @@ object Items {
 	}
 	
 	val AMETHYST_SWORD = register(
-		ItemIds.AMETHYST_SWORD, ::Item, Item.Properties().sword(ToolMaterials.AMETHYST, 3f, -2.2f).modifyComponent(
+		ItemIds.AMETHYST_SWORD, ::Item, Item.Properties().sword(ToolMaterials.AMETHYST, 2f, -2.2f).modifyComponent(
 			DataComponents.ATTRIBUTE_MODIFIERS
 		) { modifiers, _, _ ->
 			modifiers!!.withModifierAdded(
 				Attributes.ATTACK_KNOCKBACK,
 				MyAttributes.AmethystKnockback,
+				EquipmentSlotGroup.MAINHAND
+			).withModifierAdded(
+				Attributes.SWEEPING_DAMAGE_RATIO,
+				MyAttributes.AmethystSweepDamage,
 				EquipmentSlotGroup.MAINHAND
 			)
 		}
