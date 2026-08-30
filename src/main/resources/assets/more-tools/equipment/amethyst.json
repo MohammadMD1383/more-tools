@@ -14,6 +14,16 @@
 			{
 				"texture": "more-tools:amethyst"
 			}
+		],
+		"horse_body": [
+			{
+				"texture": "more-tools:amethyst"
+			}
+		],
+		"nautilus_body": [
+			{
+				"texture": "more-tools:amethyst"
+			}
 		]
 	}
 }

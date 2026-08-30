@@ -23,6 +23,9 @@ class Main : ModInitializer {
 				MyItems.AMETHYST_LEGGINGS,
 				MyItems.AMETHYST_BOOTS
 			)
+			
+			insertAfter(Items.IRON_HORSE_ARMOR, MyItems.AMETHYST_HORSE_ARMOR)
+			insertAfter(Items.IRON_NAUTILUS_ARMOR, MyItems.AMETHYST_NAUTILUS_ARMOR)
 		}
 		modifyCreativeTab(CreativeModeTabs.TOOLS_AND_UTILITIES) {
 			insertAfter(

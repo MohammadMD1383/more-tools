@@ -18,9 +18,12 @@ object Items {
 	@JvmStatic val AMETHYST_SHOVEL  = register(ItemIds.AMETHYST_SHOVEL , Properties().shovel (ToolMaterials.AMETHYST, 1.5f, -2.8f))
 	@JvmStatic val AMETHYST_HOE     = register(ItemIds.AMETHYST_HOE    , Properties().hoe    (ToolMaterials.AMETHYST, -2f, 0f))
 	
-	@JvmStatic val AMETHYST_HELMET     = register(ItemIds.AMETHYST_HELMET    , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.HELMET))
-	@JvmStatic val AMETHYST_CHESTPLATE = register(ItemIds.AMETHYST_CHESTPLATE, Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.CHESTPLATE))
-	@JvmStatic val AMETHYST_LEGGINGS   = register(ItemIds.AMETHYST_LEGGINGS  , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.LEGGINGS))
-	@JvmStatic val AMETHYST_BOOTS      = register(ItemIds.AMETHYST_BOOTS     , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.BOOTS))
+	@JvmStatic val AMETHYST_HELMET      = register(ItemIds.AMETHYST_HELMET     , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.HELMET))
+	@JvmStatic val AMETHYST_CHESTPLATE  = register(ItemIds.AMETHYST_CHESTPLATE , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.CHESTPLATE))
+	@JvmStatic val AMETHYST_LEGGINGS    = register(ItemIds.AMETHYST_LEGGINGS   , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.LEGGINGS))
+	@JvmStatic val AMETHYST_BOOTS       = register(ItemIds.AMETHYST_BOOTS      , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.BOOTS))
+	
+	@JvmStatic val AMETHYST_HORSE_ARMOR    = register(ItemIds.AMETHYST_HORSE_ARMOR   , Properties().horseArmor   (ArmorMaterials.AMETHYST))
+	@JvmStatic val AMETHYST_NAUTILUS_ARMOR = register(ItemIds.AMETHYST_NAUTILUS_ARMOR, Properties().nautilusArmor(ArmorMaterials.AMETHYST))
 	//@formatter:on
 }
