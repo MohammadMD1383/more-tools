@@ -58,6 +58,10 @@ class CraftingRecipeProvider(
 		chestplate: ItemLike? = null,
 		leggings: ItemLike? = null,
 		boots: ItemLike? = null,
+		
+		nautilus: ItemLike? = null,
+		horse: ItemLike? = null,
+		wolf: ItemLike? = null,
 	) {
 		sword?.let {
 			craftingRecipe(
@@ -158,6 +162,36 @@ class CraftingRecipeProvider(
 				output
 			)
 		}
+		
+		nautilus?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf(" XX", " XX", "XXX"),
+				output
+			)
+		}
+		
+		horse?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf("X X", "XXX", "X X"),
+				output
+			)
+		}
+		
+		wolf?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf("X  ", "XXX", "X X"),
+				output
+			)
+		}
 	}
 	
 	override fun createRecipeProvider(
@@ -176,6 +210,9 @@ class CraftingRecipeProvider(
 			chestplate = MyItems.AMETHYST_CHESTPLATE,
 			leggings = MyItems.AMETHYST_LEGGINGS,
 			boots = MyItems.AMETHYST_BOOTS,
+			nautilus = MyItems.AMETHYST_NAUTILUS_ARMOR,
+			horse = MyItems.AMETHYST_HORSE_ARMOR,
+			wolf = MyItems.AMETHYST_WOLF_ARMOR
 		)
 	}
 	

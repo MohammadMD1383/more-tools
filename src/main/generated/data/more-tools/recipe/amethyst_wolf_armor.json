@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "minecraft:amethyst_shard"
+  },
+  "pattern": [
+    "X  ",
+    "XXX",
+    "X X"
+  ],
+  "result": {
+    "id": "more-tools:amethyst_wolf_armor"
+  }
+}

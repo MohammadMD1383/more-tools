@@ -26,6 +26,7 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder.add(Items.AMETHYST_BOOTS,          "Amethyst Boots")
 		translationBuilder.add(Items.AMETHYST_HORSE_ARMOR,    "Amethyst Horse Armor")
 		translationBuilder.add(Items.AMETHYST_NAUTILUS_ARMOR, "Amethyst Nautilus Armor")
+		translationBuilder.add(Items.AMETHYST_WOLF_ARMOR,     "Amethyst Wolf Armor")
 		//@formatter:on
 	}
 }

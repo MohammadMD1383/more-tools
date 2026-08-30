@@ -26,7 +26,9 @@ class Main : ModInitializer {
 			
 			insertAfter(Items.IRON_HORSE_ARMOR, MyItems.AMETHYST_HORSE_ARMOR)
 			insertAfter(Items.IRON_NAUTILUS_ARMOR, MyItems.AMETHYST_NAUTILUS_ARMOR)
+			insertAfter(Items.WOLF_ARMOR, MyItems.AMETHYST_WOLF_ARMOR)
 		}
+		
 		modifyCreativeTab(CreativeModeTabs.TOOLS_AND_UTILITIES) {
 			insertAfter(
 				Items.IRON_HOE,

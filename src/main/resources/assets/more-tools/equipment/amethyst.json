@@ -24,6 +24,11 @@
 			{
 				"texture": "more-tools:amethyst"
 			}
+		],
+		"wolf_body": [
+			{
+				"texture": "more-tools:amethyst"
+			}
 		]
 	}
 }

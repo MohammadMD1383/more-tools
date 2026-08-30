@@ -19,5 +19,6 @@ object ItemIds {
 	@JvmStatic val AMETHYST_BOOTS          = create("amethyst_boots")
 	@JvmStatic val AMETHYST_HORSE_ARMOR    = create("amethyst_horse_armor")
 	@JvmStatic val AMETHYST_NAUTILUS_ARMOR = create("amethyst_nautilus_armor")
+	@JvmStatic val AMETHYST_WOLF_ARMOR     = create("amethyst_wolf_armor")
 	//@formatter:on
 }

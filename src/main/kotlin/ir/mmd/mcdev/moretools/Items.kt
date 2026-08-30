@@ -26,5 +26,6 @@ object Items {
 	
 	@JvmStatic val AMETHYST_HORSE_ARMOR    = register(ItemIds.AMETHYST_HORSE_ARMOR   , Properties().horseArmor   (ArmorMaterials.AMETHYST))
 	@JvmStatic val AMETHYST_NAUTILUS_ARMOR = register(ItemIds.AMETHYST_NAUTILUS_ARMOR, Properties().nautilusArmor(ArmorMaterials.AMETHYST))
+	@JvmStatic val AMETHYST_WOLF_ARMOR     = register(ItemIds.AMETHYST_WOLF_ARMOR    , Properties().wolfArmor    (ArmorMaterials.AMETHYST))
 	//@formatter:on
 }
