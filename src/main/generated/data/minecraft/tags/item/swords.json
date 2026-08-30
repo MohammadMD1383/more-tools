@@ -1,5 +1,8 @@
 {
   "values": [
-    "more-tools:amethyst_sword"
+    {
+      "id": "more-tools:amethyst_sword",
+      "required": false
+    }
   ]
 }

@@ -1,6 +1,6 @@
 package ir.mmd.mcdev.moretools.client.providers
 
-import ir.mmd.mcdev.moretools.Items
+import ir.mmd.mcdev.moretools.toolsets.AmethystToolSet
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider
 import net.minecraft.core.HolderLookup
@@ -13,6 +13,11 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		registryLookup: HolderLookup.Provider,
 		translationBuilder: TranslationBuilder
 	) {
-		translationBuilder.add(Items.AMETHYST_SWORD, "Amethyst Sword")
+		translationBuilder.add(AmethystToolSet.Items.AMETHYST_SWORD, "Amethyst Sword")
+		translationBuilder.add(AmethystToolSet.Items.AMETHYST_SPEAR, "Amethyst Spear")
+		translationBuilder.add(AmethystToolSet.Items.AMETHYST_PICKAXE, "Amethyst Pickaxe")
+		translationBuilder.add(AmethystToolSet.Items.AMETHYST_AXE, "Amethyst Axe")
+		translationBuilder.add(AmethystToolSet.Items.AMETHYST_SHOVEL, "Amethyst Shovel")
+		translationBuilder.add(AmethystToolSet.Items.AMETHYST_HOE, "Amethyst Hoe")
 	}
 }
