@@ -26,203 +26,156 @@ class CraftingRecipeProvider(
 		}
 	}
 	
-	private fun RecipeProvider.swordCraftingRecipe(
+	private fun RecipeProvider.craftingRecipe(
+		category: RecipeCategory,
 		material: ItemLike,
 		outcome: ItemLike,
+		pattern: List<String>,
 		output: RecipeOutput
 	) {
-		shaped(RecipeCategory.COMBAT, outcome)
-			.pattern("X")
-			.pattern("X")
-			.pattern("S")
-			.define('X', material)
-			.define('S', Items.STICK)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
+		shaped(category, outcome).apply {
+			pattern.forEach(::pattern)
+			define('X', material)
+			if (pattern.any { 'S' in it }) define('S', Items.STICK)
+			unlockedBy(getHasName(material), has(material))
+			save(output)
+		}
 	}
 	
-	private fun RecipeProvider.pickaxeCraftingRecipe(
+	private fun RecipeProvider.allCraftingRecipe(
 		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
+		output: RecipeOutput,
+		
+		sword: ItemLike? = null,
+		spear: ItemLike? = null,
+		
+		pickaxe: ItemLike? = null,
+		axe: ItemLike? = null,
+		shovel: ItemLike? = null,
+		hoe: ItemLike? = null,
+		
+		helmet: ItemLike? = null,
+		chestplate: ItemLike? = null,
+		leggings: ItemLike? = null,
+		boots: ItemLike? = null,
 	) {
-		shaped(RecipeCategory.TOOLS, outcome)
-			.pattern("XXX")
-			.pattern(" S ")
-			.pattern(" S ")
-			.define('X', material)
-			.define('S', Items.STICK)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.axeCraftingRecipe(
-		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
-	) {
-		shaped(RecipeCategory.TOOLS, outcome)
-			.pattern("XX")
-			.pattern("XS")
-			.pattern(" S")
-			.define('X', material)
-			.define('S', Items.STICK)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.shovelCraftingRecipe(
-		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
-	) {
-		shaped(RecipeCategory.TOOLS, outcome)
-			.pattern("X")
-			.pattern("S")
-			.pattern("S")
-			.define('X', material)
-			.define('S', Items.STICK)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.hoeCraftingRecipe(
-		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
-	) {
-		shaped(RecipeCategory.TOOLS, outcome)
-			.pattern("XX")
-			.pattern(" S")
-			.pattern(" S")
-			.define('X', material)
-			.define('S', Items.STICK)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.spearCraftingRecipe(
-		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
-	) {
-		shaped(RecipeCategory.COMBAT, outcome)
-			.pattern("  X")
-			.pattern(" S ")
-			.pattern("S  ")
-			.define('X', material)
-			.define('S', Items.STICK)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.allToolsCraftingRecipe(
-		material: ItemLike,
-		sword: ItemLike,
-		pickaxe: ItemLike,
-		axe: ItemLike,
-		shovel: ItemLike,
-		hoe: ItemLike,
-		spear: ItemLike,
-		output: RecipeOutput
-	) {
-		swordCraftingRecipe(material, sword, output)
-		pickaxeCraftingRecipe(material, pickaxe, output)
-		axeCraftingRecipe(material, axe, output)
-		shovelCraftingRecipe(material, shovel, output)
-		hoeCraftingRecipe(material, hoe, output)
-		spearCraftingRecipe(material, spear, output)
-	}
-	
-	private fun RecipeProvider.helmetCraftingRecipe(
-		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
-	) {
-		shaped(RecipeCategory.COMBAT, outcome)
-			.pattern("XXX")
-			.pattern("X X")
-			.define('X', material)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.chestplateCraftingRecipe(
-		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
-	) {
-		shaped(RecipeCategory.COMBAT, outcome)
-			.pattern("X X")
-			.pattern("XXX")
-			.pattern("XXX")
-			.define('X', material)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.leggingsCraftingRecipe(
-		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
-	) {
-		shaped(RecipeCategory.COMBAT, outcome)
-			.pattern("XXX")
-			.pattern("X X")
-			.pattern("X X")
-			.define('X', material)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.bootsCraftingRecipe(
-		material: ItemLike,
-		outcome: ItemLike,
-		output: RecipeOutput
-	) {
-		shaped(RecipeCategory.COMBAT, outcome)
-			.pattern("X X")
-			.pattern("X X")
-			.define('X', material)
-			.unlockedBy(getHasName(material), has(material))
-			.save(output)
-	}
-	
-	private fun RecipeProvider.allArmorCraftingRecipe(
-		material: ItemLike,
-		helmet: ItemLike,
-		chestplate: ItemLike,
-		leggings: ItemLike,
-		boots: ItemLike,
-		output: RecipeOutput
-	) {
-		helmetCraftingRecipe(material, helmet, output)
-		chestplateCraftingRecipe(material, chestplate, output)
-		leggingsCraftingRecipe(material, leggings, output)
-		bootsCraftingRecipe(material, boots, output)
+		sword?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf("X", "X", "S"),
+				output
+			)
+		}
+		
+		spear?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf("  X", " S ", "S  "),
+				output
+			)
+		}
+		
+		pickaxe?.let {
+			craftingRecipe(
+				RecipeCategory.TOOLS,
+				material,
+				it,
+				listOf("XXX", " S ", " S "),
+				output
+			)
+		}
+		
+		axe?.let {
+			craftingRecipe(
+				RecipeCategory.TOOLS,
+				material,
+				it,
+				listOf("XX", "XS", " S"),
+				output
+			)
+		}
+		
+		shovel?.let {
+			craftingRecipe(
+				RecipeCategory.TOOLS,
+				material,
+				it,
+				listOf("X", "S", "S"),
+				output
+			)
+		}
+		
+		hoe?.let {
+			craftingRecipe(
+				RecipeCategory.TOOLS,
+				material,
+				it,
+				listOf("XX", " S", " S"),
+				output
+			)
+		}
+		
+		helmet?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf("XXX", "X X"),
+				output
+			)
+		}
+		
+		chestplate?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf("X X", "XXX", "XXX"),
+				output
+			)
+		}
+		
+		leggings?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf("XXX", "X X", "X X"),
+				output
+			)
+		}
+		
+		boots?.let {
+			craftingRecipe(
+				RecipeCategory.COMBAT,
+				material,
+				it,
+				listOf("X X", "X X"),
+				output
+			)
+		}
 	}
 	
 	override fun createRecipeProvider(
 		registries: HolderLookup.Provider,
 		output: RecipeOutput
 	) = recipeProvider(registries, output) {
-		allToolsCraftingRecipe(
-			Items.AMETHYST_SHARD,
-			MyItems.AMETHYST_SWORD,
-			MyItems.AMETHYST_PICKAXE,
-			MyItems.AMETHYST_AXE,
-			MyItems.AMETHYST_SHOVEL,
-			MyItems.AMETHYST_HOE,
-			MyItems.AMETHYST_SPEAR,
-			output
-		)
-		allArmorCraftingRecipe(
-			Items.AMETHYST_SHARD,
-			MyItems.AMETHYST_HELMET,
-			MyItems.AMETHYST_CHESTPLATE,
-			MyItems.AMETHYST_LEGGINGS,
-			MyItems.AMETHYST_BOOTS,
-			output
+		allCraftingRecipe(
+			Items.AMETHYST_SHARD, output,
+			sword = MyItems.AMETHYST_SWORD,
+			spear = MyItems.AMETHYST_SPEAR,
+			pickaxe = MyItems.AMETHYST_PICKAXE,
+			axe = MyItems.AMETHYST_AXE,
+			shovel = MyItems.AMETHYST_SHOVEL,
+			hoe = MyItems.AMETHYST_HOE,
+			helmet = MyItems.AMETHYST_HELMET,
+			chestplate = MyItems.AMETHYST_CHESTPLATE,
+			leggings = MyItems.AMETHYST_LEGGINGS,
+			boots = MyItems.AMETHYST_BOOTS,
 		)
 	}
 	

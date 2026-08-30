@@ -2,15 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "S": "minecraft:stick",
     "X": "minecraft:amethyst_shard"
   },
   "pattern": [
-    "XX",
-    "XS",
-    " S"
+    "XXX",
+    "X X",
+    "X X"
   ],
   "result": {
-    "id": "more-tools:amethyst_axe"
+    "id": "more-tools:amethyst_leggings"
   }
 }
