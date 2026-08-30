@@ -20,5 +20,6 @@
       "model": "more-tools:item/amethyst_spear_in_hand"
     },
     "property": "minecraft:display_context"
-  }
+  },
+  "swap_animation_scale": 1.95
 }

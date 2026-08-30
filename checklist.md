@@ -28,7 +28,7 @@
   Don't replace the whole ATTRIBUTE_MODIFIERS component accidentally.
 
 ## 4. Tool / weapon configuration
-- [ ] Correct `ToolMaterial`
+- [ ] Correct `ToolMaterials`
 - [ ] Mining speed
 - [ ] Mining tier / incorrect-block tag
 - [ ] Durability

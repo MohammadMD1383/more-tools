@@ -6,9 +6,9 @@
     "S": "minecraft:stick"
   },
   "pattern": [
-    " A ",
-    "AAA",
-    " S "
+    "  A",
+    " S ",
+    "S  "
   ],
   "result": {
     "id": "more-tools:amethyst_spear"
