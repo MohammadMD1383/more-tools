@@ -12,12 +12,12 @@ class Main : ModInitializer {
 	
 	fun addCreativeItems() {
 		modifyCreativeTab(CreativeModeTabs.COMBAT) {
-			insertAfter(Items.IRON_SWORD, MyItems.AMETHYST_SWORD, MyItems.EMERALD_SWORD)
-			insertAfter(Items.IRON_SPEAR, MyItems.AMETHYST_SPEAR, MyItems.EMERALD_SPEAR)
-			insertAfter(Items.IRON_AXE, MyItems.AMETHYST_AXE, MyItems.EMERALD_AXE)
+			insertAfter(Items.GOLDEN_SWORD, MyItems.AMETHYST_SWORD, MyItems.EMERALD_SWORD)
+			insertAfter(Items.GOLDEN_SPEAR, MyItems.AMETHYST_SPEAR, MyItems.EMERALD_SPEAR)
+			insertAfter(Items.GOLDEN_AXE, MyItems.AMETHYST_AXE, MyItems.EMERALD_AXE)
 
 			insertAfter(
-				Items.IRON_BOOTS,
+				Items.GOLDEN_BOOTS,
 				MyItems.AMETHYST_HELMET,
 				MyItems.AMETHYST_CHESTPLATE,
 				MyItems.AMETHYST_LEGGINGS,
@@ -28,14 +28,14 @@ class Main : ModInitializer {
 				MyItems.EMERALD_BOOTS
 			)
 
-			insertAfter(Items.IRON_HORSE_ARMOR, MyItems.AMETHYST_HORSE_ARMOR, MyItems.EMERALD_HORSE_ARMOR)
-			insertAfter(Items.IRON_NAUTILUS_ARMOR, MyItems.AMETHYST_NAUTILUS_ARMOR, MyItems.EMERALD_NAUTILUS_ARMOR)
+			insertAfter(Items.GOLDEN_HORSE_ARMOR, MyItems.AMETHYST_HORSE_ARMOR, MyItems.EMERALD_HORSE_ARMOR)
+			insertAfter(Items.GOLDEN_NAUTILUS_ARMOR, MyItems.AMETHYST_NAUTILUS_ARMOR, MyItems.EMERALD_NAUTILUS_ARMOR)
 			insertAfter(Items.WOLF_ARMOR, MyItems.AMETHYST_WOLF_ARMOR, MyItems.EMERALD_WOLF_ARMOR)
 		}
 
 		modifyCreativeTab(CreativeModeTabs.TOOLS_AND_UTILITIES) {
 			insertAfter(
-				Items.IRON_HOE,
+				Items.GOLDEN_HOE,
 				MyItems.AMETHYST_SHOVEL,
 				MyItems.AMETHYST_PICKAXE,
 				MyItems.AMETHYST_AXE,
