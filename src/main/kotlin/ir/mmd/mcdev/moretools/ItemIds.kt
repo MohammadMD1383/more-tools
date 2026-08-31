@@ -34,5 +34,13 @@ object ItemIds {
 	@JvmStatic val EMERALD_HORSE_ARMOR     = create("emerald_horse_armor")
 	@JvmStatic val EMERALD_NAUTILUS_ARMOR  = create("emerald_nautilus_armor")
 	@JvmStatic val EMERALD_WOLF_ARMOR      = create("emerald_wolf_armor")
+
+	@JvmStatic val LEATHER_WOLF_ARMOR      = create("leather_wolf_armor")
+	@JvmStatic val COPPER_WOLF_ARMOR       = create("copper_wolf_armor")
+	@JvmStatic val CHAINMAIL_WOLF_ARMOR    = create("chainmail_wolf_armor")
+	@JvmStatic val IRON_WOLF_ARMOR         = create("iron_wolf_armor")
+	@JvmStatic val GOLD_WOLF_ARMOR         = create("gold_wolf_armor")
+	@JvmStatic val DIAMOND_WOLF_ARMOR      = create("diamond_wolf_armor")
+	@JvmStatic val NETHERITE_WOLF_ARMOR    = create("netherite_wolf_armor")
 	//@formatter:on
 }

@@ -12,6 +12,9 @@
   "item.more-tools.amethyst_spear": "Amethyst Spear",
   "item.more-tools.amethyst_sword": "Amethyst Sword",
   "item.more-tools.amethyst_wolf_armor": "Amethyst Wolf Armor",
+  "item.more-tools.chainmail_wolf_armor": "Chainmail Wolf Armor",
+  "item.more-tools.copper_wolf_armor": "Copper Wolf Armor",
+  "item.more-tools.diamond_wolf_armor": "Diamond Wolf Armor",
   "item.more-tools.emerald_axe": "Emerald Axe",
   "item.more-tools.emerald_boots": "Emerald Boots",
   "item.more-tools.emerald_chestplate": "Emerald Chestplate",
@@ -24,5 +27,9 @@
   "item.more-tools.emerald_shovel": "Emerald Shovel",
   "item.more-tools.emerald_spear": "Emerald Spear",
   "item.more-tools.emerald_sword": "Emerald Sword",
-  "item.more-tools.emerald_wolf_armor": "Emerald Wolf Armor"
+  "item.more-tools.emerald_wolf_armor": "Emerald Wolf Armor",
+  "item.more-tools.gold_wolf_armor": "Gold Wolf Armor",
+  "item.more-tools.iron_wolf_armor": "Iron Wolf Armor",
+  "item.more-tools.leather_wolf_armor": "Leather Wolf Armor",
+  "item.more-tools.netherite_wolf_armor": "Netherite Wolf Armor"
 }

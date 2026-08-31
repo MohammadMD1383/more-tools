@@ -5,7 +5,9 @@ import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.ResourceKey
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Item.Properties
+import net.minecraft.world.item.equipment.ArmorMaterials
 import net.minecraft.world.item.equipment.ArmorType
+import ir.mmd.mcdev.moretools.ArmorMaterials as MyArmorMaterials
 
 object Items {
 	private fun register(id: ResourceKey<Item>, properties: Properties) = Item(properties.setId(id)).also { Registry.register(BuiltInRegistries.ITEM, id, it) }
@@ -19,14 +21,14 @@ object Items {
 	@JvmStatic val AMETHYST_SHOVEL  = register(ItemIds.AMETHYST_SHOVEL , Properties().shovel (ToolMaterials.AMETHYST, 1.5f, -2.8f).amethystKnockback())
 	@JvmStatic val AMETHYST_HOE     = register(ItemIds.AMETHYST_HOE    , Properties().hoe    (ToolMaterials.AMETHYST,  -2f,  0.0f).amethystKnockback())
 	
-	@JvmStatic val AMETHYST_HELMET      = register(ItemIds.AMETHYST_HELMET     , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.HELMET))
-	@JvmStatic val AMETHYST_CHESTPLATE  = register(ItemIds.AMETHYST_CHESTPLATE , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.CHESTPLATE))
-	@JvmStatic val AMETHYST_LEGGINGS    = register(ItemIds.AMETHYST_LEGGINGS   , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.LEGGINGS))
-	@JvmStatic val AMETHYST_BOOTS       = register(ItemIds.AMETHYST_BOOTS      , Properties().humanoidArmor(ArmorMaterials.AMETHYST, ArmorType.BOOTS))
+	@JvmStatic val AMETHYST_HELMET      = register(ItemIds.AMETHYST_HELMET     , Properties().humanoidArmor(MyArmorMaterials.AMETHYST, ArmorType.HELMET))
+	@JvmStatic val AMETHYST_CHESTPLATE  = register(ItemIds.AMETHYST_CHESTPLATE , Properties().humanoidArmor(MyArmorMaterials.AMETHYST, ArmorType.CHESTPLATE))
+	@JvmStatic val AMETHYST_LEGGINGS    = register(ItemIds.AMETHYST_LEGGINGS   , Properties().humanoidArmor(MyArmorMaterials.AMETHYST, ArmorType.LEGGINGS))
+	@JvmStatic val AMETHYST_BOOTS       = register(ItemIds.AMETHYST_BOOTS      , Properties().humanoidArmor(MyArmorMaterials.AMETHYST, ArmorType.BOOTS))
 	
-	@JvmStatic val AMETHYST_HORSE_ARMOR    = register(ItemIds.AMETHYST_HORSE_ARMOR   , Properties().horseArmor   (ArmorMaterials.AMETHYST))
-	@JvmStatic val AMETHYST_NAUTILUS_ARMOR = register(ItemIds.AMETHYST_NAUTILUS_ARMOR, Properties().nautilusArmor(ArmorMaterials.AMETHYST))
-	@JvmStatic val AMETHYST_WOLF_ARMOR     = register(ItemIds.AMETHYST_WOLF_ARMOR    , Properties().wolfArmor    (ArmorMaterials.AMETHYST))
+	@JvmStatic val AMETHYST_HORSE_ARMOR    = register(ItemIds.AMETHYST_HORSE_ARMOR   , Properties().horseArmor   (MyArmorMaterials.AMETHYST))
+	@JvmStatic val AMETHYST_NAUTILUS_ARMOR = register(ItemIds.AMETHYST_NAUTILUS_ARMOR, Properties().nautilusArmor(MyArmorMaterials.AMETHYST))
+	@JvmStatic val AMETHYST_WOLF_ARMOR     = register(ItemIds.AMETHYST_WOLF_ARMOR    , Properties().wolfArmor    (MyArmorMaterials.AMETHYST))
 
 	@JvmStatic val EMERALD_SPEAR = register(ItemIds.EMERALD_SPEAR, Properties().spear(ToolMaterials.EMERALD, 1.05f, 1.075f, 0.5f, 3.0f, 10.0f, 6.5f, 5.1f, 10.0f, 4.6f))
 
@@ -36,13 +38,21 @@ object Items {
 	@JvmStatic val EMERALD_SHOVEL  = register(ItemIds.EMERALD_SHOVEL , Properties().shovel (ToolMaterials.EMERALD, 1.5f, -3.0f))
 	@JvmStatic val EMERALD_HOE     = register(ItemIds.EMERALD_HOE    , Properties().hoe    (ToolMaterials.EMERALD, -3.0f,  0.0f))
 
-	@JvmStatic val EMERALD_HELMET      = register(ItemIds.EMERALD_HELMET     , Properties().humanoidArmor(ArmorMaterials.EMERALD, ArmorType.HELMET))
-	@JvmStatic val EMERALD_CHESTPLATE  = register(ItemIds.EMERALD_CHESTPLATE , Properties().humanoidArmor(ArmorMaterials.EMERALD, ArmorType.CHESTPLATE))
-	@JvmStatic val EMERALD_LEGGINGS    = register(ItemIds.EMERALD_LEGGINGS   , Properties().humanoidArmor(ArmorMaterials.EMERALD, ArmorType.LEGGINGS))
-	@JvmStatic val EMERALD_BOOTS       = register(ItemIds.EMERALD_BOOTS      , Properties().humanoidArmor(ArmorMaterials.EMERALD, ArmorType.BOOTS))
+	@JvmStatic val EMERALD_HELMET      = register(ItemIds.EMERALD_HELMET     , Properties().humanoidArmor(MyArmorMaterials.EMERALD, ArmorType.HELMET))
+	@JvmStatic val EMERALD_CHESTPLATE  = register(ItemIds.EMERALD_CHESTPLATE , Properties().humanoidArmor(MyArmorMaterials.EMERALD, ArmorType.CHESTPLATE))
+	@JvmStatic val EMERALD_LEGGINGS    = register(ItemIds.EMERALD_LEGGINGS   , Properties().humanoidArmor(MyArmorMaterials.EMERALD, ArmorType.LEGGINGS))
+	@JvmStatic val EMERALD_BOOTS       = register(ItemIds.EMERALD_BOOTS      , Properties().humanoidArmor(MyArmorMaterials.EMERALD, ArmorType.BOOTS))
 
-	@JvmStatic val EMERALD_HORSE_ARMOR    = register(ItemIds.EMERALD_HORSE_ARMOR   , Properties().horseArmor   (ArmorMaterials.EMERALD))
-	@JvmStatic val EMERALD_NAUTILUS_ARMOR = register(ItemIds.EMERALD_NAUTILUS_ARMOR, Properties().nautilusArmor(ArmorMaterials.EMERALD))
-	@JvmStatic val EMERALD_WOLF_ARMOR     = register(ItemIds.EMERALD_WOLF_ARMOR    , Properties().wolfArmor    (ArmorMaterials.EMERALD))
+	@JvmStatic val EMERALD_HORSE_ARMOR    = register(ItemIds.EMERALD_HORSE_ARMOR   , Properties().horseArmor   (MyArmorMaterials.EMERALD))
+	@JvmStatic val EMERALD_NAUTILUS_ARMOR = register(ItemIds.EMERALD_NAUTILUS_ARMOR, Properties().nautilusArmor(MyArmorMaterials.EMERALD))
+	@JvmStatic val EMERALD_WOLF_ARMOR     = register(ItemIds.EMERALD_WOLF_ARMOR    , Properties().wolfArmor    (MyArmorMaterials.EMERALD))
+
+	@JvmStatic val LEATHER_WOLF_ARMOR    = register(ItemIds.LEATHER_WOLF_ARMOR   , Properties().wolfArmor(ArmorMaterials.LEATHER))
+	@JvmStatic val COPPER_WOLF_ARMOR     = register(ItemIds.COPPER_WOLF_ARMOR    , Properties().wolfArmor(ArmorMaterials.COPPER))
+	@JvmStatic val CHAINMAIL_WOLF_ARMOR  = register(ItemIds.CHAINMAIL_WOLF_ARMOR , Properties().wolfArmor(ArmorMaterials.CHAINMAIL))
+	@JvmStatic val IRON_WOLF_ARMOR       = register(ItemIds.IRON_WOLF_ARMOR      , Properties().wolfArmor(ArmorMaterials.IRON))
+	@JvmStatic val GOLD_WOLF_ARMOR       = register(ItemIds.GOLD_WOLF_ARMOR      , Properties().wolfArmor(ArmorMaterials.GOLD))
+	@JvmStatic val DIAMOND_WOLF_ARMOR    = register(ItemIds.DIAMOND_WOLF_ARMOR   , Properties().wolfArmor(ArmorMaterials.DIAMOND))
+	@JvmStatic val NETHERITE_WOLF_ARMOR  = register(ItemIds.NETHERITE_WOLF_ARMOR , Properties().wolfArmor(ArmorMaterials.NETHERITE).fireResistant())
 	//@formatter:on
 }

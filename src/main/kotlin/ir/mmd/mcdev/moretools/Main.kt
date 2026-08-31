@@ -30,7 +30,17 @@ class Main : ModInitializer {
 
 			insertAfter(Items.GOLDEN_HORSE_ARMOR, MyItems.AMETHYST_HORSE_ARMOR, MyItems.EMERALD_HORSE_ARMOR)
 			insertAfter(Items.GOLDEN_NAUTILUS_ARMOR, MyItems.AMETHYST_NAUTILUS_ARMOR, MyItems.EMERALD_NAUTILUS_ARMOR)
-			insertAfter(Items.WOLF_ARMOR, MyItems.AMETHYST_WOLF_ARMOR, MyItems.EMERALD_WOLF_ARMOR)
+			insertAfter(Items.WOLF_ARMOR,
+				MyItems.LEATHER_WOLF_ARMOR,
+				MyItems.COPPER_WOLF_ARMOR,
+				MyItems.CHAINMAIL_WOLF_ARMOR,
+				MyItems.IRON_WOLF_ARMOR,
+				MyItems.GOLD_WOLF_ARMOR,
+				MyItems.AMETHYST_WOLF_ARMOR,
+				MyItems.EMERALD_WOLF_ARMOR,
+				MyItems.DIAMOND_WOLF_ARMOR,
+				MyItems.NETHERITE_WOLF_ARMOR
+			)
 		}
 
 		modifyCreativeTab(CreativeModeTabs.TOOLS_AND_UTILITIES) {

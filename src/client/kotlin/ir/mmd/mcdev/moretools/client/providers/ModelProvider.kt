@@ -40,6 +40,14 @@ class ModelProvider(output: FabricPackOutput) : FabricModelProvider(output) {
 		itemModelGenerators.generateFlatItem(Items.EMERALD_HORSE_ARMOR,     ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.EMERALD_NAUTILUS_ARMOR,  ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.EMERALD_WOLF_ARMOR,      ModelTemplates.FLAT_ITEM)
+
+		itemModelGenerators.generateFlatItem(Items.LEATHER_WOLF_ARMOR,    ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.COPPER_WOLF_ARMOR,     ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.CHAINMAIL_WOLF_ARMOR,  ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.IRON_WOLF_ARMOR,       ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.GOLD_WOLF_ARMOR,       ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.DIAMOND_WOLF_ARMOR,    ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.NETHERITE_WOLF_ARMOR,  ModelTemplates.FLAT_ITEM)
 		//@formatter:on
 	}
 }
