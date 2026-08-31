@@ -7,4 +7,5 @@ object EquipmentAssets {
 	private fun create(name: String) = ResourceKey.create(ROOT_ID, id(name))
 	
 	@JvmStatic val AMETHYST = create("amethyst")
+	@JvmStatic val EMERALD  = create("emerald")
 }

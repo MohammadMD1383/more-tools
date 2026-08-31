@@ -13,7 +13,8 @@ class ModelProvider(output: FabricPackOutput) : FabricModelProvider(output) {
 	
 	override fun generateItemModels(itemModelGenerators: ItemModelGenerators) {
 		itemModelGenerators.generateSpear(Items.AMETHYST_SPEAR)
-		
+		itemModelGenerators.generateSpear(Items.EMERALD_SPEAR)
+
 		//@formatter:off
 		itemModelGenerators.generateFlatItem(Items.AMETHYST_SWORD,          ModelTemplates.FLAT_HANDHELD_ITEM)
 		itemModelGenerators.generateFlatItem(Items.AMETHYST_PICKAXE,        ModelTemplates.FLAT_HANDHELD_ITEM)
@@ -27,6 +28,18 @@ class ModelProvider(output: FabricPackOutput) : FabricModelProvider(output) {
 		itemModelGenerators.generateFlatItem(Items.AMETHYST_HORSE_ARMOR,    ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.AMETHYST_NAUTILUS_ARMOR, ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.AMETHYST_WOLF_ARMOR,     ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_SWORD,           ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_PICKAXE,         ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_AXE,             ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_SHOVEL,          ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_HOE,             ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_HELMET,          ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_CHESTPLATE,      ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_LEGGINGS,        ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_BOOTS,           ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_HORSE_ARMOR,     ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_NAUTILUS_ARMOR,  ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.EMERALD_WOLF_ARMOR,      ModelTemplates.FLAT_ITEM)
 		//@formatter:on
 	}
 }

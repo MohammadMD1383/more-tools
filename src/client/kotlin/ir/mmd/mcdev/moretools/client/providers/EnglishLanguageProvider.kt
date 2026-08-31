@@ -27,6 +27,19 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder.add(Items.AMETHYST_HORSE_ARMOR,    "Amethyst Horse Armor")
 		translationBuilder.add(Items.AMETHYST_NAUTILUS_ARMOR, "Amethyst Nautilus Armor")
 		translationBuilder.add(Items.AMETHYST_WOLF_ARMOR,     "Amethyst Wolf Armor")
+		translationBuilder.add(Items.EMERALD_SWORD,           "Emerald Sword")
+		translationBuilder.add(Items.EMERALD_SPEAR,           "Emerald Spear")
+		translationBuilder.add(Items.EMERALD_PICKAXE,         "Emerald Pickaxe")
+		translationBuilder.add(Items.EMERALD_AXE,             "Emerald Axe")
+		translationBuilder.add(Items.EMERALD_SHOVEL,          "Emerald Shovel")
+		translationBuilder.add(Items.EMERALD_HOE,             "Emerald Hoe")
+		translationBuilder.add(Items.EMERALD_HELMET,          "Emerald Helmet")
+		translationBuilder.add(Items.EMERALD_CHESTPLATE,      "Emerald Chestplate")
+		translationBuilder.add(Items.EMERALD_LEGGINGS,        "Emerald Leggings")
+		translationBuilder.add(Items.EMERALD_BOOTS,           "Emerald Boots")
+		translationBuilder.add(Items.EMERALD_HORSE_ARMOR,     "Emerald Horse Armor")
+		translationBuilder.add(Items.EMERALD_NAUTILUS_ARMOR,  "Emerald Nautilus Armor")
+		translationBuilder.add(Items.EMERALD_WOLF_ARMOR,      "Emerald Wolf Armor")
 		//@formatter:on
 	}
 }

@@ -12,5 +12,6 @@ class BlockTagsProvider(output: FabricPackOutput, registryLookupFuture: Completa
 	
 	override fun addTags(registries: HolderLookup.Provider) {
 		builder(MyBlockTags.INCORRECT_FOR_AMETHYST_TOOL).addOptionalTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
+		builder(MyBlockTags.INCORRECT_FOR_EMERALD_TOOL).addOptionalTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
 	}
 }

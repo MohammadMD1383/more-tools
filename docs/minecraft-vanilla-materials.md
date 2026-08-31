@@ -24,7 +24,7 @@ Constructor parameters: `ToolMaterial(TagKey<Block> incorrectBlocksForDrops, int
 
 Constructor parameters: `ArmorMaterial(int durability, Map<ArmorType, Integer> defense, int enchantmentValue, Holder<SoundEvent> equipSound, float toughness, float knockbackResistance, TagKey<Item> repairIngredient, ResourceKey<EquipmentAsset> assetId)`
 
-The `defense` map is provided via `makeDefense(helmet, chestplate, leggings, boots, body)`.
+The `defense` map is provided via `makeDefense(boots, leggings, chestplate, helmet, body)` — this is the `ArmorType` enum order (verified from bytecode), **not** helmet-first. The table below lists values helmet-first for readability, so converting a table row to a call means reversing the first four: e.g. DIAMOND `[3, 8, 6, 3]` → `makeDefense(3, 6, 8, 3, 11)`. Body defense (used by wolf/horse/nautilus armor) is omitted from the table; diamond's is `11`.
 
 | Material | Durability Multiplier | Defense (Helmet, Chestplate, Leggings, Boots) | Enchantability | Toughness | Knockback Resistance | Equip Sound | Repair Ingredient Tag | Equipment Asset Key |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- | :--- | :--- |

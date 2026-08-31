@@ -214,6 +214,23 @@ class CraftingRecipeProvider(
 			horse = MyItems.AMETHYST_HORSE_ARMOR,
 			wolf = MyItems.AMETHYST_WOLF_ARMOR
 		)
+
+		allCraftingRecipe(
+			Items.EMERALD, output,
+			sword = MyItems.EMERALD_SWORD,
+			spear = MyItems.EMERALD_SPEAR,
+			pickaxe = MyItems.EMERALD_PICKAXE,
+			axe = MyItems.EMERALD_AXE,
+			shovel = MyItems.EMERALD_SHOVEL,
+			hoe = MyItems.EMERALD_HOE,
+			helmet = MyItems.EMERALD_HELMET,
+			chestplate = MyItems.EMERALD_CHESTPLATE,
+			leggings = MyItems.EMERALD_LEGGINGS,
+			boots = MyItems.EMERALD_BOOTS,
+			nautilus = MyItems.EMERALD_NAUTILUS_ARMOR,
+			horse = MyItems.EMERALD_HORSE_ARMOR,
+			wolf = MyItems.EMERALD_WOLF_ARMOR
+		)
 	}
 	
 	override fun getName() = "More Tools Recipes"

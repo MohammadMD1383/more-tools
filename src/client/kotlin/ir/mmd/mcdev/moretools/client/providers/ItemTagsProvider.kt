@@ -14,7 +14,8 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 	
 	override fun addTags(registries: HolderLookup.Provider) {
 		builder(MyItemTags.AMETHYST_TOOL_MATERIALS).add(ItemIds.AMETHYST_SHARD)
-		
+		builder(MyItemTags.EMERALD_TOOL_MATERIALS).add(ItemIds.EMERALD)
+
 		//@formatter:off
 		builder(ItemTags.SWORDS     ).add(MyItemIds.AMETHYST_SWORD)
 		builder(ItemTags.SPEARS     ).add(MyItemIds.AMETHYST_SPEAR)
@@ -26,6 +27,16 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 		builder(ItemTags.CHEST_ARMOR).add(MyItemIds.AMETHYST_CHESTPLATE)
 		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.AMETHYST_LEGGINGS)
 		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.AMETHYST_BOOTS)
+		builder(ItemTags.SWORDS     ).add(MyItemIds.EMERALD_SWORD)
+		builder(ItemTags.SPEARS     ).add(MyItemIds.EMERALD_SPEAR)
+		builder(ItemTags.PICKAXES   ).add(MyItemIds.EMERALD_PICKAXE)
+		builder(ItemTags.AXES       ).add(MyItemIds.EMERALD_AXE)
+		builder(ItemTags.SHOVELS    ).add(MyItemIds.EMERALD_SHOVEL)
+		builder(ItemTags.HOES       ).add(MyItemIds.EMERALD_HOE)
+		builder(ItemTags.HEAD_ARMOR ).add(MyItemIds.EMERALD_HELMET)
+		builder(ItemTags.CHEST_ARMOR).add(MyItemIds.EMERALD_CHESTPLATE)
+		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.EMERALD_LEGGINGS)
+		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.EMERALD_BOOTS)
 		//@formatter:on
 	}
 }
