@@ -43,7 +43,6 @@ class ModelProvider(output: FabricPackOutput) : FabricModelProvider(output) {
 
 		itemModelGenerators.generateFlatItem(Items.LEATHER_WOLF_ARMOR,    ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.COPPER_WOLF_ARMOR,     ModelTemplates.FLAT_ITEM)
-		itemModelGenerators.generateFlatItem(Items.CHAINMAIL_WOLF_ARMOR,  ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.IRON_WOLF_ARMOR,       ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.GOLD_WOLF_ARMOR,       ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.DIAMOND_WOLF_ARMOR,    ModelTemplates.FLAT_ITEM)

@@ -42,7 +42,6 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder.add(Items.EMERALD_WOLF_ARMOR,      "Emerald Wolf Armor")
 		translationBuilder.add(Items.LEATHER_WOLF_ARMOR,      "Leather Wolf Armor")
 		translationBuilder.add(Items.COPPER_WOLF_ARMOR,       "Copper Wolf Armor")
-		translationBuilder.add(Items.CHAINMAIL_WOLF_ARMOR,    "Chainmail Wolf Armor")
 		translationBuilder.add(Items.IRON_WOLF_ARMOR,         "Iron Wolf Armor")
 		translationBuilder.add(Items.GOLD_WOLF_ARMOR,         "Gold Wolf Armor")
 		translationBuilder.add(Items.DIAMOND_WOLF_ARMOR,      "Diamond Wolf Armor")

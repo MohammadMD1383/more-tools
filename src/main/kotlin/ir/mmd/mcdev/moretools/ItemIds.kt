@@ -37,7 +37,6 @@ object ItemIds {
 
 	@JvmStatic val LEATHER_WOLF_ARMOR      = create("leather_wolf_armor")
 	@JvmStatic val COPPER_WOLF_ARMOR       = create("copper_wolf_armor")
-	@JvmStatic val CHAINMAIL_WOLF_ARMOR    = create("chainmail_wolf_armor")
 	@JvmStatic val IRON_WOLF_ARMOR         = create("iron_wolf_armor")
 	@JvmStatic val GOLD_WOLF_ARMOR         = create("gold_wolf_armor")
 	@JvmStatic val DIAMOND_WOLF_ARMOR      = create("diamond_wolf_armor")

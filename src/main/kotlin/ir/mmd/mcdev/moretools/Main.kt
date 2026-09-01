@@ -33,7 +33,6 @@ class Main : ModInitializer {
 			insertAfter(Items.WOLF_ARMOR,
 				MyItems.LEATHER_WOLF_ARMOR,
 				MyItems.COPPER_WOLF_ARMOR,
-				MyItems.CHAINMAIL_WOLF_ARMOR,
 				MyItems.IRON_WOLF_ARMOR,
 				MyItems.GOLD_WOLF_ARMOR,
 				MyItems.AMETHYST_WOLF_ARMOR,

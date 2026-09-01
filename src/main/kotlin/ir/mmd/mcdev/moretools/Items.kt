@@ -49,7 +49,6 @@ object Items {
 
 	@JvmStatic val LEATHER_WOLF_ARMOR    = register(ItemIds.LEATHER_WOLF_ARMOR   , Properties().wolfArmor(ArmorMaterials.LEATHER))
 	@JvmStatic val COPPER_WOLF_ARMOR     = register(ItemIds.COPPER_WOLF_ARMOR    , Properties().wolfArmor(ArmorMaterials.COPPER))
-	@JvmStatic val CHAINMAIL_WOLF_ARMOR  = register(ItemIds.CHAINMAIL_WOLF_ARMOR , Properties().wolfArmor(ArmorMaterials.CHAINMAIL))
 	@JvmStatic val IRON_WOLF_ARMOR       = register(ItemIds.IRON_WOLF_ARMOR      , Properties().wolfArmor(ArmorMaterials.IRON))
 	@JvmStatic val GOLD_WOLF_ARMOR       = register(ItemIds.GOLD_WOLF_ARMOR      , Properties().wolfArmor(ArmorMaterials.GOLD))
 	@JvmStatic val DIAMOND_WOLF_ARMOR    = register(ItemIds.DIAMOND_WOLF_ARMOR   , Properties().wolfArmor(ArmorMaterials.DIAMOND))
