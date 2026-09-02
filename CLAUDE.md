@@ -14,9 +14,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Data Generation**: The mod uses Fabric Data Generation. Generated files (JSON, recipes, lang) are located in `src/main/generated/`. When adding new items, ensure the data generation tasks are run.
 
 ## Useful Documentation
+Read these only when the task calls for them.
+
 - `docs/new-item-guide.md`: Mandatory reading when adding new items to the mod.
-- `docs/minecraft-vanilla-materials.md`: Reference containing stats (durability, attack damage, armor values) for all vanilla Minecraft tools and armor for balancing your custom additions.
+- `docs/minecraft-vanilla-materials.md`: Vanilla stat tables — material-level stats, per-item `damage`/`attackSpeed`, the attack-damage formula, and the nine `spear()` parameters. Read when balancing a new material.
+- `docs/minecraft-internals.md`: Non-obvious API constraints and gotchas (enchantability cannot be 0, removing a data component, tags are additive-only, inspecting vanilla bytecode, verifying datagen output). Read when something behaves unexpectedly or you need to check a vanilla implementation detail.
+- `docs/checklist.md`: Broad per-item test matrix.
 
 ## Development Tasks
-- **Build**: Use `./gradlew build` to compile the project.
-- **Decompiled Sources**: If you need to reference Minecraft's internal code, look in `~/.gradle/caches/fabric-loom/` or the local project's `.gradle/loom-cache/`.
+- **Build**: `./gradlew build`. Datagen: `./gradlew runDatagen` — always re-run after touching items or providers, and verify the output counts (see `docs/minecraft-internals.md`); datagen does not warn about a provider you forgot.
+- **Run the two as separate invocations.** `./gradlew build runDatagen` fails configuration validation: `:sourcesJar` consumes `src/main/generated` (runDatagen's output) without declaring a dependency on it. Do `./gradlew runDatagen` first, then `./gradlew build`.
+- **Minecraft's internal code**: `~/.gradle/caches/fabric-loom/26.2/` contains only **compiled** jars, no sources. Use the `javap` recipe in `docs/minecraft-internals.md`.
+- **Sandboxed shells**: Gradle needs to write to `~/.gradle`; in a sandboxed shell it fails with `Read-only file system` on a `.lck` file. Re-run the gradle command with the sandbox disabled.
+
+## Documenting your experience
+Whatever task you do here, record what you had to *discover* — in `CLAUDE.md` or under `docs/` — so the next agent doesn't have to rediscover it.
+
+Keep this sustainable rather than ever-growing:
+
+1. **Short and precise.** Facts and constraints, not narrative.
+2. **No duplication.** If the code or an existing doc already states it, link to that instead of restating it. Correct what is wrong rather than appending next to it.
+3. **Split by topic, loaded on demand.** Put it in the file whose subject it matches (or a new one), then reference it from `CLAUDE.md` with a note about *when* to read it. `CLAUDE.md` is the always-loaded root, so it stays an index — details live in `docs/`.

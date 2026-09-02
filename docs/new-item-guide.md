@@ -3,7 +3,7 @@
 This guide documents exactly how to add a new item to **more-tools**, based on how the amethyst toolset is implemented. Follow it top to bottom for a new *material* (a whole toolset: sword, pickaxe, armor, horse armor, ...), or skip the material-level steps when adding a single item to an existing material.
 
 - Game / mappings: Minecraft 26.2, Fabric, Kotlin (see `gradle.properties`)
-- Item count today: 13 amethyst items, all registered through the same code path
+- Item count today: 58 — four full materials (amethyst, emerald, obsidian, quartz) of 13 items each, plus 6 wolf armors for vanilla materials. All registered through the same code path.
 - Datagen: all models, item definitions, lang, tags and recipes are **generated** — do not hand-edit `src/main/generated/`
 
 ## Architecture overview
@@ -30,6 +30,9 @@ A "material" here is one shared set of stats + textures used by every item of a 
 ```kotlin
 @JvmStatic val AMETHYST_SWORD = create("amethyst_sword")   // create() prefixes more-tools:
 ```
+
+> ⚠️ `enchantmentValue` must be **≥ 1** — `0` crashes at class-load. If a material is meant to be unenchantable,
+> use `1` and chain `.notEnchantable()` on each item. See `minecraft-internals.md`.
 
 **`ToolMaterials.kt`** — one entry per tool material:
 
@@ -237,6 +240,10 @@ For non-standard recipes, call the lower-level `craftingRecipe(category, materia
 
 This regenerates `src/main/generated/` from the providers. Commit the result (it ships in the jar). Check `git status` after running — missing-file or stale-output surprises show up there.
 
+Datagen reports `BUILD SUCCESSFUL` even when a provider was never called, so **count the output** — a whole
+missing category is otherwise invisible. Per-material expected counts and a ready-made check script are in
+`minecraft-internals.md`.
+
 ## Verifying your work
 
 After datagen, a complete single armor item (`amethyst_helmet`) produces all of:
@@ -285,6 +292,7 @@ If a file is missing, its provider step was skipped — map the missing file to 
 - [ ] `ItemTagsProvider` — correct vanilla tag(s) (`SWORDS`, `PICKAXES`, `HEAD_ARMOR`, …)
 - [ ] `CraftingRecipeProvider` — recipe wired up
 - [ ] `./gradlew runDatagen` run and output committed
+- [ ] Per-material output counts verified (see `minecraft-internals.md`)
 
 **Sanity checks after datagen**
 

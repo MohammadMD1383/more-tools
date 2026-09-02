@@ -23,7 +23,6 @@ fun Properties.addAttributeModifier(
 	modifiers?.withModifierAdded(attribute, modifier, slot)
 }
 
-
 fun Properties.amethystKnockback() = addAttributeModifier(
 	Attributes.ATTACK_KNOCKBACK,
 	AttributeModifier(AttributeIds.AMETHYST_KNOCKBACK, 1.0, AttributeModifier.Operation.ADD_VALUE),

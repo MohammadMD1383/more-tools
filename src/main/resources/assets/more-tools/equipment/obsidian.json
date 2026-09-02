@@ -1,0 +1,34 @@
+{
+	"layers": {
+		"humanoid": [
+			{
+				"texture": "more-tools:obsidian"
+			}
+		],
+		"humanoid_baby": [
+			{
+				"texture": "more-tools:obsidian"
+			}
+		],
+		"humanoid_leggings": [
+			{
+				"texture": "more-tools:obsidian"
+			}
+		],
+		"horse_body": [
+			{
+				"texture": "more-tools:obsidian"
+			}
+		],
+		"nautilus_body": [
+			{
+				"texture": "more-tools:obsidian"
+			}
+		],
+		"wolf_body": [
+			{
+				"texture": "more-tools:obsidian"
+			}
+		]
+	}
+}

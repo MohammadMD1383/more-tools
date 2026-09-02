@@ -1,0 +1,7 @@
+{
+  "fabric:remove": [
+    "more-tools:obsidian_sword",
+    "more-tools:obsidian_spear"
+  ],
+  "values": []
+}

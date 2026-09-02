@@ -1,6 +1,8 @@
 {
   "values": [
     "more-tools:amethyst_pickaxe",
-    "more-tools:emerald_pickaxe"
+    "more-tools:emerald_pickaxe",
+    "more-tools:obsidian_pickaxe",
+    "more-tools:quartz_pickaxe"
   ]
 }

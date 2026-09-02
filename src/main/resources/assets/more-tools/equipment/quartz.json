@@ -1,0 +1,34 @@
+{
+	"layers": {
+		"humanoid": [
+			{
+				"texture": "more-tools:quartz"
+			}
+		],
+		"humanoid_baby": [
+			{
+				"texture": "more-tools:quartz"
+			}
+		],
+		"humanoid_leggings": [
+			{
+				"texture": "more-tools:quartz"
+			}
+		],
+		"horse_body": [
+			{
+				"texture": "more-tools:quartz"
+			}
+		],
+		"nautilus_body": [
+			{
+				"texture": "more-tools:quartz"
+			}
+		],
+		"wolf_body": [
+			{
+				"texture": "more-tools:quartz"
+			}
+		]
+	}
+}

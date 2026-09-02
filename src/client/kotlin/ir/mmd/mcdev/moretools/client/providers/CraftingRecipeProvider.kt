@@ -232,6 +232,40 @@ class CraftingRecipeProvider(
 			wolf = MyItems.EMERALD_WOLF_ARMOR
 		)
 
+		allCraftingRecipe(
+			Items.OBSIDIAN, output,
+			sword = MyItems.OBSIDIAN_SWORD,
+			spear = MyItems.OBSIDIAN_SPEAR,
+			pickaxe = MyItems.OBSIDIAN_PICKAXE,
+			axe = MyItems.OBSIDIAN_AXE,
+			shovel = MyItems.OBSIDIAN_SHOVEL,
+			hoe = MyItems.OBSIDIAN_HOE,
+			helmet = MyItems.OBSIDIAN_HELMET,
+			chestplate = MyItems.OBSIDIAN_CHESTPLATE,
+			leggings = MyItems.OBSIDIAN_LEGGINGS,
+			boots = MyItems.OBSIDIAN_BOOTS,
+			nautilus = MyItems.OBSIDIAN_NAUTILUS_ARMOR,
+			horse = MyItems.OBSIDIAN_HORSE_ARMOR,
+			wolf = MyItems.OBSIDIAN_WOLF_ARMOR
+		)
+
+		allCraftingRecipe(
+			Items.QUARTZ, output,
+			sword = MyItems.QUARTZ_SWORD,
+			spear = MyItems.QUARTZ_SPEAR,
+			pickaxe = MyItems.QUARTZ_PICKAXE,
+			axe = MyItems.QUARTZ_AXE,
+			shovel = MyItems.QUARTZ_SHOVEL,
+			hoe = MyItems.QUARTZ_HOE,
+			helmet = MyItems.QUARTZ_HELMET,
+			chestplate = MyItems.QUARTZ_CHESTPLATE,
+			leggings = MyItems.QUARTZ_LEGGINGS,
+			boots = MyItems.QUARTZ_BOOTS,
+			nautilus = MyItems.QUARTZ_NAUTILUS_ARMOR,
+			horse = MyItems.QUARTZ_HORSE_ARMOR,
+			wolf = MyItems.QUARTZ_WOLF_ARMOR
+		)
+
 		allCraftingRecipe(Items.LEATHER, output, wolf = MyItems.LEATHER_WOLF_ARMOR)
 		allCraftingRecipe(Items.COPPER_INGOT, output, wolf = MyItems.COPPER_WOLF_ARMOR)
 		allCraftingRecipe(Items.IRON_INGOT, output, wolf = MyItems.IRON_WOLF_ARMOR)

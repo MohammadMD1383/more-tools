@@ -1,0 +1,9 @@
+{
+  "fabric:remove": [
+    "more-tools:obsidian_pickaxe",
+    "more-tools:obsidian_axe",
+    "more-tools:obsidian_shovel",
+    "more-tools:obsidian_hoe"
+  ],
+  "values": []
+}

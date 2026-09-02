@@ -1,0 +1,15 @@
+{
+  "fabric:remove": [
+    "more-tools:obsidian_sword",
+    "more-tools:obsidian_spear",
+    "more-tools:obsidian_pickaxe",
+    "more-tools:obsidian_axe",
+    "more-tools:obsidian_shovel",
+    "more-tools:obsidian_hoe",
+    "more-tools:obsidian_helmet",
+    "more-tools:obsidian_chestplate",
+    "more-tools:obsidian_leggings",
+    "more-tools:obsidian_boots"
+  ],
+  "values": []
+}

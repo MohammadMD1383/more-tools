@@ -3,6 +3,7 @@ package ir.mmd.mcdev.moretools.client.providers
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider
 import net.minecraft.core.HolderLookup
+import net.minecraft.references.BlockItemIds
 import net.minecraft.references.ItemIds
 import ir.mmd.mcdev.moretools.ItemIds as MyItemIds
 import net.minecraft.tags.ItemTags
@@ -15,6 +16,8 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 	override fun addTags(registries: HolderLookup.Provider) {
 		builder(MyItemTags.AMETHYST_TOOL_MATERIALS).add(ItemIds.AMETHYST_SHARD)
 		builder(MyItemTags.EMERALD_TOOL_MATERIALS).add(ItemIds.EMERALD)
+		builder(MyItemTags.OBSIDIAN_TOOL_MATERIALS).add(BlockItemIds.OBSIDIAN.item())
+		builder(MyItemTags.QUARTZ_TOOL_MATERIALS).add(ItemIds.QUARTZ)
 
 		//@formatter:off
 		builder(ItemTags.SWORDS     ).add(MyItemIds.AMETHYST_SWORD)
@@ -37,6 +40,26 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 		builder(ItemTags.CHEST_ARMOR).add(MyItemIds.EMERALD_CHESTPLATE)
 		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.EMERALD_LEGGINGS)
 		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.EMERALD_BOOTS)
+		builder(ItemTags.SWORDS     ).add(MyItemIds.OBSIDIAN_SWORD)
+		builder(ItemTags.SPEARS     ).add(MyItemIds.OBSIDIAN_SPEAR)
+		builder(ItemTags.PICKAXES   ).add(MyItemIds.OBSIDIAN_PICKAXE)
+		builder(ItemTags.AXES       ).add(MyItemIds.OBSIDIAN_AXE)
+		builder(ItemTags.SHOVELS    ).add(MyItemIds.OBSIDIAN_SHOVEL)
+		builder(ItemTags.HOES       ).add(MyItemIds.OBSIDIAN_HOE)
+		builder(ItemTags.HEAD_ARMOR ).add(MyItemIds.OBSIDIAN_HELMET)
+		builder(ItemTags.CHEST_ARMOR).add(MyItemIds.OBSIDIAN_CHESTPLATE)
+		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.OBSIDIAN_LEGGINGS)
+		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.OBSIDIAN_BOOTS)
+		builder(ItemTags.SWORDS     ).add(MyItemIds.QUARTZ_SWORD)
+		builder(ItemTags.SPEARS     ).add(MyItemIds.QUARTZ_SPEAR)
+		builder(ItemTags.PICKAXES   ).add(MyItemIds.QUARTZ_PICKAXE)
+		builder(ItemTags.AXES       ).add(MyItemIds.QUARTZ_AXE)
+		builder(ItemTags.SHOVELS    ).add(MyItemIds.QUARTZ_SHOVEL)
+		builder(ItemTags.HOES       ).add(MyItemIds.QUARTZ_HOE)
+		builder(ItemTags.HEAD_ARMOR ).add(MyItemIds.QUARTZ_HELMET)
+		builder(ItemTags.CHEST_ARMOR).add(MyItemIds.QUARTZ_CHESTPLATE)
+		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.QUARTZ_LEGGINGS)
+		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.QUARTZ_BOOTS)
 		//@formatter:on
 	}
 }

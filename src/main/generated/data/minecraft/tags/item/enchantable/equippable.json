@@ -1,0 +1,9 @@
+{
+  "fabric:remove": [
+    "more-tools:obsidian_helmet",
+    "more-tools:obsidian_chestplate",
+    "more-tools:obsidian_leggings",
+    "more-tools:obsidian_boots"
+  ],
+  "values": []
+}

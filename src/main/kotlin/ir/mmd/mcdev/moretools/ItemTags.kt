@@ -6,6 +6,10 @@ import net.minecraft.tags.TagKey
 object ItemTags {
 	private fun create(name: String) = TagKey.create(Registries.ITEM, id(name))
 	
+	//formatter:off
 	@JvmStatic val AMETHYST_TOOL_MATERIALS = create("repairs_amethyst_armor")
 	@JvmStatic val EMERALD_TOOL_MATERIALS  = create("repairs_emerald_armor")
+	@JvmStatic val OBSIDIAN_TOOL_MATERIALS = create("repairs_obsidian_armor")
+	@JvmStatic val QUARTZ_TOOL_MATERIALS   = create("repairs_quartz_armor")
+	//formatter:on
 }

@@ -12,9 +12,29 @@ class Main : ModInitializer {
 	
 	fun addCreativeItems() {
 		modifyCreativeTab(CreativeModeTabs.COMBAT) {
-			insertAfter(Items.GOLDEN_SWORD, MyItems.AMETHYST_SWORD, MyItems.EMERALD_SWORD)
-			insertAfter(Items.GOLDEN_SPEAR, MyItems.AMETHYST_SPEAR, MyItems.EMERALD_SPEAR)
-			insertAfter(Items.GOLDEN_AXE, MyItems.AMETHYST_AXE, MyItems.EMERALD_AXE)
+			insertAfter(
+				Items.GOLDEN_SWORD,
+				MyItems.AMETHYST_SWORD,
+				MyItems.EMERALD_SWORD,
+				MyItems.OBSIDIAN_SWORD,
+				MyItems.QUARTZ_SWORD
+			)
+			
+			insertAfter(
+				Items.GOLDEN_SPEAR,
+				MyItems.AMETHYST_SPEAR,
+				MyItems.EMERALD_SPEAR,
+				MyItems.OBSIDIAN_SPEAR,
+				MyItems.QUARTZ_SPEAR
+			)
+			
+			insertAfter(
+				Items.GOLDEN_AXE,
+				MyItems.AMETHYST_AXE,
+				MyItems.EMERALD_AXE,
+				MyItems.OBSIDIAN_AXE,
+				MyItems.QUARTZ_AXE
+			)
 
 			insertAfter(
 				Items.GOLDEN_BOOTS,
@@ -25,11 +45,33 @@ class Main : ModInitializer {
 				MyItems.EMERALD_HELMET,
 				MyItems.EMERALD_CHESTPLATE,
 				MyItems.EMERALD_LEGGINGS,
-				MyItems.EMERALD_BOOTS
+				MyItems.EMERALD_BOOTS,
+				MyItems.OBSIDIAN_HELMET,
+				MyItems.OBSIDIAN_CHESTPLATE,
+				MyItems.OBSIDIAN_LEGGINGS,
+				MyItems.OBSIDIAN_BOOTS,
+				MyItems.QUARTZ_HELMET,
+				MyItems.QUARTZ_CHESTPLATE,
+				MyItems.QUARTZ_LEGGINGS,
+				MyItems.QUARTZ_BOOTS
 			)
 
-			insertAfter(Items.GOLDEN_HORSE_ARMOR, MyItems.AMETHYST_HORSE_ARMOR, MyItems.EMERALD_HORSE_ARMOR)
-			insertAfter(Items.GOLDEN_NAUTILUS_ARMOR, MyItems.AMETHYST_NAUTILUS_ARMOR, MyItems.EMERALD_NAUTILUS_ARMOR)
+			insertAfter(
+				Items.GOLDEN_HORSE_ARMOR,
+				MyItems.AMETHYST_HORSE_ARMOR,
+				MyItems.EMERALD_HORSE_ARMOR,
+				MyItems.OBSIDIAN_HORSE_ARMOR,
+				MyItems.QUARTZ_HORSE_ARMOR
+			)
+			
+			insertAfter(
+				Items.GOLDEN_NAUTILUS_ARMOR,
+				MyItems.AMETHYST_NAUTILUS_ARMOR,
+				MyItems.EMERALD_NAUTILUS_ARMOR,
+				MyItems.OBSIDIAN_NAUTILUS_ARMOR,
+				MyItems.QUARTZ_NAUTILUS_ARMOR
+			)
+			
 			insertAfter(Items.WOLF_ARMOR,
 				MyItems.LEATHER_WOLF_ARMOR,
 				MyItems.COPPER_WOLF_ARMOR,
@@ -37,6 +79,8 @@ class Main : ModInitializer {
 				MyItems.GOLD_WOLF_ARMOR,
 				MyItems.AMETHYST_WOLF_ARMOR,
 				MyItems.EMERALD_WOLF_ARMOR,
+				MyItems.OBSIDIAN_WOLF_ARMOR,
+				MyItems.QUARTZ_WOLF_ARMOR,
 				MyItems.DIAMOND_WOLF_ARMOR,
 				MyItems.NETHERITE_WOLF_ARMOR
 			)
@@ -52,7 +96,15 @@ class Main : ModInitializer {
 				MyItems.EMERALD_SHOVEL,
 				MyItems.EMERALD_PICKAXE,
 				MyItems.EMERALD_AXE,
-				MyItems.EMERALD_HOE
+				MyItems.EMERALD_HOE,
+				MyItems.OBSIDIAN_SHOVEL,
+				MyItems.OBSIDIAN_PICKAXE,
+				MyItems.OBSIDIAN_AXE,
+				MyItems.OBSIDIAN_HOE,
+				MyItems.QUARTZ_SHOVEL,
+				MyItems.QUARTZ_PICKAXE,
+				MyItems.QUARTZ_AXE,
+				MyItems.QUARTZ_HOE
 			)
 		}
 	}
