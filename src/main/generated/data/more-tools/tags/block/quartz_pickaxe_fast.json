@@ -1,0 +1,27 @@
+{
+  "values": [
+    "minecraft:blackstone",
+    "minecraft:polished_blackstone",
+    "minecraft:polished_blackstone_bricks",
+    "minecraft:basalt",
+    "minecraft:polished_basalt",
+    "minecraft:smooth_basalt",
+    "minecraft:nether_bricks",
+    "minecraft:nether_brick_fence",
+    "minecraft:red_nether_bricks",
+    "minecraft:quartz_block",
+    "minecraft:smooth_quartz",
+    "minecraft:chiseled_quartz_block",
+    "minecraft:quartz_pillar",
+    "minecraft:quartz_bricks",
+    "minecraft:nether_quartz_ore",
+    "minecraft:nether_gold_ore",
+    "minecraft:magma_block",
+    "minecraft:bone_block",
+    "minecraft:ancient_debris",
+    "minecraft:netherite_block",
+    "minecraft:crying_obsidian",
+    "minecraft:respawn_anchor",
+    "minecraft:lodestone"
+  ]
+}

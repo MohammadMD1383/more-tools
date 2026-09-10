@@ -2,12 +2,17 @@ package ir.mmd.mcdev.moretools
 
 import net.minecraft.core.Holder
 import net.minecraft.core.component.DataComponents
+import net.minecraft.core.registries.Registries
 import net.minecraft.resources.Identifier
+import net.minecraft.tags.TagKey
 import net.minecraft.world.entity.EquipmentSlotGroup
 import net.minecraft.world.entity.ai.attributes.Attribute
 import net.minecraft.world.entity.ai.attributes.AttributeModifier
 import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.item.Item.Properties
+import net.minecraft.world.item.component.Tool
+import net.minecraft.world.level.block.Block
+import java.util.*
 
 object AttributeIds {
 	//@formatter:off
@@ -50,3 +55,35 @@ fun Properties.obsidianMovementSpeed(id: Identifier) = addAttributeModifier(
 	AttributeModifier(id, -0.05, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL),
 	EquipmentSlotGroup.ARMOR
 )
+
+fun Properties.quartzMiningEfficiency(
+	instantTag: TagKey<Block>,
+	fastTag: TagKey<Block>,
+) = modifyComponent(DataComponents.TOOL) { tool, registries, _ ->
+	val blockLookup = registries.lookupOrThrow(Registries.BLOCK)
+	
+	val rules = buildList {
+		add(
+			Tool.Rule(
+				blockLookup.getOrThrow(instantTag),
+				Optional.of(100f),
+				Optional.empty()
+			)
+		)
+		add(
+			Tool.Rule(
+				blockLookup.getOrThrow(fastTag),
+				Optional.of(12f),
+				Optional.empty()
+			)
+		)
+		addAll(tool!!.rules)
+	}
+	
+	Tool(
+		rules,
+		tool!!.defaultMiningSpeed,
+		tool.damagePerBlock,
+		tool.canDestroyBlocksInCreative
+	)
+}
