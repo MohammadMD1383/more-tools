@@ -73,5 +73,14 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 			.add(MyItemIds.EMERALD_CHESTPLATE)
 			.add(MyItemIds.EMERALD_LEGGINGS)
 			.add(MyItemIds.EMERALD_BOOTS)
+		
+		builder(MyItemTags.OBSIDIAN_ARMOR_FOR_FIRE)
+			.add(MyItemIds.OBSIDIAN_HELMET)
+			.add(MyItemIds.OBSIDIAN_CHESTPLATE)
+			.add(MyItemIds.OBSIDIAN_LEGGINGS)
+			.add(MyItemIds.OBSIDIAN_BOOTS)
+			.add(MyItemIds.OBSIDIAN_HORSE_ARMOR)
+			.add(MyItemIds.OBSIDIAN_WOLF_ARMOR)
+			.add(MyItemIds.OBSIDIAN_NAUTILUS_ARMOR)
 	}
 }

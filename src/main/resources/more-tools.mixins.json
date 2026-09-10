@@ -4,7 +4,8 @@
 	"package": "ir.mmd.mcdev.moretools.mixins",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"PlayerMixin"
+		"PlayerMixin",
+		"LivingEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

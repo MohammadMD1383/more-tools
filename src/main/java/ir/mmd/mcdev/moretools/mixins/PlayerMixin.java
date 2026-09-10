@@ -15,13 +15,14 @@ public class PlayerMixin {
 		argsOnly = true,
 		name = "i"
 	)
-	private int giveExperiencePoints(int i) {
+	private int applyEmeraldBonusXp(int i) {
 		final var player = (Player) (Object) this;
 		var multiplier = 1.0F;
 		
-		for (EquipmentSlot slot : EquipmentSlot.values()) {
-			if (player.getItemBySlot(slot).is(ItemTags.getEMERALD_ITEMS_FOR_XP()))
+		for (EquipmentSlot slot : EquipmentSlot.VALUES) {
+			if (player.getItemBySlot(slot).is(ItemTags.getEMERALD_ITEMS_FOR_XP())) {
 				multiplier += 0.2F;
+			}
 		}
 		
 		return Math.min((int) (i * multiplier), Integer.MAX_VALUE);
