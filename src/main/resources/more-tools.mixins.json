@@ -1,9 +1,10 @@
 {
 	"required": true,
 	"minVersion": "0.8",
-	"package": "ir.mmd.mcdev.moretools.mixin",
+	"package": "ir.mmd.mcdev.moretools.mixins",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
+		"PlayerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

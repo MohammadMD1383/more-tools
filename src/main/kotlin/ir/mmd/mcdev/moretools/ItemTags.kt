@@ -11,5 +11,6 @@ object ItemTags {
 	@JvmStatic val EMERALD_TOOL_MATERIALS  = create("repairs_emerald_armor")
 	@JvmStatic val OBSIDIAN_TOOL_MATERIALS = create("repairs_obsidian_armor")
 	@JvmStatic val QUARTZ_TOOL_MATERIALS   = create("repairs_quartz_armor")
+	@JvmStatic val EMERALD_ITEMS_FOR_XP    = create("emerald_items_for_xp")
 	//formatter:on
 }

@@ -18,7 +18,7 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 		builder(MyItemTags.EMERALD_TOOL_MATERIALS).add(ItemIds.EMERALD)
 		builder(MyItemTags.OBSIDIAN_TOOL_MATERIALS).add(BlockItemIds.OBSIDIAN.item())
 		builder(MyItemTags.QUARTZ_TOOL_MATERIALS).add(ItemIds.QUARTZ)
-
+		
 		//@formatter:off
 		builder(ItemTags.SWORDS     ).add(MyItemIds.AMETHYST_SWORD)
 		builder(ItemTags.SPEARS     ).add(MyItemIds.AMETHYST_SPEAR)
@@ -61,5 +61,17 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.QUARTZ_LEGGINGS)
 		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.QUARTZ_BOOTS)
 		//@formatter:on
+		
+		builder(MyItemTags.EMERALD_ITEMS_FOR_XP)
+			.add(MyItemIds.EMERALD_SWORD)
+			.add(MyItemIds.EMERALD_SPEAR)
+			.add(MyItemIds.EMERALD_AXE)
+			.add(MyItemIds.EMERALD_PICKAXE)
+			.add(MyItemIds.EMERALD_SHOVEL)
+			.add(MyItemIds.EMERALD_HOE)
+			.add(MyItemIds.EMERALD_HELMET)
+			.add(MyItemIds.EMERALD_CHESTPLATE)
+			.add(MyItemIds.EMERALD_LEGGINGS)
+			.add(MyItemIds.EMERALD_BOOTS)
 	}
 }
