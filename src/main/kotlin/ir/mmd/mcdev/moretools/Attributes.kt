@@ -73,7 +73,7 @@ fun Properties.quartzMiningEfficiency(
 		add(
 			Tool.Rule(
 				blockLookup.getOrThrow(fastTag),
-				Optional.of(12f),
+				Optional.of(16f),
 				Optional.empty()
 			)
 		)

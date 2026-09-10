@@ -90,6 +90,48 @@ Vanilla constants are named `<THING>_ENCHANTABLE` (e.g. `ItemTags.MINING_LOOT_EN
 Blocking the enchanting **table** as well is a separate concern — that is gated by the `ENCHANTABLE` *component*,
 see above. Obsidian does both: `notEnchantable()` for the table, tag exclusion for books and anvils.
 
+## Ability mechanisms (mixins + custom attributes)
+
+Exact per-item numbers are in `minecraft-vanilla-materials.md` §6; this section records *how* each
+ability is wired, since none of it is visible from the item factories.
+
+### Emerald XP bonus — `PlayerMixin`
+
+`@ModifyVariable` on `Player.giveExperiencePoints`, `HEAD`, `argsOnly`, variable `"i"`. Iterates
+`EquipmentSlot.VALUES` (mainhand, offhand, feet, legs, chest, head, body); each slot holding an item
+in `emerald_items_for_xp` adds `0.2` to a multiplier starting at `1.0`. Returns
+`min((int)(i * multiplier), Integer.MAX_VALUE)` — note the float→int truncation.
+
+Tag contents (`ItemTagsProvider.kt`): the 10 held/worn emerald items (sword, spear, axe, pickaxe,
+shovel, hoe, helmet, chestplate, leggings, boots). Horse/wolf/nautilus armor are deliberately
+excluded, so the practical maximum is 6 slots (both hands + 4 armor) = 2.2×.
+
+### Obsidian fire reduction — `LivingEntityMixin`
+
+`@Inject` into `LivingEntity.getDamageAfterArmorAbsorb` at `RETURN`, cancellable. Ignores damage
+sources outside `DamageTypeTags.IS_FIRE`. Counts worn items in `obsidian_armor_for_fire` across
+`EquipmentSlot.VALUES` and multiplies the post-armor value by `1 - 0.1 * pieces` (full humanoid
+set = ×0.6).
+
+Tag contents: the 4 humanoid pieces **plus** horse, wolf and nautilus obsidian armor — mounts and
+pets benefit when wearing theirs.
+
+### Obsidian movement penalty — `Attributes.obsidianMovementSpeed()`
+
+`MOVEMENT_SPEED -0.05 ADD_MULTIPLIED_TOTAL` in `EquipmentSlotGroup.ARMOR`, chained on every obsidian
+armor item including horse/wolf/nautilus (each with its own id in `AttributeIds`, e.g.
+`OBSIDIAN_MOVEMENT_SPEED_HELMET`). The modifiers sum before multiplying, so a full set is
+`1 - 4 × 0.05` = −20% move speed.
+
+### Quartz mining efficiency — `Attributes.quartzMiningEfficiency()`
+
+Prepends two `Tool.Rule`s to the factory-built `TOOL` component and preserves the existing rules
+(`addAll(tool.rules)`, same `defaultMiningSpeed`): `instantTag` at speed `100f`, `fastTag` at speed
+`16f` (both with `Optional.empty()` for the correct-drop flag, so drops follow the vanilla rules).
+One tag pair per tool in `BlockTags` (`QUARTZ_<TOOL>_INSTANT` / `QUARTZ_<TOOL>_FAST`); exact block
+lists live in `BlockTagsProvider.kt`. Note `QUARTZ_SWORD_FAST` is registered but empty — the sword
+has instant blocks only.
+
 ## `ItemIds` vs `BlockItemIds`
 
 `net.minecraft.references.ItemIds` only covers non-block items. A block's item form is in
@@ -122,3 +164,9 @@ done
 
 A material missing a whole category means its provider call was skipped — datagen does **not** warn.
 Check these counts rather than assuming `BUILD SUCCESSFUL` means complete output.
+
+On top of the four 13-item materials, expect the wolf-armor extras: 5 shaped recipes
+(`leather/copper/iron/gold/diamond_wolf_armor` + advancements) and 1 smithing-transform recipe
+`netherite_wolf_armor_smithing` (base = mod diamond wolf armor, addition = netherite ingot,
+template = netherite upgrade, category `MISC`, id from `RecipeIds.kt`) with its advancement under
+`advancement/recipes/misc/`.

@@ -132,13 +132,73 @@ Vanilla's slowest-attacking spear is netherite at `f1 = 1.15`.
 
 ## 6. This mod's custom materials
 
-Stats live in `ToolMaterials.kt` / `ArmorMaterials.kt` — read those, not a copy here. Durability progression:
+Stats live in `ToolMaterials.kt` / `ArmorMaterials.kt` — the tables below are copies for balancing
+convenience; the code is authoritative. Durability progression:
 `iron 250 < amethyst 350 < emerald 600 < obsidian 800 < quartz 1050 < diamond 1561`.
 
-Design intent that the numbers alone don't convey:
+### 6a. Mod tool materials
+
+`ToolMaterial(incorrectBlocksTag, durability, speed, attackDamageBonus, enchantmentValue, repairTag)`.
+Mining tier is set by chaining: amethyst/emerald/obsidian `addOptionalTag(INCORRECT_FOR_IRON_TOOL)`,
+quartz `addOptionalTag(INCORRECT_FOR_DIAMOND_TOOL)` (see `BlockTagsProvider.kt`).
+
+| Material | Incorrect-blocks tag | Durability | Speed | Dmg bonus | Ench. | Repair tag → ingredient |
+| :--- | :--- | ---: | ---: | ---: | ---: | :--- |
+| **AMETHYST** | `incorrect_for_amethyst_tool` (→ iron) | 350 | 6.0 | 2.0 | 25 | `AMETHYST_TOOL_MATERIALS` (`repairs_amethyst_armor`) → `AMETHYST_SHARD` |
+| **EMERALD** | `incorrect_for_emerald_tool` (→ iron) | 600 | 8.0 | 3.0 | 3 | `EMERALD_TOOL_MATERIALS` (`repairs_emerald_armor`) → `EMERALD` |
+| **OBSIDIAN** | `incorrect_for_obsidian_tool` (→ iron) | 800 | 4.0 | 1.0 | 1 + `nonEnchantable()` | `OBSIDIAN_TOOL_MATERIALS` (`repairs_obsidian_armor`) → `BlockItemIds.OBSIDIAN.item()` (block item, no `ItemIds.OBSIDIAN`) |
+| **QUARTZ** | `incorrect_for_quartz_tool` (→ diamond) | 1050 | 12.0 | 0.0 | 10 | `QUARTZ_TOOL_MATERIALS` (`repairs_quartz_armor`) → `QUARTZ` |
+
+Note the naming quirk: the constants are called `*_TOOL_MATERIALS` but their tag paths are
+`repairs_*_armor` (vanilla convention), and both tools and armor materials reference them.
+
+### 6b. Mod armor materials
+
+`ArmorMaterial(durabilityMult, makeDefense(boots, leggings, chestplate, helmet, body), enchantmentValue,
+equipSound, toughness, knockbackResistance, repairTag, equipmentAsset)`.
+
+| Material | Dur. mult. | `makeDefense(...)` | Ench. | Sound | Tough. | KB resist | Asset |
+| :--- | ---: | :--- | ---: | :--- | ---: | ---: | :--- |
+| **AMETHYST** | 19 | (2, 5, 6, 2, 5) = iron | 28 | `ARMOR_EQUIP_DIAMOND` | 0.0 | 0.0 | `AMETHYST` |
+| **EMERALD** | 21 | (3, 6, 8, 3, 11) = diamond | 3 | `ARMOR_EQUIP_DIAMOND` | 0.0 | 0.0 | `EMERALD` |
+| **OBSIDIAN** | 25 | (3, 6, 8, 3, 11) = diamond | 1 + `nonEnchantable()` | `ARMOR_EQUIP_NETHERITE` | 1.0 | 0.15 | `OBSIDIAN` |
+| **QUARTZ** | 29 | (1, 3, 5, 2, 7) = gold | 10 | `ARMOR_EQUIP_DIAMOND` | 0.0 | 0.0 | `QUARTZ` |
+
+### 6c. Mod per-item stats (from `Items.kt`)
+
+Formulae are §4's: damage = `1.0 + damage + bonus`; speed = `4.0 + attackSpeed`.
+
+| Item | Amethyst (+2) `damage` / speed → dmg / rate | Emerald (+3) | Obsidian (+1) | Quartz (+0) |
+| :--- | :--- | :--- | :--- | :--- |
+| Sword | `2.0, -2.2` → **5** / 1.8 (+KB, +sweep) | `3.0, -2.4` → **7** / 1.6 | `3.0, -2.8` → **5** / 1.2 | `3.0, -2.4` → **4** / 1.6 |
+| Pickaxe | `1.0, -2.6` → **4** / 1.4 (+KB) | `1.0, -2.8` → **5** / 1.2 | `1.0, -3.1` → **3** / 0.9 | `1.0, -2.8` → **2** / 1.2 |
+| Axe | `6.0, -2.9` → **9** / 1.1 (+KB) | `5.0, -3.0` → **9** / 1.0 | `7.0, -3.4` → **9** / 0.6 | `6.0, -3.0` → **7** / 1.0 |
+| Shovel | `1.5, -2.8` → **4.5** / 1.2 (+KB) | `1.5, -3.0` → **5.5** / 1.0 | `1.5, -3.3` → **3.5** / 0.7 | `1.5, -3.0` → **2.5** / 1.0 |
+| Hoe | `-2.0, 0.0` → **1** / 4.0 (+KB) | `-3.0, 0.0` → **1** / 4.0 | `-1.0, -3.3` → **1** / 0.7 | `0.0, 0.0` → **1** / 4.0 |
+
+All obsidian tools chain `.nonEnchantable()`; all quartz tools chain `.quartzMiningEfficiency(...)`
+with their per-tool tag pair. Amethyst custom modifiers: `ATTACK_KNOCKBACK +1.0 ADD_VALUE MAINHAND`
+on every tool + spear (`amethystKnockback()`), `SWEEPING_DAMAGE_RATIO +0.35 MAINHAND` on the sword
+only (`amethystSweepDamage()`). Obsidian armor pieces chain `.obsidianMovementSpeed(...)` with a
+unique id per slot (`AttributeIds.OBSIDIAN_MOVEMENT_SPEED_*`).
+
+### 6d. Mod spear params (`spear(material, f1 … f9)` — see §5 for meanings)
+
+| Material | f1 (s/attack) | f2 | f3 | f4 | f5 | f6 | f7 | f8 | f9 | Extra |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | :--- |
+| **AMETHYST** | 0.75 | 0.950 | 0.4 | 3.5 | 9.0 | 7.75 | 4.0 | 12.0 | 4.6 | +KB |
+| **EMERALD** | 1.05 | 1.075 | 0.5 | 3.0 | 10.0 | 6.50 | 5.1 | 10.0 | 4.6 | = diamond row |
+| **OBSIDIAN** | 1.25 | 0.820 | 0.7 | 4.5 | 13.0 | 9.00 | 5.1 | 13.75 | 4.6 | = stone row, `nonEnchantable()` |
+| **QUARTZ** | 1.05 | 0.700 | 0.7 | 3.5 | 13.0 | 8.50 | 5.1 | 13.75 | 4.6 | = gold row except f1 |
+
+Spear damage = `1.0 + bonus`: amethyst 3, emerald 4, obsidian 2, quartz 1.
+
+### 6e. Design intent that the numbers alone don't convey
 
 - **Obsidian** — pinned to *stone* for damage and mining speed, *iron* mining tier, *diamond* armor defense.
   Its per-item `attackSpeed` values sit below every vanilla floor listed in §4 (and its spear `f1 = 1.25` above
   netherite's `1.15`), making it deliberately the slowest-swinging material in the game. Fully unenchantable (table, books and anvils);
   enchantability is *intended* to be 0 but is `1` in code — see `minecraft-internals.md`.
 - **Quartz** — *gold* damage and mining speed with *diamond* `attackSpeed`, enchantability and mining tier.
+  Its extra tool rules mine `*_instant` blocks at speed **100** and `*_fast` blocks at speed **16**
+  (above its own base 12) — see `minecraft-internals.md` for the rule/tag mechanism.

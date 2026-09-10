@@ -16,9 +16,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Useful Documentation
 Read these only when the task calls for them.
 
+- `README.md`: Player-facing overview (gameplay numbers, pros/cons). Keep code internals out of it —
+  technical facts belong in `docs/`, not the README.
 - `docs/new-item-guide.md`: Mandatory reading when adding new items to the mod.
-- `docs/minecraft-vanilla-materials.md`: Vanilla stat tables — material-level stats, per-item `damage`/`attackSpeed`, the attack-damage formula, and the nine `spear()` parameters. Read when balancing a new material.
-- `docs/minecraft-internals.md`: Non-obvious API constraints and gotchas (enchantability cannot be 0, removing a data component, tags are additive-only, inspecting vanilla bytecode, verifying datagen output). Read when something behaves unexpectedly or you need to check a vanilla implementation detail.
+- `docs/minecraft-vanilla-materials.md`: Vanilla stat tables — material-level stats, per-item `damage`/`attackSpeed`, the attack-damage formula, and the nine `spear()` parameters. §6 holds the same tables for this mod's materials/items. Read when balancing a new material.
+- `docs/minecraft-internals.md`: Non-obvious API constraints and gotchas (enchantability cannot be 0, removing a data component, tags are additive-only, inspecting vanilla bytecode, verifying datagen output) plus how each special ability is wired (emerald XP, obsidian fire/slow, quartz mining rules). Read when something behaves unexpectedly or you need to check a vanilla implementation detail.
 - `docs/checklist.md`: Broad per-item test matrix.
 
 ## Development Tasks

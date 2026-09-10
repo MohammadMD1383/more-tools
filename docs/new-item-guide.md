@@ -232,6 +232,11 @@ allCraftingRecipe(
 
 For non-standard recipes, call the lower-level `craftingRecipe(category, material, outcome, pattern, output)` with a custom `pattern` (uses `X` = material, `S` = stick). Outputs land in `data/more-tools/recipe/` plus unlock advancements in `data/more-tools/advancement/recipes/<category>/`.
 
+For smithing upgrades (currently only netherite wolf armor: base = diamond wolf armor, addition =
+netherite ingot, template = netherite upgrade), use `SmithingTransformRecipeBuilder.smithing(...)`
+directly and pass an explicit id from `RecipeIds.kt` to `.save(output, id)` — the shaped helper
+above cannot express smithing.
+
 ### 8. Run datagen
 
 ```bash

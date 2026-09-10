@@ -1,5 +1,6 @@
 package ir.mmd.mcdev.moretools.client.providers
 
+import ir.mmd.mcdev.moretools.RecipeIds
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.core.HolderLookup
@@ -7,7 +8,9 @@ import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
 import net.minecraft.data.recipes.RecipeProvider
 import net.minecraft.data.recipes.RecipeProvider.getHasName
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder
 import net.minecraft.world.item.Items
+import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.level.ItemLike
 import java.util.concurrent.CompletableFuture
 import ir.mmd.mcdev.moretools.Items as MyItems
@@ -214,7 +217,7 @@ class CraftingRecipeProvider(
 			horse = MyItems.AMETHYST_HORSE_ARMOR,
 			wolf = MyItems.AMETHYST_WOLF_ARMOR
 		)
-
+		
 		allCraftingRecipe(
 			Items.EMERALD, output,
 			sword = MyItems.EMERALD_SWORD,
@@ -231,7 +234,7 @@ class CraftingRecipeProvider(
 			horse = MyItems.EMERALD_HORSE_ARMOR,
 			wolf = MyItems.EMERALD_WOLF_ARMOR
 		)
-
+		
 		allCraftingRecipe(
 			Items.OBSIDIAN, output,
 			sword = MyItems.OBSIDIAN_SWORD,
@@ -248,7 +251,7 @@ class CraftingRecipeProvider(
 			horse = MyItems.OBSIDIAN_HORSE_ARMOR,
 			wolf = MyItems.OBSIDIAN_WOLF_ARMOR
 		)
-
+		
 		allCraftingRecipe(
 			Items.QUARTZ, output,
 			sword = MyItems.QUARTZ_SWORD,
@@ -265,13 +268,22 @@ class CraftingRecipeProvider(
 			horse = MyItems.QUARTZ_HORSE_ARMOR,
 			wolf = MyItems.QUARTZ_WOLF_ARMOR
 		)
-
+		
 		allCraftingRecipe(Items.LEATHER, output, wolf = MyItems.LEATHER_WOLF_ARMOR)
 		allCraftingRecipe(Items.COPPER_INGOT, output, wolf = MyItems.COPPER_WOLF_ARMOR)
 		allCraftingRecipe(Items.IRON_INGOT, output, wolf = MyItems.IRON_WOLF_ARMOR)
 		allCraftingRecipe(Items.GOLD_INGOT, output, wolf = MyItems.GOLD_WOLF_ARMOR)
 		allCraftingRecipe(Items.DIAMOND, output, wolf = MyItems.DIAMOND_WOLF_ARMOR)
-		// todo: netherite upgrading template
+		
+		SmithingTransformRecipeBuilder.smithing(
+			Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+			Ingredient.of(MyItems.DIAMOND_WOLF_ARMOR),
+			Ingredient.of(Items.NETHERITE_INGOT),
+			RecipeCategory.MISC,
+			MyItems.NETHERITE_WOLF_ARMOR
+		)
+			.unlocks(getHasName(Items.NETHERITE_INGOT), has(Items.NETHERITE_INGOT))
+			.save(output, RecipeIds.NETHERITE_WOLF_ARMOR_SMITHING)
 	}
 	
 	override fun getName() = "More Tools Recipes"
