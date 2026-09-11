@@ -11,6 +11,7 @@ class Main : ModInitializer {
 	override fun onInitialize() {
 		Effects.register()
 		LapisLoot.register()
+		EnchantingPolicy.register()
 		addCreativeItems()
 	}
 	
