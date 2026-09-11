@@ -1,0 +1,73 @@
+{
+	"anvil_cost": 1,
+	"description": {
+		"translate": "enchantment.more-tools.lapis_boots"
+	},
+	"effects": {
+		"minecraft:damage_protection": [
+			{
+				"effect": {
+					"type": "more-tools:lapis_value",
+					"kind": "protection"
+				},
+				"requirements": {
+					"condition": "minecraft:damage_source_properties",
+					"predicate": {
+						"tags": [
+							{
+								"expected": false,
+								"id": "minecraft:is_fall"
+							}
+						]
+					}
+				}
+			},
+			{
+				"effect": {
+					"type": "more-tools:lapis_value",
+					"kind": "fall_protection"
+				},
+				"requirements": {
+					"condition": "minecraft:damage_source_properties",
+					"predicate": {
+						"tags": [
+							{
+								"expected": true,
+								"id": "minecraft:is_fall"
+							},
+							{
+								"expected": false,
+								"id": "minecraft:bypasses_invulnerability"
+							}
+						]
+					}
+				}
+			}
+		],
+		"minecraft:post_attack": [
+			{
+				"enchanted": "victim",
+				"affected": "attacker",
+				"effect": {
+					"type": "more-tools:lapis_entity",
+					"kind": "thorns"
+				}
+			}
+		]
+	},
+	"max_cost": {
+		"base": 11,
+		"per_level_above_first": 0
+	},
+	"max_level": 1,
+	"min_cost": {
+		"base": 11,
+		"per_level_above_first": 0
+	},
+	"primary_items": "#minecraft:enchantable/foot_armor",
+	"slots": [
+		"armor"
+	],
+	"supported_items": "#minecraft:enchantable/foot_armor",
+	"weight": 2
+}

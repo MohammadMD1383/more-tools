@@ -59,8 +59,8 @@ What this means in practice:
 
 - **Lapis** = the mod's bottom tier. Digging speed (3.0) and damage bonus (0.5) land between wood and
   stone, making it a strict upgrade over a wooden set — but its 50 durability is below wood's 59, so it
-  breaks sooner. **Fully unenchantable.** Cheap to make and cheap to repair if you have lapis to spare;
-  a starter or throwaway set.
+  breaks sooner. **Fully unenchantable** — its power comes from built-in lapis magic instead (§3).
+  Cheap to make and cheap to repair if you have lapis to spare; a starter or throwaway set.
 - **Amethyst** = iron-grade digging and damage with ~40% more durability and the best
   enchantability in the game (25, above gold's 22).
 - **Emerald** = diamond-grade digging and damage at ~38% of diamond's durability and iron
@@ -154,7 +154,8 @@ points wearing all four pieces.)
   enchantability (10). Lasts long, protects little.
 - **Lapis armor** = copper protection (10 points total) with slightly shorter-lived pieces than copper
   (durability 9 vs 11). Its pet-armor value of 5 is the same as iron/amethyst, sitting between copper's
-  4 and gold's 7. **Fully unenchantable** — a cheap set for the early game, not a long-term one.
+  4 and gold's 7. **Fully unenchantable** — protection comes from its built-in lapis magic (§3):
+  damage absorption, thorns and fall softening instead of enchants. A cheap set for the early game.
 
 Horse / wolf / nautilus armor protect as well as the material's pet-armor value:
 lapis 5, amethyst 5 (= iron), emerald/obsidian 11 (= diamond), quartz 7 (= gold).
@@ -163,12 +164,31 @@ lapis 5, amethyst 5 (= iron), emerald/obsidian 11 (= diamond), quartz 7 (= gold)
 
 ## 3. Special abilities (the part the stat tables don't show)
 
-### Lapis — none by design
+### Lapis — built-in magic, still unenchantable
 
-The one tier with no special ability: it trades abilities for being the cheapest set to build. What it
-**does** have is a drawback rather than a perk — it is **fully unenchantable**, so no enchanting table,
-no enchanted books, no anvil enchantments, on any of its 13 items. Pair it with nothing and expect to
-replace it.
+The one tier that can't use the enchanting table, enchanted books or anvils — instead, every lapis item
+ships with its own **lapis magic** pre-applied: fixed custom enchantments that can't be added, removed
+or rerolled. Each effect rolls independently on every interaction:
+
+**Weapons (sword, spear, axe) — on each hit:**
+- 25% chance: +1–3 bonus damage (works on any enemy)
+- 20% chance: shove the target 1–2 knockback levels farther
+- 10% chance: set the target on fire for 4–8 seconds
+- 15% chance: duplicate the drops of the mob you killed, ×1–3 — and the weapon's drop magic also
+  applies to blocks it breaks (axe → logs, sword → bamboo)
+
+**Tools (pickaxe, shovel, hoe) — on each block broken:**
+- 20% chance: duplicate the block's drops, ×1–4
+
+**Armor (helmet, chestplate, leggings) — while worn:**
+- 20% chance per damage event: absorb 1–5 protection points (4% each, any damage type)
+- 15% chance per piece: retaliate for 1–4 thorns damage when hit
+
+**Boots — everything armor does, plus:**
+- 30% chance per fall: soften it by 3–12 protection points (up to ~48% less fall damage)
+
+The magic is fixed at its tuned strength — no levels, no stacking, no way to lose it. Cheap to make,
+cheap to repair if you have lapis to spare: a starter or throwaway set that fights back while it lasts.
 
 ### Amethyst — crowd-control brawler + enchantment king
 
@@ -241,7 +261,7 @@ or mobility ability; the advantage is purely mining/utility, mostly Nether-biase
 | Emerald (7 / 1.6) | Hits like diamond | ✅ diamond damage + XP bonus. ❌ enchantability 3, iron mining power, costs emeralds to repair. |
 | Amethyst (5 / 1.8) | Hits like iron, swings **faster** than iron | ✅ extra knockback, strong sweep, god enchantability. ❌ iron damage, iron mining power. Best crowd-control early/mid sword. |
 | Obsidian (5 / 1.2) | Hits like stone, slowest sword swing | ✅ durable (800). ❌ unenchantable, slow, stone damage. Only pick it for flavor/tank roleplay. |
-| Lapis (4.5 / 1.6) | Hits between wood and stone | ✅ cheap, fastest renewable starter sword, normal swing speed. ❌ **unenchantable**, 50 durability, below stone damage. |
+| Lapis (4.5 / 1.6) | Hits between wood and stone | ✅ cheap, fastest renewable starter sword, normal swing speed, built-in lapis magic. ❌ **unenchantable**, 50 durability, below stone damage. |
 | Quartz (4 / 1.6) | Hits like gold | ✅ fast swing, diamond mining power, shreds wart/sprouts. ❌ weakest sword damage in the mod. |
 
 ### Spears (sorted strongest → weakest)
@@ -253,13 +273,14 @@ Spears are a throwable/melee hybrid weapon. Damage and swing rate by tier:
 | Emerald (4 / ~0.95 per sec) | Hits like a diamond spear | ✅ hardest-hitting spear + XP bonus. ❌ bad enchantability. |
 | Amethyst (3 / ~1.33 per sec) | Iron-tier damage, second-fastest mod spear | ✅ extra knockback, fast attack cycle. Best spear for knockback play. |
 | Obsidian (2 / ~0.8 per sec) | Hits like a stone spear, slowest spear in the game | ✅ durable. ❌ unenchantable, sluggish. |
-| Lapis (1.5 / **~1.43 per sec**) | Lowest damage of any spear, quickest attack cycle | ✅ cheapest spear, fastest attack cycle — a spam-jab starter. ❌ **unenchantable**, weak per hit, 50 durability. |
+| Lapis (1.5 / **~1.43 per sec**) | Lowest damage of any spear, quickest attack cycle | ✅ cheapest spear, fastest attack cycle, built-in lapis magic — a spam-jab starter. ❌ **unenchantable**, weak per hit, 50 durability. |
 | Quartz (1 / ~0.95 per sec) | Hits like a gold spear, diamond-like handling | ✅ diamond-tier handling. ❌ 1 damage — a utility/throwing toy, not a weapon. |
 
 ### Pickaxes / axes / shovels / hoes
 
 - **Pickaxes**: lapis (damage 2.5, speed 3.0, stone mining power) → digs between wood and stone speed
-  but harvests like stone, so it can mine iron, copper and lapis ore. A workable early pickaxe.
+  but harvests like stone, so it can mine iron, copper and lapis ore; built-in drop magic. A workable
+  early pickaxe.
   Amethyst (damage 4, iron speed, faster swing, knockback) → general early upgrade
   over iron. Emerald (damage 5, diamond speed, iron mining power) → good for everything except
   diamond-tier blocks. Obsidian (damage 3, stone speed, slowest) → skip unless you want durability
@@ -279,7 +300,7 @@ Spears are a throwable/melee hybrid weapon. Damage and swing rate by tier:
 | Emerald (20, diamond-class) | ✅ diamond protection + XP set bonus (up to 2.2× with weapon in hand). ❌ enchantability 3 — expect many levels for mediocre offers. |
 | Obsidian (20, diamond-class) | ✅ diamond protection, extra toughness, best knockback resistance, −40% fire damage full set. ❌ unenchantable, −20% move speed, slowest weapons to pair with it. The stand-in-fire tank set. |
 | Amethyst (15, iron-class) | ✅ enchantability 28 — the easiest top-tier enchanted armor to roll. ❌ iron protection, no toughness/knockback resist. Enchant it and it outscales plain diamond. |
-| Lapis (10, copper-class) | ✅ cheapest full set in the mod. ❌ **unenchantable**, shortest-lived pieces (durability 9), weakest protection of any mod tier. |
+| Lapis (10, copper-class) | ✅ cheapest full set in the mod, built-in protection/thorns/fall magic (§3). ❌ **unenchantable**, shortest-lived pieces (durability 9), weakest protection of any mod tier. |
 | Quartz (11, gold-class) | ✅ long-lasting pieces, enchantability 10. ❌ gold protection — outclassed defensively by everything except gold/leather. Wear it for looks or spare sets, not danger. |
 
 ### Horse / wolf / nautilus armor
@@ -307,7 +328,8 @@ Spears are a throwable/melee hybrid weapon. Damage and swing rate by tier:
 - **Netherite wolf armor** is the one exception: upgrade a diamond wolf armor at the smithing table
   with a netherite upgrade template + netherite ingot.
 - **Repair**: each tier repairs with its own material at an anvil: lapis lazuli / shard / emerald /
-  obsidian / quartz. (Lapis is unenchantable, so anvils will repair it but never enchant it.)
+  obsidian / quartz. (Lapis is unenchantable, so anvils will repair it but never enchant it — its
+  magic ships built in and can't be changed.)
 - **Creative inventory**: weapons, armor, horse armor, nautilus armor and wolf armor are in the
   Combat tab (after the golden gear); pickaxes, axes, shovels and hoes are in Tools & Utilities
   (axes appear in both, matching vanilla).
@@ -318,7 +340,7 @@ Spears are a throwable/melee hybrid weapon. Damage and swing rate by tier:
 
 | Need | Vanilla answer | Mod answer | Trade-off |
 | :--- | :--- | :--- | :--- |
-| Cheapest full set, early game | wood/leather | **lapis (13 items from lapis lazuli)** | weaker than stone/copper and **unerchantable**, 50 durability |
+| Cheapest full set, early game | wood/leather | **lapis (13 items from lapis lazuli)** | weaker than stone/copper, 50 durability; **unenchantable** but magic is built in (§3) |
 | Best enchants | gold | **amethyst** | iron-class stats, iron mining power |
 | Hardest tool hits | netherite | **emerald (diamond-class)** | 600 durability, enchantability 3, iron mining power |
 | Fastest mining | gold (12) | **quartz (12 base, faster on listed Nether blocks, some near-instant)** | gold damage, gold armor |

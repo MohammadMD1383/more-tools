@@ -5,6 +5,9 @@ effect numbers (ranges) those enchantments produce. Source: 26.2 vanilla
 `data/minecraft/enchantment/*.json` + `data/minecraft/tags/item/enchantable/*.json`
 in `minecraft-common.jar` (see `vanilla-enchantment-system-26.2.md` for the full system map).
 
+These ranges are the reference bounds the implemented Lapis enchantments were balanced against —
+see `lapis-enchantments.md` for the shipped implementation and its chances/bounds.
+
 Method: an enchantment applies to an item iff the item is in the enchantment's
 `supported_items` tag (tags resolved transitively). Resolved expansions used below:
 

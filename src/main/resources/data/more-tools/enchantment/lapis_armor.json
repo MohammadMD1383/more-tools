@@ -1,0 +1,41 @@
+{
+	"anvil_cost": 1,
+	"description": {
+		"translate": "enchantment.more-tools.lapis_armor"
+	},
+	"effects": {
+		"minecraft:damage_protection": [
+			{
+				"effect": {
+					"type": "more-tools:lapis_value",
+					"kind": "protection"
+				}
+			}
+		],
+		"minecraft:post_attack": [
+			{
+				"enchanted": "victim",
+				"affected": "attacker",
+				"effect": {
+					"type": "more-tools:lapis_entity",
+					"kind": "thorns"
+				}
+			}
+		]
+	},
+	"max_cost": {
+		"base": 11,
+		"per_level_above_first": 0
+	},
+	"max_level": 1,
+	"min_cost": {
+		"base": 11,
+		"per_level_above_first": 0
+	},
+	"primary_items": "#more-tools:enchantable/lapis_armor",
+	"slots": [
+		"armor"
+	],
+	"supported_items": "#more-tools:enchantable/lapis_armor",
+	"weight": 2
+}

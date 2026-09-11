@@ -4,6 +4,7 @@ import net.minecraft.core.Holder
 import net.minecraft.core.component.DataComponents
 import net.minecraft.core.registries.Registries
 import net.minecraft.resources.Identifier
+import net.minecraft.resources.ResourceKey
 import net.minecraft.tags.TagKey
 import net.minecraft.world.entity.EquipmentSlotGroup
 import net.minecraft.world.entity.ai.attributes.Attribute
@@ -11,6 +12,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier
 import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.item.Item.Properties
 import net.minecraft.world.item.component.Tool
+import net.minecraft.world.item.enchantment.Enchantment
+import net.minecraft.world.item.enchantment.ItemEnchantments
 import net.minecraft.world.level.block.Block
 import java.util.*
 
@@ -86,4 +89,11 @@ fun Properties.quartzMiningEfficiency(
 		tool.damagePerBlock,
 		tool.canDestroyBlocksInCreative
 	)
+}
+
+fun Properties.lapisMagic(vararg enchantments: ResourceKey<Enchantment>) = delayedComponent(DataComponents.ENCHANTMENTS) { registries ->
+	val lookup = registries.lookupOrThrow(Registries.ENCHANTMENT)
+	ItemEnchantments.Mutable(ItemEnchantments.EMPTY).apply {
+		enchantments.forEach { set(lookup.getOrThrow(it), 1) }
+	}.toImmutable()
 }

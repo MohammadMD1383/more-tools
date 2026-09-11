@@ -1,5 +1,7 @@
 package ir.mmd.mcdev.moretools
 
+import ir.mmd.mcdev.moretools.effects.Effects
+import ir.mmd.mcdev.moretools.effects.LapisLoot
 import net.fabricmc.api.ModInitializer
 import net.minecraft.world.item.CreativeModeTabs
 import net.minecraft.world.item.Items
@@ -7,6 +9,8 @@ import ir.mmd.mcdev.moretools.Items as MyItems
 
 class Main : ModInitializer {
 	override fun onInitialize() {
+		Effects.register()
+		LapisLoot.register()
 		addCreativeItems()
 	}
 	

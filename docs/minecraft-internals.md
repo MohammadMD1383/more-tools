@@ -170,3 +170,15 @@ On top of the four 13-item materials, expect the wolf-armor extras: 5 shaped rec
 `netherite_wolf_armor_smithing` (base = mod diamond wolf armor, addition = netherite ingot,
 template = netherite upgrade, category `MISC`, id from `RecipeIds.kt`) with its advancement under
 `advancement/recipes/misc/`.
+
+## Lapis enchantment effects (26.2)
+
+Facts discovered while implementing the Lapis enchantments (code in `src/main/kotlin/ir/mmd/mcdev/moretools/effects/`):
+
+- `RandomSource` in 26.2 has only `nextFloat()` — no range overload; lerp manually (`min + nextFloat() * (max - min)`). `nextInt(min, max)` is exclusive of max.
+- `LootContextParams.TOOL` is typed `ItemInstance`; for entity loot there is no tool param — read the killing player's main hand via `LAST_DAMAGE_PLAYER`. `LootContext.hasParameter` distinguishes block loot (`BLOCK_STATE`) from entity loot (`LAST_DAMAGE_PLAYER`).
+- `minecraft:enchantable/melee_weapon` contains only swords + spears; axes are NOT included. For a sword/axe/spear set, use an explicit holder-set list `["#minecraft:swords", "#minecraft:axes", "#minecraft:spears"]`.
+- Fabric loot-api-v3 `LootTableEvents.MODIFY_DROPS` receives the finished drop list per loot event; duplicate the list copies to add bonus drops.
+- `EnchantedItemInUse.owner()` is nullable in Kotlin; `DamageSources.thorns(Entity)` is the vanilla retaliation damage source. Damage is applied via `LivingEntity.hurtServer(ServerLevel, source, amount)` — `hurt(source, amount)` is deprecated in 26.2 (client/server split).
+- Kotlin enum implementing `StringRepresentable`: don't declare a `name` constructor property (hides `Enum.name`); use `serialName` + `override fun getSerializedName()`.
+- Registry-dependent default item components (e.g. pre-shipped `ENCHANTMENTS`) use `Item.Properties.delayedComponent(type) { registries -> value }`: initializers run during `ReloadableServerResources.loadResources` with the fully reloaded datapack registries, so datapack enchantments are resolvable there (verified via `BuiltInRegistries.DATA_COMPONENT_INITIALIZERS.build(...)` call site). `supported_items`/`primary_items` as a JSON **array** accepts only plain item IDs — `#tag` entries only work as a single string.

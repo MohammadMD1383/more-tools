@@ -13,17 +13,17 @@ object Items {
 	private fun register(id: ResourceKey<Item>, properties: Properties) = Item(properties.setId(id)).also { Registry.register(BuiltInRegistries.ITEM, id, it) }
 	
 	//@formatter:off
-	@JvmStatic val LAPIS_SPEAR = register   (ItemIds.LAPIS_SPEAR,    Properties().spear(ToolMaterials.LAPIS,    0.70f, 0.760f, 0.72f, 4.75f, 13.5f, 9.50f, 5.1f, 14.375f, 4.6f).nonEnchantable())
+	@JvmStatic val LAPIS_SPEAR = register   (ItemIds.LAPIS_SPEAR,    Properties().spear(ToolMaterials.LAPIS,    0.70f, 0.760f, 0.72f, 4.75f, 13.5f, 9.50f, 5.1f, 14.375f, 4.6f).nonEnchantable().lapisMagic(Enchantments.LAPIS_WEAPON))
 	@JvmStatic val AMETHYST_SPEAR = register(ItemIds.AMETHYST_SPEAR, Properties().spear(ToolMaterials.AMETHYST, 0.75f, 0.950f,  0.4f,  3.5f, 9.00f, 7.75f, 4.0f,  12.00f, 4.6f).amethystKnockback())
 	@JvmStatic val EMERALD_SPEAR = register (ItemIds.EMERALD_SPEAR,  Properties().spear(ToolMaterials.EMERALD,  1.05f, 1.075f,  0.5f,  3.0f, 10.0f, 6.50f, 5.1f,  10.00f, 4.6f))
 	@JvmStatic val OBSIDIAN_SPEAR = register(ItemIds.OBSIDIAN_SPEAR, Properties().spear(ToolMaterials.OBSIDIAN, 1.25f, 0.820f,  0.7f,  4.5f, 13.0f, 9.00f, 5.1f,  13.75f, 4.6f).nonEnchantable())
 	@JvmStatic val QUARTZ_SPEAR = register  (ItemIds.QUARTZ_SPEAR,   Properties().spear(ToolMaterials.QUARTZ,   1.05f, 0.700f,  0.7f,  3.5f, 13.0f, 8.50f, 5.1f,  13.75f, 4.6f))
 	
-	@JvmStatic val LAPIS_SWORD      = register(ItemIds.LAPIS_SWORD,      Properties().sword  (ToolMaterials.LAPIS,     3.0f, -2.4f).nonEnchantable())
-	@JvmStatic val LAPIS_PICKAXE    = register(ItemIds.LAPIS_PICKAXE,    Properties().pickaxe(ToolMaterials.LAPIS,     1.0f, -2.8f).nonEnchantable())
-	@JvmStatic val LAPIS_AXE        = register(ItemIds.LAPIS_AXE,        Properties().axe    (ToolMaterials.LAPIS,     6.5f, -3.2f).nonEnchantable())
-	@JvmStatic val LAPIS_SHOVEL     = register(ItemIds.LAPIS_SHOVEL,     Properties().shovel (ToolMaterials.LAPIS,     1.5f, -3.0f).nonEnchantable())
-	@JvmStatic val LAPIS_HOE        = register(ItemIds.LAPIS_HOE,        Properties().hoe    (ToolMaterials.LAPIS,    -0.5f, -2.5f).nonEnchantable())
+	@JvmStatic val LAPIS_SWORD      = register(ItemIds.LAPIS_SWORD,      Properties().sword  (ToolMaterials.LAPIS,     3.0f, -2.4f).nonEnchantable().lapisMagic(Enchantments.LAPIS_WEAPON))
+	@JvmStatic val LAPIS_PICKAXE    = register(ItemIds.LAPIS_PICKAXE,    Properties().pickaxe(ToolMaterials.LAPIS,     1.0f, -2.8f).nonEnchantable().lapisMagic(Enchantments.LAPIS_TOOL))
+	@JvmStatic val LAPIS_AXE        = register(ItemIds.LAPIS_AXE,        Properties().axe    (ToolMaterials.LAPIS,     6.5f, -3.2f).nonEnchantable().lapisMagic(Enchantments.LAPIS_WEAPON))
+	@JvmStatic val LAPIS_SHOVEL     = register(ItemIds.LAPIS_SHOVEL,     Properties().shovel (ToolMaterials.LAPIS,     1.5f, -3.0f).nonEnchantable().lapisMagic(Enchantments.LAPIS_TOOL))
+	@JvmStatic val LAPIS_HOE        = register(ItemIds.LAPIS_HOE,        Properties().hoe    (ToolMaterials.LAPIS,    -0.5f, -2.5f).nonEnchantable().lapisMagic(Enchantments.LAPIS_TOOL))
 	@JvmStatic val AMETHYST_SWORD   = register(ItemIds.AMETHYST_SWORD,   Properties().sword  (ToolMaterials.AMETHYST,  2.0f, -2.2f).amethystKnockback().amethystSweepDamage())
 	@JvmStatic val AMETHYST_PICKAXE = register(ItemIds.AMETHYST_PICKAXE, Properties().pickaxe(ToolMaterials.AMETHYST,  1.0f, -2.6f).amethystKnockback())
 	@JvmStatic val AMETHYST_AXE     = register(ItemIds.AMETHYST_AXE,     Properties().axe    (ToolMaterials.AMETHYST,  6.0f, -2.9f).amethystKnockback())
@@ -45,10 +45,10 @@ object Items {
 	@JvmStatic val QUARTZ_SHOVEL    = register(ItemIds.QUARTZ_SHOVEL,    Properties().shovel (ToolMaterials.QUARTZ,    1.5f, -3.0f).quartzMiningEfficiency(BlockTags.QUARTZ_SHOVEL_INSTANT,  BlockTags.QUARTZ_SHOVEL_FAST))
 	@JvmStatic val QUARTZ_HOE       = register(ItemIds.QUARTZ_HOE,       Properties().hoe    (ToolMaterials.QUARTZ,    0.0f,  0.0f).quartzMiningEfficiency(BlockTags.QUARTZ_HOE_INSTANT,     BlockTags.QUARTZ_HOE_FAST))
 	
-	@JvmStatic val LAPIS_HELMET            = register(ItemIds.LAPIS_HELMET,        Properties().humanoidArmor(MyArmorMaterials.LAPIS,    ArmorType.HELMET).nonEnchantable())
-	@JvmStatic val LAPIS_CHESTPLATE        = register(ItemIds.LAPIS_CHESTPLATE,    Properties().humanoidArmor(MyArmorMaterials.LAPIS,    ArmorType.CHESTPLATE).nonEnchantable())
-	@JvmStatic val LAPIS_LEGGINGS          = register(ItemIds.LAPIS_LEGGINGS,      Properties().humanoidArmor(MyArmorMaterials.LAPIS,    ArmorType.LEGGINGS).nonEnchantable())
-	@JvmStatic val LAPIS_BOOTS             = register(ItemIds.LAPIS_BOOTS,         Properties().humanoidArmor(MyArmorMaterials.LAPIS,    ArmorType.BOOTS).nonEnchantable())
+	@JvmStatic val LAPIS_HELMET            = register(ItemIds.LAPIS_HELMET,        Properties().humanoidArmor(MyArmorMaterials.LAPIS,    ArmorType.HELMET).nonEnchantable().lapisMagic(Enchantments.LAPIS_ARMOR))
+	@JvmStatic val LAPIS_CHESTPLATE        = register(ItemIds.LAPIS_CHESTPLATE,    Properties().humanoidArmor(MyArmorMaterials.LAPIS,    ArmorType.CHESTPLATE).nonEnchantable().lapisMagic(Enchantments.LAPIS_ARMOR))
+	@JvmStatic val LAPIS_LEGGINGS          = register(ItemIds.LAPIS_LEGGINGS,      Properties().humanoidArmor(MyArmorMaterials.LAPIS,    ArmorType.LEGGINGS).nonEnchantable().lapisMagic(Enchantments.LAPIS_ARMOR))
+	@JvmStatic val LAPIS_BOOTS             = register(ItemIds.LAPIS_BOOTS,         Properties().humanoidArmor(MyArmorMaterials.LAPIS,    ArmorType.BOOTS).nonEnchantable().lapisMagic(Enchantments.LAPIS_BOOTS))
 	@JvmStatic val AMETHYST_HELMET         = register(ItemIds.AMETHYST_HELMET,     Properties().humanoidArmor(MyArmorMaterials.AMETHYST, ArmorType.HELMET))
 	@JvmStatic val AMETHYST_CHESTPLATE     = register(ItemIds.AMETHYST_CHESTPLATE, Properties().humanoidArmor(MyArmorMaterials.AMETHYST, ArmorType.CHESTPLATE))
 	@JvmStatic val AMETHYST_LEGGINGS       = register(ItemIds.AMETHYST_LEGGINGS,   Properties().humanoidArmor(MyArmorMaterials.AMETHYST, ArmorType.LEGGINGS))

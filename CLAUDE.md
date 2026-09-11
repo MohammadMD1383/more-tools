@@ -11,6 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Codebase Architecture
 - **Registration**: All items are registered in `src/main/kotlin/ir/mmd/mcdev/moretools/Items.kt`. Use `ItemIds.kt` for managing ResourceKeys.
 - **Materials**: Custom tool and armor material properties are defined in `ToolMaterials.kt` and `ArmorMaterials.kt`.
+- **Lapis enchantments**: Four data-driven enchantments (`data/more-tools/enchantment/lapis_*.json`) whose custom effects live in `effects/`: `LapisConfig.kt` (all probabilities + magnitude bounds — the only balancing file), `LapisValueEffect.kt` / `LapisEntityEffect.kt` (vanilla-dispatched effect types), `LapisLoot.kt` (Fabric `MODIFY_DROPS` handler for the two drop bonuses). All Lapis items ship pre-enchanted via `Items.lapisMagic()` (delayed component, see `docs/minecraft-internals.md`).
 - **Data Generation**: The mod uses Fabric Data Generation. Generated files (JSON, recipes, lang) are located in `src/main/generated/`. When adding new items, ensure the data generation tasks are run.
 
 ## Useful Documentation
@@ -23,7 +24,8 @@ Read these only when the task calls for them.
 - `docs/minecraft-internals.md`: Non-obvious API constraints and gotchas (enchantability cannot be 0, removing a data component, tags are additive-only, inspecting vanilla bytecode, verifying datagen output) plus how each special ability is wired (emerald XP, obsidian fire/slow, quartz mining rules). Read when something behaves unexpectedly or you need to check a vanilla implementation detail.
 - `docs/checklist.md`: Broad per-item test matrix.
 - `docs/vanilla-enchantment-system-26.2.md`: Complete vanilla enchantment inventory (all 43 enchantments, 31 effect components, execution traces, Lapis-feasibility analysis) from the 26.2 jars. Read when designing any enchantment-related feature.
-- `docs/lapis-effect-building-blocks.md`: Per-item enchantment applicability + concrete per-level effect ranges for the Lapis datapack. Read when picking Lapis effects/numbers.
+- `docs/lapis-effect-building-blocks.md`: Per-item vanilla-enchantment applicability + concrete per-level effect ranges, used as reference bounds for the Lapis enchantments. Read when picking Lapis effects/numbers or rebalancing `LapisConfig`.
+- `docs/lapis-enchantments.md`: The implemented Lapis enchantments — component wiring, per-effect chances/bounds and their vanilla references, and how the pre-shipped magic works. Read when changing Lapis magic behavior or balancing.
 
 ## Development Tasks
 - **Build**: `./gradlew build`. Datagen: `./gradlew runDatagen` — always re-run after touching items or providers, and verify the output counts (see `docs/minecraft-internals.md`); datagen does not warn about a provider you forgot.

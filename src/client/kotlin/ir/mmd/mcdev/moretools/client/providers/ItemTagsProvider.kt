@@ -14,6 +14,16 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 	FabricTagsProvider.ItemTagsProvider(output, registryLookupFuture) {
 	
 	override fun addTags(registries: HolderLookup.Provider) {
+		builder(MyItemTags.LAPIS_WEAPON_ENCHANTABLE)
+			.addTag(ItemTags.SWORDS)
+			.addTag(ItemTags.AXES)
+			.addTag(ItemTags.SPEARS)
+		
+		builder(MyItemTags.LAPIS_ARMOR_ENCHANTABLE)
+			.addTag(ItemTags.HEAD_ARMOR)
+			.addTag(ItemTags.CHEST_ARMOR)
+			.addTag(ItemTags.LEG_ARMOR)
+		
 		builder(MyItemTags.LAPIS_TOOL_MATERIALS).add(ItemIds.LAPIS_LAZULI)
 		builder(MyItemTags.AMETHYST_TOOL_MATERIALS).add(ItemIds.AMETHYST_SHARD)
 		builder(MyItemTags.EMERALD_TOOL_MATERIALS).add(ItemIds.EMERALD)

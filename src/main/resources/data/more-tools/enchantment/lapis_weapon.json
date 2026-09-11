@@ -1,0 +1,49 @@
+{
+	"anvil_cost": 1,
+	"description": {
+		"translate": "enchantment.more-tools.lapis_weapon"
+	},
+	"effects": {
+		"minecraft:damage": [
+			{
+				"effect": {
+					"type": "more-tools:lapis_value",
+					"kind": "damage"
+				}
+			}
+		],
+		"minecraft:knockback": [
+			{
+				"effect": {
+					"type": "more-tools:lapis_value",
+					"kind": "knockback"
+				}
+			}
+		],
+		"minecraft:post_attack": [
+			{
+				"enchanted": "attacker",
+				"affected": "victim",
+				"effect": {
+					"type": "more-tools:lapis_entity",
+					"kind": "ignite"
+				}
+			}
+		]
+	},
+	"max_cost": {
+		"base": 11,
+		"per_level_above_first": 0
+	},
+	"max_level": 1,
+	"min_cost": {
+		"base": 11,
+		"per_level_above_first": 0
+	},
+	"primary_items": "#more-tools:enchantable/lapis_weapon",
+	"slots": [
+		"mainhand"
+	],
+	"supported_items": "#more-tools:enchantable/lapis_weapon",
+	"weight": 2
+}

@@ -14,6 +14,10 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder: TranslationBuilder
 	) {
 		//@formatter:off
+		translationBuilder.add("enchantment.more-tools.lapis_weapon", "Magic")
+		translationBuilder.add("enchantment.more-tools.lapis_tool",   "Magic")
+		translationBuilder.add("enchantment.more-tools.lapis_armor",  "Magic")
+		translationBuilder.add("enchantment.more-tools.lapis_boots",  "Magic")
 		translationBuilder.add(Items.LAPIS_SWORD,             "Lapis Sword")
 		translationBuilder.add(Items.LAPIS_SPEAR,             "Lapis Spear")
 		translationBuilder.add(Items.LAPIS_PICKAXE,           "Lapis Pickaxe")
