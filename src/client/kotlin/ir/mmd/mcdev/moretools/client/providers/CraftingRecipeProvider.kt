@@ -202,6 +202,23 @@ class CraftingRecipeProvider(
 		output: RecipeOutput
 	) = recipeProvider(registries, output) {
 		allCraftingRecipe(
+			Items.LAPIS_LAZULI, output,
+			sword = MyItems.LAPIS_SWORD,
+			spear = MyItems.LAPIS_SPEAR,
+			pickaxe = MyItems.LAPIS_PICKAXE,
+			axe = MyItems.LAPIS_AXE,
+			shovel = MyItems.LAPIS_SHOVEL,
+			hoe = MyItems.LAPIS_HOE,
+			helmet = MyItems.LAPIS_HELMET,
+			chestplate = MyItems.LAPIS_CHESTPLATE,
+			leggings = MyItems.LAPIS_LEGGINGS,
+			boots = MyItems.LAPIS_BOOTS,
+			nautilus = MyItems.LAPIS_NAUTILUS_ARMOR,
+			horse = MyItems.LAPIS_HORSE_ARMOR,
+			wolf = MyItems.LAPIS_WOLF_ARMOR
+		)
+		
+		allCraftingRecipe(
 			Items.AMETHYST_SHARD, output,
 			sword = MyItems.AMETHYST_SWORD,
 			spear = MyItems.AMETHYST_SPEAR,

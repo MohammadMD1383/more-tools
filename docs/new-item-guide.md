@@ -3,7 +3,7 @@
 This guide documents exactly how to add a new item to **more-tools**, based on how the amethyst toolset is implemented. Follow it top to bottom for a new *material* (a whole toolset: sword, pickaxe, armor, horse armor, ...), or skip the material-level steps when adding a single item to an existing material.
 
 - Game / mappings: Minecraft 26.2, Fabric, Kotlin (see `gradle.properties`)
-- Item count today: 58 — four full materials (amethyst, emerald, obsidian, quartz) of 13 items each, plus 6 wolf armors for vanilla materials. All registered through the same code path.
+- Item count today: 71 — five full materials (lapis, amethyst, emerald, obsidian, quartz) of 13 items each, plus 6 wolf armors for vanilla materials. All registered through the same code path.
 - Datagen: all models, item definitions, lang, tags and recipes are **generated** — do not hand-edit `src/main/generated/`
 
 ## Architecture overview

@@ -14,6 +14,19 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder: TranslationBuilder
 	) {
 		//@formatter:off
+		translationBuilder.add(Items.LAPIS_SWORD,             "Lapis Sword")
+		translationBuilder.add(Items.LAPIS_SPEAR,             "Lapis Spear")
+		translationBuilder.add(Items.LAPIS_PICKAXE,           "Lapis Pickaxe")
+		translationBuilder.add(Items.LAPIS_AXE,               "Lapis Axe")
+		translationBuilder.add(Items.LAPIS_SHOVEL,            "Lapis Shovel")
+		translationBuilder.add(Items.LAPIS_HOE,               "Lapis Hoe")
+		translationBuilder.add(Items.LAPIS_HELMET,            "Lapis Helmet")
+		translationBuilder.add(Items.LAPIS_CHESTPLATE,        "Lapis Chestplate")
+		translationBuilder.add(Items.LAPIS_LEGGINGS,          "Lapis Leggings")
+		translationBuilder.add(Items.LAPIS_BOOTS,             "Lapis Boots")
+		translationBuilder.add(Items.LAPIS_HORSE_ARMOR,       "Lapis Horse Armor")
+		translationBuilder.add(Items.LAPIS_NAUTILUS_ARMOR,    "Lapis Nautilus Armor")
+		translationBuilder.add(Items.LAPIS_WOLF_ARMOR,        "Lapis Wolf Armor")
 		translationBuilder.add(Items.AMETHYST_SWORD,          "Amethyst Sword")
 		translationBuilder.add(Items.AMETHYST_SPEAR,          "Amethyst Spear")
 		translationBuilder.add(Items.AMETHYST_PICKAXE,        "Amethyst Pickaxe")

@@ -68,8 +68,8 @@ Extracted from `Items.class` / the `AxeItem`, `ShovelItem`, `HoeItem` constructo
 | Tool | `damage` | `attackSpeed` |
 | :--- | :---: | :---: |
 | Sword | `3.0f` | `-2.4f` |
-| Pickaxe | `1.0f` | `-2.8f` |
-| Shovel | `1.5f` | `-3.0f` |
+| Pickaxe | `1.0, -2.8` → **2.5** / 1.2 | Pickaxe | `1.0f` | `-2.8f` |
+| Shovel | `1.5, -3.0` → **3** / 1.0 | Shovel | `1.5f` | `-3.0f` |
 
 **Per-tier (axe and hoe only):**
 
@@ -134,16 +134,18 @@ Vanilla's slowest-attacking spear is netherite at `f1 = 1.15`.
 
 Stats live in `ToolMaterials.kt` / `ArmorMaterials.kt` — the tables below are copies for balancing
 convenience; the code is authoritative. Durability progression:
-`iron 250 < amethyst 350 < emerald 600 < obsidian 800 < quartz 1050 < diamond 1561`.
+`gold 32 < lapis 50 < wood 59 < stone 131 < copper 190 < iron 250 < amethyst 350 < emerald 600 < obsidian 800 < quartz 1050 < diamond 1561`.
 
 ### 6a. Mod tool materials
 
 `ToolMaterial(incorrectBlocksTag, durability, speed, attackDamageBonus, enchantmentValue, repairTag)`.
-Mining tier is set by chaining: amethyst/emerald/obsidian `addOptionalTag(INCORRECT_FOR_IRON_TOOL)`,
+Mining tier is set by chaining: lapis `addOptionalTag(INCORRECT_FOR_COPPER_TOOL)`,
+amethyst/emerald/obsidian `addOptionalTag(INCORRECT_FOR_IRON_TOOL)`,
 quartz `addOptionalTag(INCORRECT_FOR_DIAMOND_TOOL)` (see `BlockTagsProvider.kt`).
 
 | Material | Incorrect-blocks tag | Durability | Speed | Dmg bonus | Ench. | Repair tag → ingredient |
 | :--- | :--- | ---: | ---: | ---: | ---: | :--- |
+| **LAPIS** | `incorrect_for_lapis_tool` (→ copper) | 50 | 3.0 | 0.5 | 1 + `nonEnchantable()` | `LAPIS_TOOL_MATERIALS` (`repairs_lapis_armor`) → `LAPIS_LAZULI` |
 | **AMETHYST** | `incorrect_for_amethyst_tool` (→ iron) | 350 | 6.0 | 2.0 | 25 | `AMETHYST_TOOL_MATERIALS` (`repairs_amethyst_armor`) → `AMETHYST_SHARD` |
 | **EMERALD** | `incorrect_for_emerald_tool` (→ iron) | 600 | 8.0 | 3.0 | 3 | `EMERALD_TOOL_MATERIALS` (`repairs_emerald_armor`) → `EMERALD` |
 | **OBSIDIAN** | `incorrect_for_obsidian_tool` (→ iron) | 800 | 4.0 | 1.0 | 1 + `nonEnchantable()` | `OBSIDIAN_TOOL_MATERIALS` (`repairs_obsidian_armor`) → `BlockItemIds.OBSIDIAN.item()` (block item, no `ItemIds.OBSIDIAN`) |
@@ -159,6 +161,7 @@ equipSound, toughness, knockbackResistance, repairTag, equipmentAsset)`.
 
 | Material | Dur. mult. | `makeDefense(...)` | Ench. | Sound | Tough. | KB resist | Asset |
 | :--- | ---: | :--- | ---: | :--- | ---: | ---: | :--- |
+| **LAPIS** | 9 | (1, 3, 4, 2, 5) — copper defense, body 5 (copper 4 / gold 7) | 1 + `nonEnchantable()` | `ARMOR_EQUIP_GOLD` | 0.0 | 0.0 | `LAPIS` |
 | **AMETHYST** | 19 | (2, 5, 6, 2, 5) = iron | 28 | `ARMOR_EQUIP_DIAMOND` | 0.0 | 0.0 | `AMETHYST` |
 | **EMERALD** | 21 | (3, 6, 8, 3, 11) = diamond | 3 | `ARMOR_EQUIP_DIAMOND` | 0.0 | 0.0 | `EMERALD` |
 | **OBSIDIAN** | 25 | (3, 6, 8, 3, 11) = diamond | 1 + `nonEnchantable()` | `ARMOR_EQUIP_NETHERITE` | 1.0 | 0.15 | `OBSIDIAN` |
@@ -168,15 +171,15 @@ equipSound, toughness, knockbackResistance, repairTag, equipmentAsset)`.
 
 Formulae are §4's: damage = `1.0 + damage + bonus`; speed = `4.0 + attackSpeed`.
 
-| Item | Amethyst (+2) `damage` / speed → dmg / rate | Emerald (+3) | Obsidian (+1) | Quartz (+0) |
-| :--- | :--- | :--- | :--- | :--- |
-| Sword | `2.0, -2.2` → **5** / 1.8 (+KB, +sweep) | `3.0, -2.4` → **7** / 1.6 | `3.0, -2.8` → **5** / 1.2 | `3.0, -2.4` → **4** / 1.6 |
-| Pickaxe | `1.0, -2.6` → **4** / 1.4 (+KB) | `1.0, -2.8` → **5** / 1.2 | `1.0, -3.1` → **3** / 0.9 | `1.0, -2.8` → **2** / 1.2 |
-| Axe | `6.0, -2.9` → **9** / 1.1 (+KB) | `5.0, -3.0` → **9** / 1.0 | `7.0, -3.4` → **9** / 0.6 | `6.0, -3.0` → **7** / 1.0 |
-| Shovel | `1.5, -2.8` → **4.5** / 1.2 (+KB) | `1.5, -3.0` → **5.5** / 1.0 | `1.5, -3.3` → **3.5** / 0.7 | `1.5, -3.0` → **2.5** / 1.0 |
-| Hoe | `-2.0, 0.0` → **1** / 4.0 (+KB) | `-3.0, 0.0` → **1** / 4.0 | `-1.0, -3.3` → **1** / 0.7 | `0.0, 0.0` → **1** / 4.0 |
+| Item | Lapis (+0.5) `damage` / speed → dmg / rate | Amethyst (+2) `damage` / speed → dmg / rate | Emerald (+3) | Obsidian (+1) | Quartz (+0) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Sword | `3.0, -2.4` → **4.5** / 1.6 | `2.0, -2.2` → **5** / 1.8 (+KB, +sweep) | `3.0, -2.4` → **7** / 1.6 | `3.0, -2.8` → **5** / 1.2 | `3.0, -2.4` → **4** / 1.6 |
+| Pickaxe | `1.0, -2.8` → **2.5** / 1.2 | `1.0, -2.6` → **4** / 1.4 (+KB) | `1.0, -2.8` → **5** / 1.2 | `1.0, -3.1` → **3** / 0.9 | `1.0, -2.8` → **2** / 1.2 |
+| Axe | `6.5, -3.2` → **8** / 0.8 | `6.0, -2.9` → **9** / 1.1 (+KB) | `5.0, -3.0` → **9** / 1.0 | `7.0, -3.4` → **9** / 0.6 | `6.0, -3.0` → **7** / 1.0 |
+| Shovel | `1.5, -3.0` → **3** / 1.0 | `1.5, -2.8` → **4.5** / 1.2 (+KB) | `1.5, -3.0` → **5.5** / 1.0 | `1.5, -3.3` → **3.5** / 0.7 | `1.5, -3.0` → **2.5** / 1.0 |
+| Hoe | `-0.5, -2.5` → **1** / 1.5 | `-2.0, 0.0` → **1** / 4.0 (+KB) | `-3.0, 0.0` → **1** / 4.0 | `-1.0, -3.3` → **1** / 0.7 | `0.0, 0.0` → **1** / 4.0 |
 
-All obsidian tools chain `.nonEnchantable()`; all quartz tools chain `.quartzMiningEfficiency(...)`
+All lapis and obsidian items chain `.nonEnchantable()`; all quartz tools chain `.quartzMiningEfficiency(...)`
 with their per-tool tag pair. Amethyst custom modifiers: `ATTACK_KNOCKBACK +1.0 ADD_VALUE MAINHAND`
 on every tool + spear (`amethystKnockback()`), `SWEEPING_DAMAGE_RATIO +0.35 MAINHAND` on the sword
 only (`amethystSweepDamage()`). Obsidian armor pieces chain `.obsidianMovementSpeed(...)` with a
@@ -186,15 +189,25 @@ unique id per slot (`AttributeIds.OBSIDIAN_MOVEMENT_SPEED_*`).
 
 | Material | f1 (s/attack) | f2 | f3 | f4 | f5 | f6 | f7 | f8 | f9 | Extra |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | :--- |
+| **LAPIS** | 0.70 | 0.760 | 0.72 | 4.75 | 13.5 | 9.50 | 5.1 | 14.375 | 4.6 | wood↔stone midpoint, `nonEnchantable()` |
 | **AMETHYST** | 0.75 | 0.950 | 0.4 | 3.5 | 9.0 | 7.75 | 4.0 | 12.0 | 4.6 | +KB |
 | **EMERALD** | 1.05 | 1.075 | 0.5 | 3.0 | 10.0 | 6.50 | 5.1 | 10.0 | 4.6 | = diamond row |
 | **OBSIDIAN** | 1.25 | 0.820 | 0.7 | 4.5 | 13.0 | 9.00 | 5.1 | 13.75 | 4.6 | = stone row, `nonEnchantable()` |
 | **QUARTZ** | 1.05 | 0.700 | 0.7 | 3.5 | 13.0 | 8.50 | 5.1 | 13.75 | 4.6 | = gold row except f1 |
 
-Spear damage = `1.0 + bonus`: amethyst 3, emerald 4, obsidian 2, quartz 1.
+Spear damage = `1.0 + bonus`: lapis 1.5, amethyst 3, emerald 4, obsidian 2, quartz 1.
 
 ### 6e. Design intent that the numbers alone don't convey
 
+- **Lapis** — the weakest tier in the mod, positioned between *gold and wood*: gold durability (32) is
+  the only thing below lapis's 50, while its mining speed (3.0) and damage bonus (0.5) sit between wood
+  and stone. Repairing material is plain `minecraft:lapis_lazuli`. Fully unenchantable
+  (enchantability is *intended* to be 0 but is `1` in code — see `minecraft-internals.md`).
+  The odd `0.5` damage bonus makes every tool display a half-heart damage value (sword 4.5, axe 8).
+  ⚠️ `incorrect_for_copper_tool` and `incorrect_for_stone_tool` are **byte-identical** in 26.2 (both are
+  just `#needs_diamond_tool` + `#needs_iron_tool`), so the copper chain gives lapis exactly the stone
+  harvest level: it mines iron/lapis/copper ore but **not** gold, redstone, diamond or emerald ore
+  (those are `#needs_iron_tool`).
 - **Obsidian** — pinned to *stone* for damage and mining speed, *iron* mining tier, *diamond* armor defense.
   Its per-item `attackSpeed` values sit below every vanilla floor listed in §4 (and its spear `f1 = 1.25` above
   netherite's `1.15`), making it deliberately the slowest-swinging material in the game. Fully unenchantable (table, books and anvils);

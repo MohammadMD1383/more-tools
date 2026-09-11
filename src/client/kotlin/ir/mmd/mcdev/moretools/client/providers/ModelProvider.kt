@@ -12,12 +12,25 @@ class ModelProvider(output: FabricPackOutput) : FabricModelProvider(output) {
 	}
 	
 	override fun generateItemModels(itemModelGenerators: ItemModelGenerators) {
+		itemModelGenerators.generateSpear(Items.LAPIS_SPEAR)
 		itemModelGenerators.generateSpear(Items.AMETHYST_SPEAR)
 		itemModelGenerators.generateSpear(Items.EMERALD_SPEAR)
 		itemModelGenerators.generateSpear(Items.OBSIDIAN_SPEAR)
 		itemModelGenerators.generateSpear(Items.QUARTZ_SPEAR)
 
 		//@formatter:off
+		itemModelGenerators.generateFlatItem(Items.LAPIS_SWORD,             ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_PICKAXE,           ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_AXE,               ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_SHOVEL,            ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_HOE,               ModelTemplates.FLAT_HANDHELD_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_HELMET,            ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_CHESTPLATE,        ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_LEGGINGS,          ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_BOOTS,             ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_HORSE_ARMOR,       ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_NAUTILUS_ARMOR,    ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.LAPIS_WOLF_ARMOR,        ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.AMETHYST_SWORD,          ModelTemplates.FLAT_HANDHELD_ITEM)
 		itemModelGenerators.generateFlatItem(Items.AMETHYST_PICKAXE,        ModelTemplates.FLAT_HANDHELD_ITEM)
 		itemModelGenerators.generateFlatItem(Items.AMETHYST_AXE,            ModelTemplates.FLAT_HANDHELD_ITEM)

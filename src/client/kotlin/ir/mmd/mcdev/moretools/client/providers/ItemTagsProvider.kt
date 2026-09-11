@@ -14,12 +14,23 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 	FabricTagsProvider.ItemTagsProvider(output, registryLookupFuture) {
 	
 	override fun addTags(registries: HolderLookup.Provider) {
+		builder(MyItemTags.LAPIS_TOOL_MATERIALS).add(ItemIds.LAPIS_LAZULI)
 		builder(MyItemTags.AMETHYST_TOOL_MATERIALS).add(ItemIds.AMETHYST_SHARD)
 		builder(MyItemTags.EMERALD_TOOL_MATERIALS).add(ItemIds.EMERALD)
 		builder(MyItemTags.OBSIDIAN_TOOL_MATERIALS).add(BlockItemIds.OBSIDIAN.item())
 		builder(MyItemTags.QUARTZ_TOOL_MATERIALS).add(ItemIds.QUARTZ)
 		
 		//@formatter:off
+		builder(ItemTags.SWORDS     ).add(MyItemIds.LAPIS_SWORD)
+		builder(ItemTags.SPEARS     ).add(MyItemIds.LAPIS_SPEAR)
+		builder(ItemTags.PICKAXES   ).add(MyItemIds.LAPIS_PICKAXE)
+		builder(ItemTags.AXES       ).add(MyItemIds.LAPIS_AXE)
+		builder(ItemTags.SHOVELS    ).add(MyItemIds.LAPIS_SHOVEL)
+		builder(ItemTags.HOES       ).add(MyItemIds.LAPIS_HOE)
+		builder(ItemTags.HEAD_ARMOR ).add(MyItemIds.LAPIS_HELMET)
+		builder(ItemTags.CHEST_ARMOR).add(MyItemIds.LAPIS_CHESTPLATE)
+		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.LAPIS_LEGGINGS)
+		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.LAPIS_BOOTS)
 		builder(ItemTags.SWORDS     ).add(MyItemIds.AMETHYST_SWORD)
 		builder(ItemTags.SPEARS     ).add(MyItemIds.AMETHYST_SPEAR)
 		builder(ItemTags.PICKAXES   ).add(MyItemIds.AMETHYST_PICKAXE)

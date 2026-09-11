@@ -14,6 +14,7 @@ class Main : ModInitializer {
 		modifyCreativeTab(CreativeModeTabs.COMBAT) {
 			insertAfter(
 				Items.GOLDEN_SWORD,
+				MyItems.LAPIS_SWORD,
 				MyItems.AMETHYST_SWORD,
 				MyItems.EMERALD_SWORD,
 				MyItems.OBSIDIAN_SWORD,
@@ -22,6 +23,7 @@ class Main : ModInitializer {
 			
 			insertAfter(
 				Items.GOLDEN_SPEAR,
+				MyItems.LAPIS_SPEAR,
 				MyItems.AMETHYST_SPEAR,
 				MyItems.EMERALD_SPEAR,
 				MyItems.OBSIDIAN_SPEAR,
@@ -30,14 +32,19 @@ class Main : ModInitializer {
 			
 			insertAfter(
 				Items.GOLDEN_AXE,
+				MyItems.LAPIS_AXE,
 				MyItems.AMETHYST_AXE,
 				MyItems.EMERALD_AXE,
 				MyItems.OBSIDIAN_AXE,
 				MyItems.QUARTZ_AXE
 			)
-
+			
 			insertAfter(
 				Items.GOLDEN_BOOTS,
+				MyItems.LAPIS_HELMET,
+				MyItems.LAPIS_CHESTPLATE,
+				MyItems.LAPIS_LEGGINGS,
+				MyItems.LAPIS_BOOTS,
 				MyItems.AMETHYST_HELMET,
 				MyItems.AMETHYST_CHESTPLATE,
 				MyItems.AMETHYST_LEGGINGS,
@@ -55,9 +62,10 @@ class Main : ModInitializer {
 				MyItems.QUARTZ_LEGGINGS,
 				MyItems.QUARTZ_BOOTS
 			)
-
+			
 			insertAfter(
 				Items.GOLDEN_HORSE_ARMOR,
+				MyItems.LAPIS_HORSE_ARMOR,
 				MyItems.AMETHYST_HORSE_ARMOR,
 				MyItems.EMERALD_HORSE_ARMOR,
 				MyItems.OBSIDIAN_HORSE_ARMOR,
@@ -66,17 +74,20 @@ class Main : ModInitializer {
 			
 			insertAfter(
 				Items.GOLDEN_NAUTILUS_ARMOR,
+				MyItems.LAPIS_NAUTILUS_ARMOR,
 				MyItems.AMETHYST_NAUTILUS_ARMOR,
 				MyItems.EMERALD_NAUTILUS_ARMOR,
 				MyItems.OBSIDIAN_NAUTILUS_ARMOR,
 				MyItems.QUARTZ_NAUTILUS_ARMOR
 			)
 			
-			insertAfter(Items.WOLF_ARMOR,
+			insertAfter(
+				Items.WOLF_ARMOR,
 				MyItems.LEATHER_WOLF_ARMOR,
 				MyItems.COPPER_WOLF_ARMOR,
 				MyItems.IRON_WOLF_ARMOR,
 				MyItems.GOLD_WOLF_ARMOR,
+				MyItems.LAPIS_WOLF_ARMOR,
 				MyItems.AMETHYST_WOLF_ARMOR,
 				MyItems.EMERALD_WOLF_ARMOR,
 				MyItems.OBSIDIAN_WOLF_ARMOR,
@@ -85,10 +96,14 @@ class Main : ModInitializer {
 				MyItems.NETHERITE_WOLF_ARMOR
 			)
 		}
-
+		
 		modifyCreativeTab(CreativeModeTabs.TOOLS_AND_UTILITIES) {
 			insertAfter(
 				Items.GOLDEN_HOE,
+				MyItems.LAPIS_SHOVEL,
+				MyItems.LAPIS_PICKAXE,
+				MyItems.LAPIS_AXE,
+				MyItems.LAPIS_HOE,
 				MyItems.AMETHYST_SHOVEL,
 				MyItems.AMETHYST_PICKAXE,
 				MyItems.AMETHYST_AXE,

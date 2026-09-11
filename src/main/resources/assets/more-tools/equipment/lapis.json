@@ -1,0 +1,34 @@
+{
+	"layers": {
+		"humanoid": [
+			{
+				"texture": "more-tools:lapis"
+			}
+		],
+		"humanoid_baby": [
+			{
+				"texture": "more-tools:lapis"
+			}
+		],
+		"humanoid_leggings": [
+			{
+				"texture": "more-tools:lapis"
+			}
+		],
+		"horse_body": [
+			{
+				"texture": "more-tools:lapis"
+			}
+		],
+		"nautilus_body": [
+			{
+				"texture": "more-tools:lapis"
+			}
+		],
+		"wolf_body": [
+			{
+				"texture": "more-tools:lapis"
+			}
+		]
+	}
+}
