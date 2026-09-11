@@ -22,6 +22,8 @@ Read these only when the task calls for them.
 - `docs/minecraft-vanilla-materials.md`: Vanilla stat tables — material-level stats, per-item `damage`/`attackSpeed`, the attack-damage formula, and the nine `spear()` parameters. §6 holds the same tables for this mod's materials/items. Read when balancing a new material.
 - `docs/minecraft-internals.md`: Non-obvious API constraints and gotchas (enchantability cannot be 0, removing a data component, tags are additive-only, inspecting vanilla bytecode, verifying datagen output) plus how each special ability is wired (emerald XP, obsidian fire/slow, quartz mining rules). Read when something behaves unexpectedly or you need to check a vanilla implementation detail.
 - `docs/checklist.md`: Broad per-item test matrix.
+- `docs/vanilla-enchantment-system-26.2.md`: Complete vanilla enchantment inventory (all 43 enchantments, 31 effect components, execution traces, Lapis-feasibility analysis) from the 26.2 jars. Read when designing any enchantment-related feature.
+- `docs/lapis-effect-building-blocks.md`: Per-item enchantment applicability + concrete per-level effect ranges for the Lapis datapack. Read when picking Lapis effects/numbers.
 
 ## Development Tasks
 - **Build**: `./gradlew build`. Datagen: `./gradlew runDatagen` — always re-run after touching items or providers, and verify the output counts (see `docs/minecraft-internals.md`); datagen does not warn about a provider you forgot.
