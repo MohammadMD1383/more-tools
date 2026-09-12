@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 - **Type**: Fabric Minecraft Mod (Kotlin, JVM)
-- **Minecraft Version**: 1.21.11 (26.2)
-- **Mappings**: Yarn (1.21.11+build.6)
+- **Minecraft Version**: 26.2 (26.2)
 - **Build System**: Gradle (kts)
 
 ## Codebase Architecture
 - **Registration**: All items are registered in `src/main/kotlin/ir/mmd/mcdev/moretools/Items.kt`. Use `ItemIds.kt` for managing ResourceKeys.
 - **Materials**: Custom tool and armor material properties are defined in `ToolMaterials.kt` and `ArmorMaterials.kt`.
 - **Lapis enchantments**: Four data-driven enchantments (`data/more-tools/enchantment/lapis_*.json`) whose custom effects live in `effects/`: `LapisConfig.kt` (all probabilities + magnitude bounds — the only balancing file), `LapisValueEffect.kt` / `LapisEntityEffect.kt` (vanilla-dispatched effect types), `LapisLoot.kt` (Fabric `MODIFY_DROPS` handler for the two drop bonuses). All Lapis items ship pre-enchanted via `Items.lapisMagic()` (delayed component, see `docs/minecraft-internals.md`).
+- **Glass armor**: Four armor pieces (durability 1, zero defense) granting a set-bonus custom **Glass Invisibility** effect. Mechanic lives in `effects/GlassInvisibility.kt` (effect) + `effects/GlassArmorInvisibility.kt` (event-driven reconcile) + one `@ModifyExpressionValue` in `LivingEntityMixin`. See `docs/glass-armor.md` before touching any of it.
 - **Data Generation**: The mod uses Fabric Data Generation. Generated files (JSON, recipes, lang) are located in `src/main/generated/`. When adding new items, ensure the data generation tasks are run.
 
 ## Useful Documentation
@@ -22,6 +22,7 @@ Read these only when the task calls for them.
 - `docs/new-item-guide.md`: Mandatory reading when adding new items to the mod.
 - `docs/minecraft-vanilla-materials.md`: Vanilla stat tables — material-level stats, per-item `damage`/`attackSpeed`, the attack-damage formula, and the nine `spear()` parameters. §6 holds the same tables for this mod's materials/items. Read when balancing a new material.
 - `docs/minecraft-internals.md`: Non-obvious API constraints and gotchas (enchantability cannot be 0, removing a data component, tags are additive-only, inspecting vanilla bytecode, verifying datagen output) plus how each special ability is wired (emerald XP, obsidian fire/slow, quartz mining rules). Read when something behaves unexpectedly or you need to check a vanilla implementation detail.
+- `docs/glass-armor.md`: The Glass Armor set-bonus mechanic — 26.2 equipment-change/mob-effect event semantics, the invisibility hook, texture/equipment-asset notes. Read when changing Glass Armor behavior or touching effect-based set bonuses.
 - `docs/checklist.md`: Broad per-item test matrix.
 - `docs/vanilla-enchantment-system-26.2.md`: Complete vanilla enchantment inventory (all 43 enchantments, 31 effect components, execution traces, Lapis-feasibility analysis) from the 26.2 jars. Read when designing any enchantment-related feature.
 - `docs/lapis-effect-building-blocks.md`: Per-item vanilla-enchantment applicability + concrete per-level effect ranges, used as reference bounds for the Lapis enchantments. Read when picking Lapis effects/numbers or rebalancing `LapisConfig`.

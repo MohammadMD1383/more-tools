@@ -1,15 +1,15 @@
 # More Tools
 
-A Fabric mod for Minecraft 1.21.11 that adds **71 new items**: five complete tool/armor tiers
-(**lapis, amethyst, emerald, obsidian, quartz**, 13 items each) plus **6 wolf armors for vanilla
-materials** that vanilla never gave you.
+A Fabric mod for Minecraft 1.21.11 that adds **75 new items**: five complete tool/armor tiers
+(**lapis, amethyst, emerald, obsidian, quartz**, 13 items each), **6 wolf armors for vanilla
+materials** that vanilla never gave you, and a special **glass armor** set with full-set invisibility.
 
 Each tier is built from an in-game material (lapis lazuli, amethyst shard, emerald, obsidian, quartz)
 and has its own stat profile. Nothing here is a reskin: mining power, damage, speed, protection,
 enchantability, movement, XP, fire resistance and even per-block mining rules all differ per tier.
 
 - Requirements: Minecraft 1.21.11 with Fabric Loader, Fabric API, and Fabric Language Kotlin
-- Adds 71 items total: 5 tiers × 13 items, + 6 extra wolf armors
+- Adds 75 items total: 5 tiers × 13 items, + 6 extra wolf armors, + 4 glass armor pieces
 
 Every tier contains the same 13-item set:
 
@@ -141,6 +141,7 @@ points wearing all four pieces.)
 | Copper | 11 | (1, 3, 4, 2, 4) | 10 | 8 | 0 | 0 |
 | **Lapis** | **9** | **(1, 3, 4, 2, 5)** | **10 (= copper)** | **— (can't be enchanted)** | 0 | 0 |
 | Leather | 5 | (1, 2, 3, 1, 3) | 7 | 15 | 0 | 0 |
+| **Glass** | **1** | **(0, 0, 0, 0, 0)** | **0** | **— (can't be enchanted)** | 0 | 0 |
 
 - **Amethyst armor** = iron protection, longer-lasting than iron, and enchantability
   **28 — the highest armor enchantability in the game** (gold is 25). Best candidate for
@@ -159,6 +160,9 @@ points wearing all four pieces.)
 
 Horse / wolf / nautilus armor protect as well as the material's pet-armor value:
 lapis 5, amethyst 5 (= iron), emerald/obsidian 11 (= diamond), quartz 7 (= gold).
+
+Glass armor protects nothing at all — every piece has **0 defense and 1 durability** (one hit per
+piece and it's gone). Its power is the set bonus in §3.
 
 ---
 
@@ -250,6 +254,19 @@ including blocks like ancient debris that normally demand top-tier tools.
 defense) — terrible for combat and protection despite the high durability numbers. No combat
 or mobility ability; the advantage is purely mining/utility, mostly Nether-biased.
 
+### Glass — the invisibility costume
+
+The opposite of armor: **each piece has 1 durability and 0 defense**, so it protects you from
+absolutely nothing and shatters after a single hit. Wear all four pieces at once, though, and you
+turn **invisible** — true vanilla invisibility, identical to drinking a potion of invisibility
+(no particles, nothing to show in your effect list). Take off, lose, replace or break any one
+piece and you become visible again instantly. It doesn't clash with invisibility potions either:
+they work independently of each other.
+
+*Disadvantages:* you are wearing glass. One hit on any slot ends both that piece and your
+camouflage, and until then you have zero protection from anything. Sneaking past mobs is exactly
+as effective as with a potion; sneaking past **damage** is not a thing this set does.
+
 ---
 
 ## 4. Per-item verdicts (advantages / disadvantages)
@@ -302,6 +319,7 @@ Spears are a throwable/melee hybrid weapon. Damage and swing rate by tier:
 | Amethyst (15, iron-class) | ✅ enchantability 28 — the easiest top-tier enchanted armor to roll. ❌ iron protection, no toughness/knockback resist. Enchant it and it outscales plain diamond. |
 | Lapis (10, copper-class) | ✅ cheapest full set in the mod, built-in protection/thorns/fall magic (§3). ❌ **unenchantable**, shortest-lived pieces (durability 9), weakest protection of any mod tier. |
 | Quartz (11, gold-class) | ✅ long-lasting pieces, enchantability 10. ❌ gold protection — outclassed defensively by everything except gold/leather. Wear it for looks or spare sets, not danger. |
+| Glass (0) | ✅ full-set **invisibility** — a wearable potion with no particles. ❌ 0 defense, 1 durability per piece — any hit shatters a piece and your cover with it. Pure stealth, zero tank. |
 
 ### Horse / wolf / nautilus armor
 
@@ -322,9 +340,9 @@ Spears are a throwable/melee hybrid weapon. Damage and swing rate by tier:
 
 - **Ingredients** (same shaped layouts as vanilla tools/armor, with sticks where vanilla uses them;
   learning one recipe unlocks when you pick up the material): **lapis lazuli → lapis set**;
-  amethyst shard → amethyst set; emerald → emerald set; **obsidian** → obsidian set; quartz → quartz
-  set. Wolf gap-fillers use leather / copper ingot / iron ingot / gold ingot / diamond.
-  (70 shaped recipes total, plus the netherite wolf armor smithing recipe.)
+  amethyst shard → amethyst set; emerald → emerald set;  **obsidian** → obsidian set; quartz → quartz set. **Glass blocks → glass set.** Wolf gap-fillers use
+  leather / copper ingot / iron ingot / gold ingot / diamond.
+  (74 shaped recipes total, plus the netherite wolf armor smithing recipe.)
 - **Netherite wolf armor** is the one exception: upgrade a diamond wolf armor at the smithing table
   with a netherite upgrade template + netherite ingot.
 - **Repair**: each tier repairs with its own material at an anvil: lapis lazuli / shard / emerald /
@@ -349,3 +367,4 @@ Spears are a throwable/melee hybrid weapon. Damage and swing rate by tier:
 | Crowd control | knockback swords | **amethyst (extra knockback on all tools, stronger sweep)** | iron damage |
 | Dog armor progression | one option only | **leather → netherite wolf armor** | netherite needs smithing table + upgrade template |
 | Diamond-tier mining without diamonds | … | **quartz (diamond mining power, 1050 uses)** | gold damage/protection |
+| Stealth | invisibility potion | **glass armor full set (real vanilla invisibility, no particles)** | zero defense, each piece breaks after one hit |

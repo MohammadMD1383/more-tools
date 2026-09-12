@@ -286,6 +286,14 @@ class CraftingRecipeProvider(
 			wolf = MyItems.QUARTZ_WOLF_ARMOR
 		)
 		
+		allCraftingRecipe(
+			Items.GLASS, output,
+			helmet = MyItems.GLASS_HELMET,
+			chestplate = MyItems.GLASS_CHESTPLATE,
+			leggings = MyItems.GLASS_LEGGINGS,
+			boots = MyItems.GLASS_BOOTS
+		)
+		
 		allCraftingRecipe(Items.LEATHER, output, wolf = MyItems.LEATHER_WOLF_ARMOR)
 		allCraftingRecipe(Items.COPPER_INGOT, output, wolf = MyItems.COPPER_WOLF_ARMOR)
 		allCraftingRecipe(Items.IRON_INGOT, output, wolf = MyItems.IRON_WOLF_ARMOR)

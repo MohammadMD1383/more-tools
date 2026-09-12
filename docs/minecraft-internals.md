@@ -141,6 +141,14 @@ has instant blocks only.
 builder(MyItemTags.OBSIDIAN_TOOL_MATERIALS).add(BlockItemIds.OBSIDIAN.item())  // no ItemIds.OBSIDIAN
 ```
 
+## Status effects & equipment events (26.2)
+
+Custom `MobEffect`s, effect instance particle/icon flags, the vanilla invisibility hook and the
+equipment-change event are covered in `glass-armor.md` (the Glass Armor implementation is the
+reference). Short version: `MobEffect`'s constructor is protected (subclass it);
+`EQUIPMENT_CHANGE` lives in `ServerEntityEvents` (lifecycle-events-v1) and fires on mutation, not
+just slot changes.
+
 ## Verifying datagen output
 
 Per complete material (13 items) expect exactly:
@@ -170,6 +178,9 @@ On top of the four 13-item materials, expect the wolf-armor extras: 5 shaped rec
 `netherite_wolf_armor_smithing` (base = mod diamond wolf armor, addition = netherite ingot,
 template = netherite upgrade, category `MISC`, id from `RecipeIds.kt`) with its advancement under
 `advancement/recipes/misc/`.
+
+The glass set adds 4 armor-only items (no tools): 4 `items/` + 4 `models/item/` + 4 recipes +
+4 combat advancements, plus entries in the four vanilla armor-slot tags and `repairs_glass_armor`.
 
 ## Lapis enchantment effects (26.2)
 

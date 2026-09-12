@@ -1,0 +1,19 @@
+{
+	"layers": {
+		"humanoid": [
+			{
+				"texture": "more-tools:glass"
+			}
+		],
+		"humanoid_baby": [
+			{
+				"texture": "more-tools:glass"
+			}
+		],
+		"humanoid_leggings": [
+			{
+				"texture": "more-tools:glass"
+			}
+		]
+	}
+}

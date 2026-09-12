@@ -29,6 +29,7 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 		builder(MyItemTags.EMERALD_TOOL_MATERIALS).add(ItemIds.EMERALD)
 		builder(MyItemTags.OBSIDIAN_TOOL_MATERIALS).add(BlockItemIds.OBSIDIAN.item())
 		builder(MyItemTags.QUARTZ_TOOL_MATERIALS).add(ItemIds.QUARTZ)
+		builder(MyItemTags.GLASS_TOOL_MATERIALS).add(BlockItemIds.GLASS.item())
 		
 		//@formatter:off
 		builder(ItemTags.SWORDS     ).add(MyItemIds.LAPIS_SWORD)
@@ -81,6 +82,10 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 		builder(ItemTags.CHEST_ARMOR).add(MyItemIds.QUARTZ_CHESTPLATE)
 		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.QUARTZ_LEGGINGS)
 		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.QUARTZ_BOOTS)
+		builder(ItemTags.HEAD_ARMOR ).add(MyItemIds.GLASS_HELMET)
+		builder(ItemTags.CHEST_ARMOR).add(MyItemIds.GLASS_CHESTPLATE)
+		builder(ItemTags.LEG_ARMOR  ).add(MyItemIds.GLASS_LEGGINGS)
+		builder(ItemTags.FOOT_ARMOR ).add(MyItemIds.GLASS_BOOTS)
 		//@formatter:on
 		
 		builder(MyItemTags.EMERALD_ITEMS_FOR_XP)

@@ -65,6 +65,10 @@ object Items {
 	@JvmStatic val QUARTZ_CHESTPLATE       = register(ItemIds.QUARTZ_CHESTPLATE,   Properties().humanoidArmor(MyArmorMaterials.QUARTZ,   ArmorType.CHESTPLATE))
 	@JvmStatic val QUARTZ_LEGGINGS         = register(ItemIds.QUARTZ_LEGGINGS,     Properties().humanoidArmor(MyArmorMaterials.QUARTZ,   ArmorType.LEGGINGS))
 	@JvmStatic val QUARTZ_BOOTS            = register(ItemIds.QUARTZ_BOOTS,        Properties().humanoidArmor(MyArmorMaterials.QUARTZ,   ArmorType.BOOTS))
+	@JvmStatic val GLASS_HELMET            = register(ItemIds.GLASS_HELMET,        Properties().humanoidArmor(MyArmorMaterials.GLASS,    ArmorType.HELMET).nonEnchantable().durability(1))
+	@JvmStatic val GLASS_CHESTPLATE        = register(ItemIds.GLASS_CHESTPLATE,    Properties().humanoidArmor(MyArmorMaterials.GLASS,    ArmorType.CHESTPLATE).nonEnchantable().durability(1))
+	@JvmStatic val GLASS_LEGGINGS          = register(ItemIds.GLASS_LEGGINGS,      Properties().humanoidArmor(MyArmorMaterials.GLASS,    ArmorType.LEGGINGS).nonEnchantable().durability(1))
+	@JvmStatic val GLASS_BOOTS             = register(ItemIds.GLASS_BOOTS,         Properties().humanoidArmor(MyArmorMaterials.GLASS,    ArmorType.BOOTS).nonEnchantable().durability(1))
 	
 	@JvmStatic val LAPIS_HORSE_ARMOR       = register(ItemIds.LAPIS_HORSE_ARMOR,       Properties().horseArmor   (MyArmorMaterials.LAPIS).nonEnchantable())
 	@JvmStatic val LAPIS_NAUTILUS_ARMOR    = register(ItemIds.LAPIS_NAUTILUS_ARMOR,    Properties().nautilusArmor(MyArmorMaterials.LAPIS).nonEnchantable())

@@ -1,6 +1,7 @@
 package ir.mmd.mcdev.moretools
 
 import ir.mmd.mcdev.moretools.effects.Effects
+import ir.mmd.mcdev.moretools.effects.GlassArmorInvisibility
 import ir.mmd.mcdev.moretools.effects.LapisLoot
 import net.fabricmc.api.ModInitializer
 import net.minecraft.world.item.CreativeModeTabs
@@ -10,6 +11,7 @@ import ir.mmd.mcdev.moretools.Items as MyItems
 class Main : ModInitializer {
 	override fun onInitialize() {
 		Effects.register()
+		GlassArmorInvisibility.register()
 		LapisLoot.register()
 		EnchantingPolicy.register()
 		addCreativeItems()
@@ -65,7 +67,11 @@ class Main : ModInitializer {
 				MyItems.QUARTZ_HELMET,
 				MyItems.QUARTZ_CHESTPLATE,
 				MyItems.QUARTZ_LEGGINGS,
-				MyItems.QUARTZ_BOOTS
+				MyItems.QUARTZ_BOOTS,
+				MyItems.GLASS_HELMET,
+				MyItems.GLASS_CHESTPLATE,
+				MyItems.GLASS_LEGGINGS,
+				MyItems.GLASS_BOOTS
 			)
 			
 			insertAfter(

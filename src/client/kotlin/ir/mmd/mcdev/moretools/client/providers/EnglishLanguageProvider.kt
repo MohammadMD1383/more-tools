@@ -14,10 +14,12 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder: TranslationBuilder
 	) {
 		//@formatter:off
-		translationBuilder.add("enchantment.more-tools.lapis_weapon", "Magic")
-		translationBuilder.add("enchantment.more-tools.lapis_tool",   "Magic")
-		translationBuilder.add("enchantment.more-tools.lapis_armor",  "Magic")
-		translationBuilder.add("enchantment.more-tools.lapis_boots",  "Magic")
+		translationBuilder.add("enchantment.more-tools.lapis_weapon",  "Magic")
+		translationBuilder.add("enchantment.more-tools.lapis_tool",    "Magic")
+		translationBuilder.add("enchantment.more-tools.lapis_armor",   "Magic")
+		translationBuilder.add("enchantment.more-tools.lapis_boots",   "Magic")
+		translationBuilder.add("effect.more-tools.glass_invisibility", "Glass Invisibility")
+		
 		translationBuilder.add(Items.LAPIS_SWORD,             "Lapis Sword")
 		translationBuilder.add(Items.LAPIS_SPEAR,             "Lapis Spear")
 		translationBuilder.add(Items.LAPIS_PICKAXE,           "Lapis Pickaxe")
@@ -83,6 +85,10 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder.add(Items.QUARTZ_HORSE_ARMOR,      "Quartz Horse Armor")
 		translationBuilder.add(Items.QUARTZ_NAUTILUS_ARMOR,   "Quartz Nautilus Armor")
 		translationBuilder.add(Items.QUARTZ_WOLF_ARMOR,       "Quartz Wolf Armor")
+		translationBuilder.add(Items.GLASS_HELMET,            "Glass Helmet")
+		translationBuilder.add(Items.GLASS_CHESTPLATE,        "Glass Chestplate")
+		translationBuilder.add(Items.GLASS_LEGGINGS,          "Glass Leggings")
+		translationBuilder.add(Items.GLASS_BOOTS,             "Glass Boots")
 		translationBuilder.add(Items.LEATHER_WOLF_ARMOR,      "Leather Wolf Armor")
 		translationBuilder.add(Items.COPPER_WOLF_ARMOR,       "Copper Wolf Armor")
 		translationBuilder.add(Items.IRON_WOLF_ARMOR,         "Iron Wolf Armor")

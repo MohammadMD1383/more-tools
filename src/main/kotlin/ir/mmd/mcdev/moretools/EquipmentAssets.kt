@@ -12,5 +12,6 @@ object EquipmentAssets {
 	@JvmStatic val EMERALD  = create("emerald")
 	@JvmStatic val OBSIDIAN = create("obsidian")
 	@JvmStatic val QUARTZ   = create("quartz")
+	@JvmStatic val GLASS    = create("glass")
 	//@formatter:on
 }

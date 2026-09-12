@@ -76,6 +76,11 @@ class ModelProvider(output: FabricPackOutput) : FabricModelProvider(output) {
 		itemModelGenerators.generateFlatItem(Items.QUARTZ_CHESTPLATE,       ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.QUARTZ_LEGGINGS,         ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.QUARTZ_BOOTS,            ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.GLASS_HELMET,            ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.GLASS_CHESTPLATE,        ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.GLASS_LEGGINGS,          ModelTemplates.FLAT_ITEM)
+		itemModelGenerators.generateFlatItem(Items.GLASS_BOOTS,             ModelTemplates.FLAT_ITEM)
+
 		itemModelGenerators.generateFlatItem(Items.QUARTZ_HORSE_ARMOR,      ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.QUARTZ_NAUTILUS_ARMOR,   ModelTemplates.FLAT_ITEM)
 		itemModelGenerators.generateFlatItem(Items.QUARTZ_WOLF_ARMOR,       ModelTemplates.FLAT_ITEM)

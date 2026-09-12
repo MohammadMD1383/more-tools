@@ -8,6 +8,7 @@ object ItemTags {
 	
 	//formatter:off
 	@JvmStatic val LAPIS_TOOL_MATERIALS     = create("repairs_lapis_armor")
+	@JvmStatic val GLASS_TOOL_MATERIALS     = create("repairs_glass_armor")
 	@JvmStatic val LAPIS_WEAPON_ENCHANTABLE = create("enchantable/lapis_weapon")
 	@JvmStatic val LAPIS_ARMOR_ENCHANTABLE  = create("enchantable/lapis_armor")
 	@JvmStatic val AMETHYST_TOOL_MATERIALS  = create("repairs_amethyst_armor")
