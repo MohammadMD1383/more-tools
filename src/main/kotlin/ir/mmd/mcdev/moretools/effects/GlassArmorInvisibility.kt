@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents
 import net.fabricmc.fabric.api.entity.event.v1.effect.ServerMobEffectEvents
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents
 import net.minecraft.server.level.ServerPlayer
-import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
@@ -22,12 +21,16 @@ import net.minecraft.world.item.ItemStack
  * itself (when the piece hits 0 durability vanilla empties the slot, reported here as
  * previous = stack, current = EMPTY).
  *
- * Ownership: "Glass Armor owns the invisibility" simply means the player carries the
- * [GlassInvisibility.GLASS_INVISIBILITY] effect — no separate state exists to drift out of sync.
- * Vanilla Invisibility and other mods' effects are never inspected, saved or restored; they are
- * independent effect instances, so a pre-existing Invisibility survives the whole cycle untouched
- * (granted/removed here = only ever the Glass effect). Invisibility flag itself is recomputed by
- * vanilla from all present effects (see the mixin in `LivingEntityMixin`).
+ * Ownership: "Glass Armor owns the invisibility" simply means the player carries the vanilla
+ * [net.minecraft.world.effect.MobEffects.INVISIBILITY] instance from
+ * [GlassInvisibility.SET_BONUS_INSTANCE] — no separate state exists to drift out of sync. The
+ * armour-cover mixin in `LivingEntityMixin` reproduces the naked-invisible-player detection range
+ * while the set is worn, which is what makes mobs actually unable to see the player (see
+ * [GlassInvisibility.armorCoverForGlass]).
+ *
+ * A *deliberate* Invisibility (potion etc.) is never touched: it is removed on set loss only when
+ * it carries the set-bonus fingerprint (see [GlassInvisibility]), and pre-existing effects survive
+ * the whole cycle untouched — addEffect upserts by effect id only.
  */
 object GlassArmorInvisibility {
 	private const val FULL_SET = 4
@@ -42,7 +45,7 @@ object GlassArmorInvisibility {
 				val touchedGlass = previous.isGlassArmor() || current.isGlassArmor()
 				// Reconcile when a glass piece changed (fast path) OR whenever the full set is worn
 				// (defensive: also re-establishes the effect after a join if bookkeeping ever drifts).
-				if (touchedGlass || countWornGlassPieces(entity) == FULL_SET) {
+				if (touchedGlass || GlassInvisibility.isFullSet(entity)) {
 					updateInvisibilityState(entity)
 				}
 			}
@@ -54,7 +57,9 @@ object GlassArmorInvisibility {
 		// safe — vanilla's removeAllEffects copies the effects map before clearing (no CME), and the
 		// effect's INFINITE_DURATION means it can never re-enter via the expiry path.
 		ServerMobEffectEvents.AFTER_REMOVE.register { instance, entity, _ ->
-			if (instance.`is`(GlassInvisibility.GLASS_INVISIBILITY) && entity is ServerPlayer && hasFullSet(entity)) {
+			if (instance.effect == GlassInvisibility.SET_BONUS_INSTANCE.effect &&
+				entity is ServerPlayer && hasFullSet(entity)
+			) {
 				grantGlassInvisibility(entity)
 			}
 		}
@@ -88,23 +93,19 @@ object GlassArmorInvisibility {
 		if (hasFullSet(player)) {
 			grantGlassInvisibility(player)
 		} else {
-			// Removes only the Glass effect; vanilla Invisibility and other mods' effects stay.
-			player.removeEffect(GlassInvisibility.GLASS_INVISIBILITY)
+			// Strips the set-bonus instance only; a deliberate potion (different fingerprint) and
+			// other mods' effects stay. See GlassInvisibility for why the fingerprint is safe.
+			val current = player.getEffect(GlassInvisibility.SET_BONUS_INSTANCE.effect)
+			if (current != null && GlassInvisibility.isSetBonusFingerprint(current)) {
+				player.removeEffect(GlassInvisibility.SET_BONUS_INSTANCE.effect)
+			}
 		}
 	}
 	
 	private fun grantGlassInvisibility(player: ServerPlayer) {
-		if (!player.hasEffect(GlassInvisibility.GLASS_INVISIBILITY)) {
-			player.addEffect(
-				MobEffectInstance(
-					GlassInvisibility.GLASS_INVISIBILITY,
-					MobEffectInstance.INFINITE_DURATION,
-					0,
-					true,   // ambient
-					false,  // visible: no particles
-					false   // showIcon: no HUD icon
-				)
-			)
+		if (!player.hasEffect(GlassInvisibility.SET_BONUS_INSTANCE.effect)) {
+			// addEffect copies the instance, so handing out the shared SET_BONUS_INSTANCE is safe.
+			player.addEffect(GlassInvisibility.SET_BONUS_INSTANCE)
 		}
 	}
 }

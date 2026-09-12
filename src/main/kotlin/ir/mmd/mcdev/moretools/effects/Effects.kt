@@ -11,7 +11,7 @@ object Effects {
 	@JvmStatic val LAPIS_ENTITY_EFFECT = Registry.register(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE, id("lapis_entity"), LapisEntityEffect.CODEC)
 	//@formatter:on
 	
+	/** Body intentionally empty: the call exists to trigger the class init that registers the codecs above. */
 	fun register() {
-		GlassInvisibility.register()
 	}
 }

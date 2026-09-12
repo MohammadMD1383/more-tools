@@ -143,11 +143,19 @@ builder(MyItemTags.OBSIDIAN_TOOL_MATERIALS).add(BlockItemIds.OBSIDIAN.item())  /
 
 ## Status effects & equipment events (26.2)
 
-Custom `MobEffect`s, effect instance particle/icon flags, the vanilla invisibility hook and the
-equipment-change event are covered in `glass-armor.md` (the Glass Armor implementation is the
-reference). Short version: `MobEffect`'s constructor is protected (subclass it);
-`EQUIPMENT_CHANGE` lives in `ServerEntityEvents` (lifecycle-events-v1) and fires on mutation, not
-just slot changes.
+Custom `MobEffect`s, effect instance particle/icon flags and the equipment-change event are covered
+in `glass-armor.md` (the Glass Armor implementation is the reference). Short version: `MobEffect`'s
+constructor is protected (subclass it); `EQUIPMENT_CHANGE` lives in `ServerEntityEvents`
+(lifecycle-events-v1) and fires on mutation, not just slot changes.
+
+**Mob AI targeting has no effect hook.** `TargetingConditions#test` sees an invisible target only
+through `LivingEntity#getVisibilityPercent`, which reads the `invisible` flag set by
+`updateInvisibilityStatus` — the target's effect list is never consulted, and a custom `MobEffect`
+cannot contribute to targeting (verified in the 26.2 bytecode). To make mobs unable to see a
+player, grant the vanilla `MobEffects.INVISIBILITY` and neutralize the `getArmorCoverPercentage()`
+result *inside `getVisibilityPercent`* (armor makes an invisible player more detectable:
+visibility = 0.7 × max(cover, 0.1), cover = non-empty humanoid armor slots / 4). Full reasoning in
+`glass-armor.md`.
 
 ## Verifying datagen output
 

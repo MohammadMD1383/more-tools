@@ -18,7 +18,6 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder.add("enchantment.more-tools.lapis_tool",    "Magic")
 		translationBuilder.add("enchantment.more-tools.lapis_armor",   "Magic")
 		translationBuilder.add("enchantment.more-tools.lapis_boots",   "Magic")
-		translationBuilder.add("effect.more-tools.glass_invisibility", "Glass Invisibility")
 		
 		translationBuilder.add(Items.LAPIS_SWORD,             "Lapis Sword")
 		translationBuilder.add(Items.LAPIS_SPEAR,             "Lapis Spear")
