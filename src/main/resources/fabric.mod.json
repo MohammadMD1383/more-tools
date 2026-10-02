@@ -2,10 +2,16 @@
 	"schemaVersion": 1,
 	"id": "more-tools",
 	"version": "${version}",
-	"name": "more-tools",
-	"description": "A minecraft mod that adds many more tools from in-game materials like quartz and ...",
-	"authors": [],
-	"contact": {},
+	"name": "More Tools",
+	"description": "Adds 75 tool and armor items built from lapis lazuli, amethyst shards, emeralds, obsidian and quartz, plus extra wolf armors for vanilla materials and a glass armor set that grants invisibility while worn.",
+	"authors": [
+		"Mohammad Mostafa Dastjerdi"
+	],
+	"contact": {
+		"homepage": "https://github.com/MohammadMD1383/more-tools",
+		"sources": "https://github.com/MohammadMD1383/more-tools",
+		"issues": "https://github.com/MohammadMD1383/more-tools/issues"
+	},
 	"license": "MIT",
 	"icon": "assets/more-tools/icon.png",
 	"environment": "*",
