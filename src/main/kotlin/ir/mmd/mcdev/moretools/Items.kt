@@ -1,16 +1,20 @@
 package ir.mmd.mcdev.moretools
 
 import net.minecraft.core.Registry
+import net.minecraft.core.component.DataComponents
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.ResourceKey
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Item.Properties
+import net.minecraft.world.item.TridentItem
+import net.minecraft.world.item.component.Weapon
 import net.minecraft.world.item.equipment.ArmorMaterials
 import net.minecraft.world.item.equipment.ArmorType
 import ir.mmd.mcdev.moretools.ArmorMaterials as MyArmorMaterials
 
 object Items {
 	private fun register(id: ResourceKey<Item>, properties: Properties) = Item(properties.setId(id)).also { Registry.register(BuiltInRegistries.ITEM, id, it) }
+	private fun register(id: ResourceKey<Item>, factory: (Properties) -> Item, properties: Properties) = factory(properties.setId(id)).also { Registry.register(BuiltInRegistries.ITEM, id, it) }
 	
 	//@formatter:off
 	@JvmStatic val LAPIS_SPEAR = register   (ItemIds.LAPIS_SPEAR,    Properties().spear(ToolMaterials.LAPIS,    0.70f, 0.760f, 0.72f, 4.75f, 13.5f, 9.50f, 5.1f, 14.375f, 4.6f).nonEnchantable().lapisMagic(Enchantments.LAPIS_WEAPON))
@@ -18,6 +22,15 @@ object Items {
 	@JvmStatic val EMERALD_SPEAR = register (ItemIds.EMERALD_SPEAR,  Properties().spear(ToolMaterials.EMERALD,  1.05f, 1.075f,  0.5f,  3.0f, 10.0f, 6.50f, 5.1f,  10.00f, 4.6f))
 	@JvmStatic val OBSIDIAN_SPEAR = register(ItemIds.OBSIDIAN_SPEAR, Properties().spear(ToolMaterials.OBSIDIAN, 1.25f, 0.820f,  0.7f,  4.5f, 13.0f, 9.00f, 5.1f,  13.75f, 4.6f).nonEnchantable())
 	@JvmStatic val QUARTZ_SPEAR = register  (ItemIds.QUARTZ_SPEAR,   Properties().spear(ToolMaterials.QUARTZ,   1.05f, 0.700f,  0.7f,  3.5f, 13.0f, 8.50f, 5.1f,  13.75f, 4.6f))
+	
+	@JvmStatic val CACTUS_SPEAR = register(ItemIds.CACTUS_SPEAR, ::CactusSpearItem, Properties()
+		.durability(1)
+		.attributes(TridentItem.createAttributes())
+		.component(DataComponents.TOOL, TridentItem.createToolProperties())
+		.component(DataComponents.WEAPON, Weapon(1))
+		.attackDamageTotal(50.0)
+		.lapisMagic(Enchantments.CACTUS_POISON)
+	)
 	
 	@JvmStatic val LAPIS_SWORD      = register(ItemIds.LAPIS_SWORD,      Properties().sword  (ToolMaterials.LAPIS,     3.0f, -2.4f).nonEnchantable().lapisMagic(Enchantments.LAPIS_WEAPON))
 	@JvmStatic val LAPIS_PICKAXE    = register(ItemIds.LAPIS_PICKAXE,    Properties().pickaxe(ToolMaterials.LAPIS,     1.0f, -2.8f).nonEnchantable().lapisMagic(Enchantments.LAPIS_TOOL))

@@ -1,8 +1,10 @@
 {
+  "enchantment.more-tools.cactus_poison": "Poison",
   "enchantment.more-tools.lapis_armor": "Magic",
   "enchantment.more-tools.lapis_boots": "Magic",
   "enchantment.more-tools.lapis_tool": "Magic",
   "enchantment.more-tools.lapis_weapon": "Magic",
+  "entity.more-tools.thrown_cactus_spear": "Thrown Cactus Spear",
   "item.more-tools.amethyst_axe": "Amethyst Axe",
   "item.more-tools.amethyst_boots": "Amethyst Boots",
   "item.more-tools.amethyst_chestplate": "Amethyst Chestplate",
@@ -16,6 +18,7 @@
   "item.more-tools.amethyst_spear": "Amethyst Spear",
   "item.more-tools.amethyst_sword": "Amethyst Sword",
   "item.more-tools.amethyst_wolf_armor": "Amethyst Wolf Armor",
+  "item.more-tools.cactus_spear": "Cactus Spear",
   "item.more-tools.copper_wolf_armor": "Copper Wolf Armor",
   "item.more-tools.diamond_wolf_armor": "Diamond Wolf Armor",
   "item.more-tools.emerald_axe": "Emerald Axe",

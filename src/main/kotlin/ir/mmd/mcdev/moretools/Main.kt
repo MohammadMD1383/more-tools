@@ -14,6 +14,7 @@ class Main : ModInitializer {
 		GlassArmorInvisibility.register()
 		LapisLoot.register()
 		EnchantingPolicy.register()
+		EntityTypes.register()
 		addCreativeItems()
 	}
 	
@@ -34,7 +35,8 @@ class Main : ModInitializer {
 				MyItems.AMETHYST_SPEAR,
 				MyItems.EMERALD_SPEAR,
 				MyItems.OBSIDIAN_SPEAR,
-				MyItems.QUARTZ_SPEAR
+				MyItems.QUARTZ_SPEAR,
+				MyItems.CACTUS_SPEAR
 			)
 			
 			insertAfter(

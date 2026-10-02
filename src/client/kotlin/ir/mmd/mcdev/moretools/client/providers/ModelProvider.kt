@@ -1,6 +1,7 @@
 package ir.mmd.mcdev.moretools.client.providers
 
 import ir.mmd.mcdev.moretools.Items
+import ir.mmd.mcdev.moretools.Items as MyItems
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.minecraft.client.data.models.BlockModelGenerators
@@ -12,6 +13,7 @@ class ModelProvider(output: FabricPackOutput) : FabricModelProvider(output) {
 	}
 	
 	override fun generateItemModels(itemModelGenerators: ItemModelGenerators) {
+		itemModelGenerators.generateSpear(MyItems.CACTUS_SPEAR)
 		itemModelGenerators.generateSpear(Items.LAPIS_SPEAR)
 		itemModelGenerators.generateSpear(Items.AMETHYST_SPEAR)
 		itemModelGenerators.generateSpear(Items.EMERALD_SPEAR)

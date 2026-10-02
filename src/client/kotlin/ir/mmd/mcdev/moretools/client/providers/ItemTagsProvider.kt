@@ -30,8 +30,10 @@ class ItemTagsProvider(output: FabricPackOutput, registryLookupFuture: Completab
 		builder(MyItemTags.OBSIDIAN_TOOL_MATERIALS).add(BlockItemIds.OBSIDIAN.item())
 		builder(MyItemTags.QUARTZ_TOOL_MATERIALS).add(ItemIds.QUARTZ)
 		builder(MyItemTags.GLASS_TOOL_MATERIALS).add(BlockItemIds.GLASS.item())
+		builder(MyItemTags.CACTUS_SPEAR_ENCHANTABLE).add(MyItemIds.CACTUS_SPEAR)
 		
 		//@formatter:off
+		builder(ItemTags.SPEARS     ).add(MyItemIds.CACTUS_SPEAR)
 		builder(ItemTags.SWORDS     ).add(MyItemIds.LAPIS_SWORD)
 		builder(ItemTags.SPEARS     ).add(MyItemIds.LAPIS_SPEAR)
 		builder(ItemTags.PICKAXES   ).add(MyItemIds.LAPIS_PICKAXE)

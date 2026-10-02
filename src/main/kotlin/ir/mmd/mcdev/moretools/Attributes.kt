@@ -10,7 +10,9 @@ import net.minecraft.world.entity.EquipmentSlotGroup
 import net.minecraft.world.entity.ai.attributes.Attribute
 import net.minecraft.world.entity.ai.attributes.AttributeModifier
 import net.minecraft.world.entity.ai.attributes.Attributes
+import net.minecraft.world.item.Item
 import net.minecraft.world.item.Item.Properties
+import net.minecraft.world.item.component.ItemAttributeModifiers
 import net.minecraft.world.item.component.Tool
 import net.minecraft.world.item.enchantment.Enchantment
 import net.minecraft.world.item.enchantment.ItemEnchantments
@@ -58,6 +60,21 @@ fun Properties.obsidianMovementSpeed(id: Identifier) = addAttributeModifier(
 	AttributeModifier(id, -0.05, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL),
 	EquipmentSlotGroup.ARMOR
 )
+
+/**
+ * Replaces the item's ATTACK_DAMAGE attribute with an absolute total so the listed value is the
+ * single source of truth (player base 1 is added by the game, not stored here).
+ */
+fun Properties.attackDamageTotal(damage: Double): Properties =
+	attributes(
+		ItemAttributeModifiers.builder()
+			.add(
+				Attributes.ATTACK_DAMAGE,
+				AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, damage - 1.0, AttributeModifier.Operation.ADD_VALUE),
+				EquipmentSlotGroup.MAINHAND
+			)
+			.build()
+	)
 
 fun Properties.quartzMiningEfficiency(
 	instantTag: TagKey<Block>,

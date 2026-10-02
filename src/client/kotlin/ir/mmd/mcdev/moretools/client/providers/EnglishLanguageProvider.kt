@@ -1,5 +1,6 @@
 package ir.mmd.mcdev.moretools.client.providers
 
+import ir.mmd.mcdev.moretools.EntityTypes
 import ir.mmd.mcdev.moretools.Items
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider
@@ -18,7 +19,10 @@ class EnglishLanguageProvider(packOutput: FabricPackOutput, registryLookup: Comp
 		translationBuilder.add("enchantment.more-tools.lapis_tool",    "Magic")
 		translationBuilder.add("enchantment.more-tools.lapis_armor",   "Magic")
 		translationBuilder.add("enchantment.more-tools.lapis_boots",   "Magic")
+		translationBuilder.add("enchantment.more-tools.cactus_poison", "Poison")
+		translationBuilder.add(EntityTypes.THROWN_CACTUS_SPEAR,        "Thrown Cactus Spear")
 		
+		translationBuilder.add(Items.CACTUS_SPEAR,            "Cactus Spear")
 		translationBuilder.add(Items.LAPIS_SWORD,             "Lapis Sword")
 		translationBuilder.add(Items.LAPIS_SPEAR,             "Lapis Spear")
 		translationBuilder.add(Items.LAPIS_PICKAXE,           "Lapis Pickaxe")

@@ -11,5 +11,6 @@ object Enchantments {
 	@JvmStatic val LAPIS_TOOL   = create("lapis_tool")
 	@JvmStatic val LAPIS_ARMOR  = create("lapis_armor")
 	@JvmStatic val LAPIS_BOOTS  = create("lapis_boots")
+	@JvmStatic val CACTUS_POISON = create("cactus_poison")
 	//@formatter:on
 }

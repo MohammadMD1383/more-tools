@@ -82,5 +82,6 @@ object ItemIds {
 	@JvmStatic val GOLD_WOLF_ARMOR         = create("gold_wolf_armor")
 	@JvmStatic val DIAMOND_WOLF_ARMOR      = create("diamond_wolf_armor")
 	@JvmStatic val NETHERITE_WOLF_ARMOR    = create("netherite_wolf_armor")
+	@JvmStatic val CACTUS_SPEAR            = create("cactus_spear")
 	//@formatter:on
 }

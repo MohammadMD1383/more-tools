@@ -1,15 +1,16 @@
 # More Tools
 
-A Fabric mod for Minecraft 1.21.11 that adds **75 new items**: five complete tool/armor tiers
+A Fabric mod for Minecraft 26.2 that adds **76 new items**: five complete tool/armor tiers
 (**lapis, amethyst, emerald, obsidian, quartz**, 13 items each), **6 wolf armors for vanilla
-materials** that vanilla never gave you, and a special **glass armor** set with full-set invisibility.
+materials** that vanilla never gave you, a special **glass armor** set with full-set invisibility,
+and the **cactus spear** — a throwable trident-class spear that poisons whatever it touches (and flies as fast as it stabs: 50 damage either way).
 
 Each tier is built from an in-game material (lapis lazuli, amethyst shard, emerald, obsidian, quartz)
 and has its own stat profile. Nothing here is a reskin: mining power, damage, speed, protection,
 enchantability, movement, XP, fire resistance and even per-block mining rules all differ per tier.
 
-- Requirements: Minecraft 1.21.11 with Fabric Loader, Fabric API, and Fabric Language Kotlin
-- Adds 75 items total: 5 tiers × 13 items, + 6 extra wolf armors, + 4 glass armor pieces
+- Requirements: Minecraft 26.2 with Fabric Loader, Fabric API, and Fabric Language Kotlin
+- Adds 76 items total: 5 tiers × 13 items, + 6 extra wolf armors, + 4 glass armor pieces, + cactus spear
 
 Every tier contains the same 13-item set:
 
@@ -267,6 +268,25 @@ they work independently of each other.
 camouflage, and until then you have zero protection from anything. Sneaking past mobs is exactly
 as effective as with a potion; sneaking past **damage** is not a thing this set does.
 
+### Cactus Spear — one throw, one poison dart
+
+A standalone weapon, not part of any tier: a **trident-class spear** crafted from cactus blocks
+(same diagonal spear recipe as every other tier's spear). Hold right-click to charge and throw it
+like a trident, or stab with it in melee — and **every hit poisons for 10 seconds**, whether it
+lands as a stab or a throw. Damage is a flat **50** both ways — a thrown hit hits exactly as hard
+as a stab.
+
+The catch: **1 durability**. It is a true one-use weapon: throwing it spends it, and whatever you
+pick back up is already spent (one more use breaks it). A melee stab breaks it outright. Repair
+with cactus or carry several. It also can't take enchanting-table enchants; its poison is built in
+and fixed.
+
+*In short:* a glass-cannon jabbing stick — one devastating poisoned stab, or a poison-tagging
+throw, then a crafting table. Cheap to make, cheap to repair, absurd per stab.
+
+Standalone from the tiers: the **cactus spear** (see §3) — 50 damage melee or thrown, 10s poison on
+every hit, 1 durability (one throw or one stab). Throwable trident-style; craft from cactus blocks.
+
 ---
 
 ## 4. Per-item verdicts (advantages / disadvantages)
@@ -342,7 +362,7 @@ Spears are a throwable/melee hybrid weapon. Damage and swing rate by tier:
   learning one recipe unlocks when you pick up the material): **lapis lazuli → lapis set**;
   amethyst shard → amethyst set; emerald → emerald set;  **obsidian** → obsidian set; quartz → quartz set. **Glass blocks → glass set.** Wolf gap-fillers use
   leather / copper ingot / iron ingot / gold ingot / diamond.
-  (74 shaped recipes total, plus the netherite wolf armor smithing recipe.)
+  (75 shaped recipes total, plus the netherite wolf armor smithing recipe.)
 - **Netherite wolf armor** is the one exception: upgrade a diamond wolf armor at the smithing table
   with a netherite upgrade template + netherite ingot.
 - **Repair**: each tier repairs with its own material at an anvil: lapis lazuli / shard / emerald /

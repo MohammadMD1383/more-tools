@@ -294,6 +294,7 @@ class CraftingRecipeProvider(
 			boots = MyItems.GLASS_BOOTS
 		)
 		
+		allCraftingRecipe(Items.CACTUS, output, spear = MyItems.CACTUS_SPEAR)
 		allCraftingRecipe(Items.LEATHER, output, wolf = MyItems.LEATHER_WOLF_ARMOR)
 		allCraftingRecipe(Items.COPPER_INGOT, output, wolf = MyItems.COPPER_WOLF_ARMOR)
 		allCraftingRecipe(Items.IRON_INGOT, output, wolf = MyItems.IRON_WOLF_ARMOR)
