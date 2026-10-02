@@ -8,7 +8,8 @@ Each tier is built from an in-game material (lapis lazuli, amethyst shard, emera
 and has its own stat profile. Nothing here is a reskin: mining power, damage, speed, protection,
 enchantability, movement, XP, fire resistance and even per-block mining rules all differ per tier.
 
-- Requirements: Minecraft 26.3 with Fabric Loader, Fabric API, and Fabric Language Kotlin
+- Requires Minecraft **26.3** — this version does **not** run on 26.2 or earlier
+- Requirements: Fabric Loader 0.19.5+, Fabric API 0.161.0+26.3, Fabric Language Kotlin
 - Adds 75 items total: 5 tiers × 13 items, + 6 extra wolf armors, + 4 glass armor pieces
 
 Every tier contains the same 13-item set:
