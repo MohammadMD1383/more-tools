@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:amethyst_axe"
+        "recipes": "more-tools:amethyst_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

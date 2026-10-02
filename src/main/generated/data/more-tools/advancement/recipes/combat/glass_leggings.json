@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:glass_leggings"
+        "recipes": "more-tools:glass_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

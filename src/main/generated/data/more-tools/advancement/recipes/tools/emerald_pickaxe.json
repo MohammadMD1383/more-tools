@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:emerald_pickaxe"
+        "recipes": "more-tools:emerald_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

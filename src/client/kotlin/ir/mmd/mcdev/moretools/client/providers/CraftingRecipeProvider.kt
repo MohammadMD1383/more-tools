@@ -3,14 +3,17 @@ package ir.mmd.mcdev.moretools.client.providers
 import ir.mmd.mcdev.moretools.RecipeIds
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
+import net.minecraft.advancements.Advancement
 import net.minecraft.core.HolderLookup
 import net.minecraft.data.recipes.RecipeCategory
 import net.minecraft.data.recipes.RecipeOutput
 import net.minecraft.data.recipes.RecipeProvider
 import net.minecraft.data.recipes.RecipeProvider.getHasName
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder
+import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
+import net.minecraft.world.item.crafting.Recipe
 import net.minecraft.world.level.ItemLike
 import java.util.concurrent.CompletableFuture
 import ir.mmd.mcdev.moretools.Items as MyItems
@@ -20,12 +23,12 @@ class CraftingRecipeProvider(
 	registriesFuture: CompletableFuture<HolderLookup.Provider>,
 ) : FabricRecipeProvider(output, registriesFuture) {
 	private inline fun recipeProvider(
-		registries: HolderLookup.Provider,
-		output: RecipeOutput,
-		crossinline block: RecipeProvider.() -> Unit
+		recipes: BootstrapContext<Recipe<*>>,
+		advancements: BootstrapContext<Advancement>,
+		crossinline block: RecipeProvider.(RecipeOutput) -> Unit
 	): RecipeProvider {
-		return object : RecipeProvider(registries, output) {
-			override fun buildRecipes() = block()
+		return object : RecipeProvider(recipes, advancements) {
+			override fun buildRecipes() = block(output)
 		}
 	}
 	
@@ -199,8 +202,9 @@ class CraftingRecipeProvider(
 	
 	override fun createRecipeProvider(
 		registries: HolderLookup.Provider,
-		output: RecipeOutput
-	) = recipeProvider(registries, output) {
+		recipes: BootstrapContext<Recipe<*>>,
+		advancements: BootstrapContext<Advancement>
+	) = recipeProvider(recipes, advancements) { output ->
 		allCraftingRecipe(
 			Items.LAPIS_LAZULI, output,
 			sword = MyItems.LAPIS_SWORD,

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:obsidian_shovel"
+        "recipes": "more-tools:obsidian_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:lapis_shovel"
+        "recipes": "more-tools:lapis_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

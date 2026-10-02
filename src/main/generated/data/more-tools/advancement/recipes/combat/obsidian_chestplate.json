@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:obsidian_chestplate"
+        "recipes": "more-tools:obsidian_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

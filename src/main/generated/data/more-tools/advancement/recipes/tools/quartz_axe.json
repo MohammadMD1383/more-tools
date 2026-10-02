@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:quartz_axe"
+        "recipes": "more-tools:quartz_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

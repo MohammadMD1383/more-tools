@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:lapis_helmet"
+        "recipes": "more-tools:lapis_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

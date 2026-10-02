@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:obsidian_helmet"
+        "recipes": "more-tools:obsidian_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -60,8 +60,8 @@ object LapisLoot {
 		minBonus: Int,
 		maxBonus: Int
 	) {
-		val tool = context.getOptionalParameter(LootContextParams.TOOL) as? ItemStack
-			?: context.getOptionalParameter(LootContextParams.LAST_DAMAGE_PLAYER)?.mainHandItem
+		val tool = context.getOptional(LootContextParams.TOOL) as? ItemStack
+			?: context.getOptional(LootContextParams.LAST_DAMAGE_PLAYER)?.mainHandItem
 			?: return
 		if (!hasEnchant(tool, enchantment)) return
 		if (context.random.nextFloat() >= chance) return

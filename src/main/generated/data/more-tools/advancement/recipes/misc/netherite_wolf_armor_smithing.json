@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:netherite_wolf_armor_smithing"
+        "recipes": "more-tools:netherite_wolf_armor_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

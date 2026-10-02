@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more-tools:obsidian_axe"
+        "recipes": "more-tools:obsidian_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
