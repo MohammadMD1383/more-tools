@@ -1,6 +1,6 @@
 # More Tools
 
-A Fabric mod for Minecraft 1.21.11 that adds **75 new items**: five complete tool/armor tiers
+A Fabric mod for Minecraft 26.2 that adds **75 new items**: five complete tool/armor tiers
 (**lapis, amethyst, emerald, obsidian, quartz**, 13 items each), **6 wolf armors for vanilla
 materials** that vanilla never gave you, and a special **glass armor** set with full-set invisibility.
 
@@ -8,7 +8,7 @@ Each tier is built from an in-game material (lapis lazuli, amethyst shard, emera
 and has its own stat profile. Nothing here is a reskin: mining power, damage, speed, protection,
 enchantability, movement, XP, fire resistance and even per-block mining rules all differ per tier.
 
-- Requirements: Minecraft 1.21.11 with Fabric Loader, Fabric API, and Fabric Language Kotlin
+- Requirements: Minecraft 26.2 with Fabric Loader, Fabric API, and Fabric Language Kotlin
 - Adds 75 items total: 5 tiers × 13 items, + 6 extra wolf armors, + 4 glass armor pieces
 
 Every tier contains the same 13-item set:
