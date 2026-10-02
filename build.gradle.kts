@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	kotlin("jvm") version "2.4.10"
-	id("net.fabricmc.fabric-loom") version "1.17.20"
+	id("net.fabricmc.fabric-loom") version "1.18.2"
 	id("maven-publish")
 }
 
