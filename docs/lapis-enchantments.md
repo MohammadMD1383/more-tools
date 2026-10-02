@@ -62,7 +62,7 @@ All 11 Lapis items are `.nonEnchantable()` **and** carry their enchantment via
 `Items.lapisMagic(...)` → `Item.Properties.delayedComponent(ENCHANTMENTS)`. The delayed form is
 required because the component stores registry-resolved `Holder<Enchantment>`s and enchantments
 load from the datapack after item registration; initializers run in
-`ReloadableServerResources.loadResources` with the fully reloaded registries (verified in the 26.2
+`ReloadableServerResources.loadResources` with the fully reloaded registries (verified in the 26.3
 bytecode, see `minecraft-internals.md`). The magic is therefore innate: present from first craft,
 immune to `/enchant` and anvil stacking, and unremovable in normal play.
 

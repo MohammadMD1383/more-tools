@@ -1,9 +1,14 @@
 # Lapis Effect — Building Blocks
 
 Which vanilla enchantments can apply to each item type, and the concrete per-level
-effect numbers (ranges) those enchantments produce. Source: 26.2 vanilla
-`data/minecraft/enchantment/*.json` + `data/minecraft/tags/item/enchantable/*.json`
-in `minecraft-common.jar` (see `vanilla-enchantment-system-26.2.md` for the full system map).
+effect numbers (ranges) those enchantments produce. Source: vanilla
+`data/minecraft/enchantment/*.json` (43 files) + `data/minecraft/tags/item/enchantable/*.json`
+(21 files) in `minecraft-common.jar` (see `vanilla-enchantment-system-26.2.md` for the full system map).
+
+Re-verified byte-for-byte on 26.3: every numeric value is unchanged. The only 26.3 edits to these
+files are cosmetic — loot-condition key `"condition"` → `"type"`, and damage-type references gaining
+the `#` prefix (`"minecraft:is_explosion"` → `"#minecraft:is_explosion"`). Diff them before assuming
+a number moved.
 
 These ranges are the reference bounds the implemented Lapis enchantments were balanced against —
 see `lapis-enchantments.md` for the shipped implementation and its chances/bounds.

@@ -1,6 +1,13 @@
-# Minecraft Vanilla Materials Reference (v1.21.11 / Yarn `26.2`)
+# Minecraft Vanilla Materials Reference (extracted from the 26.2 jars)
 
 This document contains extracted data regarding Minecraft's native tool and armor tiers, durability values, speed multipliers, attack damages, defense values, and enchantability ratings, as extracted directly from the yarn-named classes (`minecraft-common-043a8b3edf-26.2.jar`).
+
+**Re-verified on 26.3: every number in these tables is still correct.** `ToolMaterial`,
+`ArmorMaterial`, `ArmorMaterials`, `ArmorType`, `CombatRules` and `Attributes` are byte-identical
+between the two versions, and the tool/armor factory parameters in `Item.java` (`attackDamageBaseline`,
+`attackSpeedBaseline`, the `5.0F` axe and `0.0F` hoe/shovel reach values) are unchanged. 26.3 added
+behaviour around those factories — a `BLOCK_TRANSFORMER` component on axe/hoe/shovel, and
+`SWING_ANIMATION` renamed to `ATTACK_ANIMATION` — but no stat moved.
 
 ---
 

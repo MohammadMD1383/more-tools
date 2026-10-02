@@ -11,7 +11,7 @@ piece removes it. Files: `effects/GlassInvisibility.kt` (set-bonus helpers),
 - **Vanilla Invisibility, not a custom effect** — mob AI targeting has no effect hook to extend.
   `TargetingConditions#test` (used by every `NearestAttackableTargetGoal`) evaluates the invisible
   target through `LivingEntity#getVisibilityPercent`, which reads only the `invisible` flag; the
-  target's effect list is never consulted (`MobEffect` in 26.2 has no targeting hook). Carrying the
+  target's effect list is never consulted (`MobEffect` has no targeting hook, still true in 26.3). Carrying the
   real vanilla effect means every consumer in the game already understands it — no flag mixin was
   needed (the previous design's `updateInvisibilityStatus` injection is gone).
 - **Armor cover is what gave the bug away** — `getVisibilityPercent` multiplies an invisible
@@ -66,6 +66,31 @@ Guarded by `GlassInvisibility.armorCoverForGlass` (spectator and `ArmorStand` ex
 is a `LivingEntity` whose armor is display state). Exactly one `getArmorCoverPercentage` call
 exists in the method, so `require = 1` fails loudly if vanilla changes.
 
+26.3 changed the target's signature to `getVisibilityPercent(ServerLevel, Entity)` but left the
+single overload, the `getArmorCoverPercentage()F` call site, and `TargetingConditions#test` as its
+only caller — so the name-only `method = "getVisibilityPercent"` and the `INVOKE` target are both
+still correct with no edit. Verify by hand after any version bump (see
+`minecraft-internals.md`); the compiler will not catch a broken mixin target.
+
+### 26.3 offers a data-driven alternative
+
+26.3 replaced the method's old hardcoded head-item checks (skeleton / zombie / piglin / creeper
+heads suppressing detection) with the `DataComponents.MOB_VISIBILITY` component:
+
+```java
+public record MobVisibility(HolderSet<EntityType<?>> targetingEntityTypes, float visibility)
+```
+
+(JSON: `targeting_entity_types` holder set + `visibility` float clamped to 0.0–10.0.)
+
+`getVisibilityPercent` multiplies its result by `visibility()` for every worn piece whose
+`MOB_VISIBILITY.targetingEntityTypes()` contains the observer. That is the same shape of effect as
+this mixin (scale detectability by worn gear), done with data instead of bytecode — so the mixin
+could eventually be replaced by shipping `mob_visibility` on the Glass pieces. It is not a drop-in
+replacement: the component scales *all* observers by a fixed float, while the mixin reproduces the
+naked-invisible 0.1 armor-cover clamp, and the component cannot see "is the full set worn". Kept as
+a note, not a migration.
+
 ## Armor durability = 1
 
 `.humanoidArmor(...)` computes `ArmorType.getDurability(material.durability)` = unit × multiplier
@@ -74,7 +99,7 @@ exists in the method, so `require = 1` fails loudly if vanilla changes.
 
 ## Textures / assets
 
-- 26.2 equipment textures: `textures/entity/equipment/humanoid(_leggings|_baby)/<material>.png`
+- 26.3 equipment textures (paths unchanged from 26.2): `textures/entity/equipment/humanoid(_leggings|_baby)/<material>.png`
   (referenced from `equipment/<material>.json`); item icons at `textures/item/<item>.png`.
 - Glass layers are the vanilla diamond layers desaturated and tinted `#D9F0F5`; item icons add
   two translucent white diagonal shine strokes. Regenerate with ImageMagick if lost:
